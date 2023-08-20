@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link>
+    <meta charset="UTF-8">
+    <title>List Page</title>
+    <link rel="stylesheet" href="OfferMail.css">
+    </link>
+    <style>
+        .page {
+            height: 11.25in;
+            width: 8.5in;
+            margin: 0;
+            padding: 0;
+        }
+
+        .qutation {
+
+            background-image: url("https://i.imgur.com/ONnOkDe.jpg");
+            position: relative;
+            background-size: 100% 100%;
+            background-position: cover;
+
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .logo {
+            position: absolute;
+            top: 6%;
+            left: 6%;
+            right: 0;
+            text-align: left;
+            display: inline;
+            align-items: center;
+        }
+
+        .system {
+            position: absolute;
+            top: 22%;
+            left: 6%;
+        }
+
+        .customQout {
+            position: absolute;
+            top: 72%;
+            left: 6%;
+        }
+
+        .detailsKeys {
+            width: 30%;
+
+            float: left;
+
+            font-size: .8rem;
+        }
+
+        .details {
+            padding: 2px;
+            margin: 2px;
+            font-size: .8rem;
+        }
+
+        .detailsContainer {
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+
+        .lastQout {
+            font-size: .8rem;
+            padding: 10px;
+            border-left: 1px solid rgb(187, 186, 186);
+            margin-top: 10px;
+            margin-bottom: 2px;
+        }
+
+        h5,
+        h4 {
+            margin-top: 2px;
+            margin-bottom: 1px
+        }
+
+        li {
+            font-size: 0.96rem;
+            color: rgb(71, 68, 68);
+            margin: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="qutation page">
+        <div class="logo">
+            <!-- <span style="margin-right: 10px;"> -->
+            <img width="45px ;" style="float: left;"
+                src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAIAAAC3LO29AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACbElEQVR4nO2aPUvDQBjHnxQjSI2H1IJkECkdSkGolOIuuOjm5DcQWnB2ar9BB8kX8EPo2ElH0Y9QHCpoMhQHsVbiEKzapte7y73K/ac0PHkuP355uSR14jiGf52c6h0QHktofrQmHPT8Qc/P2ERfwglbRkhNCaeoskDqSJjKwwypHSGGhA3S+X3H7/f7DC0w8TyvUCiQ15Mw+PsDqn34Q5jLcVbabDaDICAsJldEBfmDFEUR+WbcQ3UEUhX/EFIdTnzDcIKRb6LeIfNFctDzx+9PC8sUO8x4N3++rS+sUekw+4yMpIkyh1zwSFqpccgRb2FDBQ654+HbynYoCA/TXKpDoXjzhpDnUAJe6kCSHErDmx1OhsPx26Ogzpi89i+SBRkOl1a2ins3gpqnxiude9tnybKk89DNl6RB/sYDmddSOZBTeCD5figacq3cmcID+XMacZBr5c7q1unsegXzUhGQ8/BA1bOFmy8V69e8umHwQOHzoYtqXEzi8UDtM352k6jSxeOB8vc0WUyiSjfvnywsU/+ujc0kIR4od5jERTUqSHI80MFhEnJIVA3I8QBgabIURVG73abeNWwajQZ5cQL5cneIqUGVbn7zmGofHN3+i/ExfJgHiaoBLR5o+HXNRbWN+tXsejY80NBhktHwPrw7mvxc37lcKR6wtdLOYZJltDu58KBqwIwH2jpMMhref47CLHigOSGXaHqU8kz8nTAMHd5ptVpxWrgP5DhO6kBxHOsypxEXLealQmMdmh/r0PxYh+bHOjQ/1qH5sQ7Nj3VofqxD82Mdmh/r0PxYh+bHOjQ//9+h/fZkfr4AT2cxvsrrNa4AAAAASUVORK5CYII=' />
+            <!-- </span> -->
+
+            <span style="float: left;">
+                <h2 style="margin-top: 2px;margin-bottom: 2px;">VARROX</h2>
+                <h4 style="margin-top: 0px;color: rgb(191,143,0)">Business Solutions</h4>
+            </span>
+        </div>
+        <div class="system">
+            <h1 style="margin-bottom:1px;color: rgb(191,143,0);"">VARROX SYSTEMS</h1>
+            <P style=" margin-top:1px;margin-left: 5px;font-size: 1.4rem;">Marketing and Sales Department
+                </P>
+        </div>
+        <div class="customQout">
+            <h3 style="margin-bottom:1px;color: gray">CUSTOMER</h1>
+                <h1 style=" margin-top:1px;">QUOTATION
+                </h1>
+        </div>
+        <div style="position: absolute;left: 6%;bottom: 2%;">
+
+            <img style="width:20px ;height:20px ;margin-right: 2px; float: left;"
+                src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAiCAIAAAAoKJUdAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACAUlEQVRIiWP8//8/A80AE+2MpoLp319teXXcgiam//pw8v2VtD/fH709F4xVASMk3J89e4bfICEhIQ4ODjTBZ/uk4Gw2flMR441YTP/x4wcXFxd+09esWRMUFITg///7bL8smhoe+Rw+5SpkESYGBgYmJtLC5/+/n5hGMzAwfHk45evzFZSa/vyAIi6pj9eLfrzZg2I6IyMj8Ua/PGqEX8G7S3G/v95EmE68218eNfr78wVBZa9POiJMJ9LtL49bEmM0BDzbJ8Xw/y8TAwPDv3//iNEgYrSJSKMZGBhY+YwYGJlJMJ2ZXVTECD1FYzeaV0fUZAsDJGSIL8jYBEwFdeYRcASHDNwRJLgdAjjFPAS0puFRIGZxiJGZE2E6qYBLIoBbJhlTnJGJTdL+HiMTosAgOb1DAL9aM7ugFarZzKJm+xmZUcoixv/////58+fIkSP4jdPR0REREUETfHsu6OeHExC2qNleVh5NNAWMlNRN///9enXc8u/P58JGa9gFrLCpoBD8+/399R5ckowQ6vHjx/idKSIiAimlX79+/f37d/yK5eTkEG7/8+cPIyGwdu1aiDu8vb0JKoa7nbTcRCogOTeRbDpt3U47QE7NR5rpZJQEJJhOW7fT1vShnN5pZzq0BD59+jR+dSoqKoKCggwMDLdv3/7w4QN+xaamphAGABrwI5Is1qdGAAAAAElFTkSuQmCC' />
+
+            <p style="font-size:.7rem;margin-top: 5px;float: left;">Powered by VARROX SYSTEMS FOR BUSINESS SOLUTIONS CO
+            </p>
+
+        </div>
+    </div>
+    <div class="page" style="">
+        <div style="margin-top: 25px; margin-left: 30px; width: 50% ;float: left;">
+            <img width="40px ;" style=""
+                src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAIAAAC3LO29AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACbElEQVR4nO2aPUvDQBjHnxQjSI2H1IJkECkdSkGolOIuuOjm5DcQWnB2ar9BB8kX8EPo2ElH0Y9QHCpoMhQHsVbiEKzapte7y73K/ac0PHkuP355uSR14jiGf52c6h0QHktofrQmHPT8Qc/P2ERfwglbRkhNCaeoskDqSJjKwwypHSGGhA3S+X3H7/f7DC0w8TyvUCiQ15Mw+PsDqn34Q5jLcVbabDaDICAsJldEBfmDFEUR+WbcQ3UEUhX/EFIdTnzDcIKRb6LeIfNFctDzx+9PC8sUO8x4N3++rS+sUekw+4yMpIkyh1zwSFqpccgRb2FDBQ654+HbynYoCA/TXKpDoXjzhpDnUAJe6kCSHErDmx1OhsPx26Ogzpi89i+SBRkOl1a2ins3gpqnxiude9tnybKk89DNl6RB/sYDmddSOZBTeCD5figacq3cmcID+XMacZBr5c7q1unsegXzUhGQ8/BA1bOFmy8V69e8umHwQOHzoYtqXEzi8UDtM352k6jSxeOB8vc0WUyiSjfvnywsU/+ujc0kIR4od5jERTUqSHI80MFhEnJIVA3I8QBgabIURVG73abeNWwajQZ5cQL5cneIqUGVbn7zmGofHN3+i/ExfJgHiaoBLR5o+HXNRbWN+tXsejY80NBhktHwPrw7mvxc37lcKR6wtdLOYZJltDu58KBqwIwH2jpMMhref47CLHigOSGXaHqU8kz8nTAMHd5ptVpxWrgP5DhO6kBxHOsypxEXLealQmMdmh/r0PxYh+bHOjQ/1qH5sQ7Nj3VofqxD82Mdmh/r0PxYh+bHOjQ//9+h/fZkfr4AT2cxvsrrNa4AAAAASUVORK5CYII=' />
+            <h5 style="margin-top: 1px; margin-bottom: 1px;">VARROX SYSTEMS FOR BUSINESS SOLUTIONS CO.</h5>
+            <p style="margin-top: 1px;">EGYPT</p>
+            <p>
+                www.varroxsystems.com<br>
+                customers@varroxsystems.com<br>
+                01050526660
+            </p>
+        </div>
+        <div style="width: 40%; text-align: center; float: left;margin-top: 50px;">
+            <h1>QUOTATION</h1>
+        </div>
+        <div style="clear: both; "></div>
+        <hr style="margin-top: 20px; margin-right: 100px;">
+        <div style="margin-top: 25px; margin-left: 30px;">
+            <div style="width:17px;height: 17px; background-color: rgb(255, 208, 0);float: left;margin-right: 2px;">
+            </div>
+            <p>Quotation Details</p>
+            <div style="width: 100%; margin: 30px;">
+                <div style="width: 50%;margin: 2px;float: left;">
+                    <div style="width: 100%; " class="detailsContainer">
+                        <div class="detailsKeys">Customer Name </div>
+                        <div class="details"> : <%=data.PriceOfferReq.Name %>
+                        </div>
+                    </div>
+                    <div style="width: 100%; " class="detailsContainer">
+                        <div class="detailsKeys">Contact name </div>
+                        <div class="details"> : <%=data.PriceOfferReq.Name %>
+                        </div>
+                    </div>
+                    <div style="width: 100%;" class="detailsContainer">
+                        <div class="detailsKeys">Mobile No. </div>
+                        <div class="details">: <%=data.PriceOfferReq.Mobile %>
+                        </div>
+                    </div>
+                    <div style="width: 100%; margin-bottom: 20px;" class="detailsContainer">
+                        <div class="detailsKeys">E-Mail Address</div>
+                        <div class="details"> : <%=data.PriceOfferReq.Email %>
+                        </div>
+                    </div>
+                    <div style="width: 100%;" class="detailsContainer">
+                        <div class="detailsKeys">Business Name </div>
+                        <div class="details">: <%=data.PriceOfferReq.ActivityName%>
+                        </div>
+                    </div>
+                    <div style="width: 100%; " class="detailsContainer">
+                        <div class="detailsKeys">Business Area</div>
+                        <div class="details"> : <%=data.PriceOfferReq.activityLocation%>
+                        </div>
+                    </div>
+                    <div style="width: 100%;" class="detailsContainer">
+                        <div class="detailsKeys">Business Specialist</div>
+                        <div class="details">: <%=data.PriceOfferReq.ActivityNature%>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="width:40%;float: left;">
+                    <div style="width: 100%; " class="detailsContainer">
+                        <div style=" font-size: .75rem;" class="detailsKeys">Quotation No. </div>
+                        <div style=" font-size: .75rem;" class="details"> : <%=data.PriceOfferReq.Code%>
+                        </div>
+                    </div>
+                    <div style="width: 100%; " class="detailsContainer">
+                        <div style=" font-size: .75rem;" class="detailsKeys">Quotation Date </div>
+                        <div style=" font-size: .75rem;" class="details"> : <%=data.createdAt%>
+                        </div>
+                    </div>
+                    <div style="width: 100%; " class="detailsContainer">
+                        <div style=" font-size: .75rem;" class="detailsKeys">Branch Name </div>
+                        <div style=" font-size: .75rem;" class="details"> :</div>
+                    </div>
+                    <div style="width: 100%; " class="detailsContainer">
+                        <div style=" font-size: .75rem;" class="detailsKeys">Branch ID </div>
+                        <div style=" font-size: .75rem;" class="details"> :</div>
+                    </div>
+                    <div class="lastQout">
+                        <p>Quotation Last Value :
+                        <h2>0.000.00</h2>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+            <div style="font-size: .8rem;">
+                <div style="background-color: black;color: white;width: 30%;float: left;padding: 6px;">Software Details
+                </div>
+                <div style="background-color: black;color: white;width: 30%;float: left;padding: 6px;">Databases</div>
+                <div style="background-color: rgb(255, 208, 0);color: white;width: 20%;float: left;padding: 6px">Price
+                </div>
+            </div>
+            <div>
+                <% data.PriceOffer.forEach((item,index)=> { %>
+                    <div style="font-size: .8rem;border-top: 1px solid rgb(201, 191, 191); margin-top:20px">
+                        <div style="width: 30%;float: left;padding: 6px;">
+                            <div
+                                style="width:17px;height: 17px; background-color: rgb(8, 8, 8);float: left;margin-right: 2px;">
+
+                            </div>
+                            <!-- <%= item.Service.Name%> -->
+                            <%=item.Service.Name%>
+                                <ul style="list-style-type: none; padding-left: 1px;">
+                                    <% item.Service.Details.forEach((item,index)=> { %>
+                                        <li style="margin-top: 0px;">
+                                            <div style="margin: 2px; width:12px;height: 12px; background-color: rgb(255, 240, 34);float:
+                                    left;">
+                                            </div>
+                                            <%=item%>
+                                        </li>
+                                        <% } )%>
+                                </ul>
+                        </div>
+
+                        <div style="width: 50%;float: left; ">
+                            <!-- <div style=" width:14px;height: 14px; background-color: rgb(8, 8, 8);float:
+                        left;margin-right: 2px;">  -->
+
+                            <% item.DeviceOffer.forEach(device=> { %>
+
+                                <div class=""
+                                    style="width: 50%;float: left;padding: 6px;border-left: 1px solid grey;margin :5px">
+
+                                    <div style=" width:14px;height: 14px; background-color: rgb(253, 222, 48);float:
+                                    left;margin-right: 2px;">
+                                    </div>
+
+                                    <%=device.Device%>
+
+                                </div>
+
+                                <div style="width: 20%;float: left;padding: 6px;border-left: 1px solid grey">
+
+                                    EGP <%=device.DevicePricrOffer%>
+
+                                </div>
+
+                                <% } )%>
+
+                                    <div style="clear: both;"></div>
+                                    <div style="padding-left: 90px;">
+                                        <h4 style="float:left ;margin-right: 80px;">Sub Total</h4> <span>
+                                            <h4> EGP <%=item.ServicePriceOffer%>
+                                            </h4>
+                                        </span>
+                                    </div>
+                        </div>
+                        <div style="clear: both;"></div>
+
+
+
+                    </div>
+
+                    <!-- <hr style="color:black"> -->
+                    <div style="clear: both;"></div>
+                    <% } )%>
+            </div>
+        </div>
+        <hr style="color:rgb(219, 217, 217);margin:10px">
+
+        <div style="margin: 10px;width:60%;float:left">
+            <div
+                style="width:14px;height: 14px; background-color: rgb(219, 217, 217);float: left;margin-right: 2px;float:left">
+            </div>
+            <h4>Payment:
+            </h4>
+            <p>- 100% paid at In advance with system installation</p>
+        </div>
+        <div style="width:30%;float:left;padding:2px">
+            <h5>Sub Total:</h5>
+            <h5>Vat:</h5>
+            <hr>
+            <h4>Last value:<%=data.TotalPrice%>
+            </h4>
+        </div>
+        <hr style="color:rgb(219, 217, 217);margin:10px">
+    </div>
+    <div class="page" style=" ">
+        <div style="margin-top: 25px; margin-left: 30px;">
+            <img width="40px ;" style=""
+                src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAIAAAC3LO29AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACbElEQVR4nO2aPUvDQBjHnxQjSI2H1IJkECkdSkGolOIuuOjm5DcQWnB2ar9BB8kX8EPo2ElH0Y9QHCpoMhQHsVbiEKzapte7y73K/ac0PHkuP355uSR14jiGf52c6h0QHktofrQmHPT8Qc/P2ERfwglbRkhNCaeoskDqSJjKwwypHSGGhA3S+X3H7/f7DC0w8TyvUCiQ15Mw+PsDqn34Q5jLcVbabDaDICAsJldEBfmDFEUR+WbcQ3UEUhX/EFIdTnzDcIKRb6LeIfNFctDzx+9PC8sUO8x4N3++rS+sUekw+4yMpIkyh1zwSFqpccgRb2FDBQ654+HbynYoCA/TXKpDoXjzhpDnUAJe6kCSHErDmx1OhsPx26Ogzpi89i+SBRkOl1a2ins3gpqnxiude9tnybKk89DNl6RB/sYDmddSOZBTeCD5figacq3cmcID+XMacZBr5c7q1unsegXzUhGQ8/BA1bOFmy8V69e8umHwQOHzoYtqXEzi8UDtM352k6jSxeOB8vc0WUyiSjfvnywsU/+ujc0kIR4od5jERTUqSHI80MFhEnJIVA3I8QBgabIURVG73abeNWwajQZ5cQL5cneIqUGVbn7zmGofHN3+i/ExfJgHiaoBLR5o+HXNRbWN+tXsejY80NBhktHwPrw7mvxc37lcKR6wtdLOYZJltDu58KBqwIwH2jpMMhref47CLHigOSGXaHqU8kz8nTAMHd5ptVpxWrgP5DhO6kBxHOsypxEXLealQmMdmh/r0PxYh+bHOjQ/1qH5sQ7Nj3VofqxD82Mdmh/r0PxYh+bHOjQ//9+h/fZkfr4AT2cxvsrrNa4AAAAASUVORK5CYII=' />
+            <hr>
+            <div>
+                <div style="width:17px;height: 17px; background-color: rgb(255, 208, 0);float: left;margin-right: 2px;">
+                </div>
+                <h3>What does VARROX offer you?</h3>
+                <p style="font-size:.96rem;line-height:1.4">VARROX SYSTEMS FOR BUSINESS SOLUTIONS, well known as VARROX
+                    is a
+                    turnkey
+                    software
+                    and business
+                    solution provider. Established in 2013 to steer customers through the next generation of business
+                    innovation powered by technology with state-of-the-art business automation and software development.
+                    VARROX specialized in the management systems providing automation and solutions products for many
+                    business fields. For companies operating in the information age, we help to leverage new
+                    technologies to
+                    competitive advantage. We deliver high value innovated solutions by bridging the gap between
+                    business
+                    and
+                    technology. Since VARROX inception, proven, demonstrate and invent unique products, techniques and
+                    capabilities that far and uniquely distinguish us from other software provider as we are specialized
+                    in
+                    developing varies automated solutions in the field of management and accounting, it is designed to
+                    benefit
+                    from all local and international experiences in the fields of business management of all kinds. </p>
+
+                <h4 style="float: left;">Strengths
+                </h4>
+                <h5 style="float: left;margin-top:5px">(Moving To The Future)</h5>
+                <div style="clear:both"></div>
+                <ul>
+                    <li> Deliver secure, reliable and scalable applications that help businesses excel in today's
+                        rapidly
+                        evolving economy. </li>
+                    <li> Gain client’s satisfaction by fully understand and address our client’s requirements within the
+                        minimal time-to-market. </li>
+                    <li> Assure a steady quality by guarantee high quality of our deliverables. </li>
+                    <li> Maintain continuous improvement by promoting a learning environment, and ensuring that our
+                        employees are exposed to, and trained on state-of-the-art technologies. Our software development
+                        process is continuously monitored and improved to maximize productivity. </li>
+                    <li> Utilize object-oriented analysis, design, and testing methodologies; ensure seamless
+                        integration
+                        and
+                        traceability between the project’s requirements, design, development, quality assurance, and
+                        delivery. </li>
+                    <li> Understand In-depth clients’ business requirements. </li>
+                    <li> Deliver world-class End-to-End IT solutions.</li>
+                    <li> Implement cutting-edge innovative solutions. </li>
+                    <li> Guarantees high quality of our deliverables. </li>
+                    <li> Seeking Continuous improvement. </li>
+                    <li> Adopting International & best practice standards. </li>
+                    <li>Excellent following up for our customers after sales
+                    </li>
+                </ul>
+                <div>
+                    <span>Mission<span>,Staff & Vision (Committed to Excellence)</span></span>
+                    <p style="font-size:.96;line-height:1.4; color: rgb(71, 68, 68);">We are committed to offering
+                        unrivaled
+                        business automation
+                        consultation and
+                        turnkey solutions in
+                        addition
+                        to a unique technical support to our valuable clients. VARROX is powered by highly skilled
+                        professionals of
+                        professors, consultants, engineers, developers, and executives equipped with the latest
+                        managerial
+                        and IT
+                        tools and works round the-clock to assure the timely delivery of your applications with the
+                        highest
+                        quality.
+                        Our vision is to become a world-class software development and technology provider and to
+                        provide
+                        clients
+                        with innovated technical and business solutions by utilizing industry standards and technology.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page" style=" ">
+        <div style="margin-top: 25px; margin-right: 30px;">
+            <img width="40px ;" style="margin-left:20px"
+                src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAIAAAC3LO29AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACbElEQVR4nO2aPUvDQBjHnxQjSI2H1IJkECkdSkGolOIuuOjm5DcQWnB2ar9BB8kX8EPo2ElH0Y9QHCpoMhQHsVbiEKzapte7y73K/ac0PHkuP355uSR14jiGf52c6h0QHktofrQmHPT8Qc/P2ERfwglbRkhNCaeoskDqSJjKwwypHSGGhA3S+X3H7/f7DC0w8TyvUCiQ15Mw+PsDqn34Q5jLcVbabDaDICAsJldEBfmDFEUR+WbcQ3UEUhX/EFIdTnzDcIKRb6LeIfNFctDzx+9PC8sUO8x4N3++rS+sUekw+4yMpIkyh1zwSFqpccgRb2FDBQ654+HbynYoCA/TXKpDoXjzhpDnUAJe6kCSHErDmx1OhsPx26Ogzpi89i+SBRkOl1a2ins3gpqnxiude9tnybKk89DNl6RB/sYDmddSOZBTeCD5figacq3cmcID+XMacZBr5c7q1unsegXzUhGQ8/BA1bOFmy8V69e8umHwQOHzoYtqXEzi8UDtM352k6jSxeOB8vc0WUyiSjfvnywsU/+ujc0kIR4od5jERTUqSHI80MFhEnJIVA3I8QBgabIURVG73abeNWwajQZ5cQL5cneIqUGVbn7zmGofHN3+i/ExfJgHiaoBLR5o+HXNRbWN+tXsejY80NBhktHwPrw7mvxc37lcKR6wtdLOYZJltDu58KBqwIwH2jpMMhref47CLHigOSGXaHqU8kz8nTAMHd5ptVpxWrgP5DhO6kBxHOsypxEXLealQmMdmh/r0PxYh+bHOjQ/1qH5sQ7Nj3VofqxD82Mdmh/r0PxYh+bHOjQ//9+h/fZkfr4AT2cxvsrrNa4AAAAASUVORK5CYII=' />
+            <hr>
+            <div style="direction:rtl;text-align:right">
+                <div
+                    style="width:17px;height: 17px; background-color: rgb(255, 208, 0);float: right;margin-right: 2px;">
+                </div>
+                <h3>ماذا تقدم لك VARROX</h3>
+                <p style="font-size:.96rem;line-height:1.4">أنظمة فاروكس لحلول األعمال ،، المعروفه باسم VARROX هي مزود
+                    لحلول
+                    األعمال والبرمجيات بكافة التخصصات. تأسست في عام 2013 لتوفر لعمالءها كافة ابتكارات
+                    األعمال المدعومة بالتكنولوجيا مع أحدث األنظمة والبرمجيات. تخصصت VARROX في أنظمة اإلدارة التي تقدم
+                    الحلول
+                    للعديد من مجاالت األعمال.نحن نسعي دائمالإلستفادة من كافة التقنيات الجديدة لتحقيق ميزة تنافسية أعلي
+                    كما
+                    نقدم حلولا مبتكرةعالية القيمةمن خلال سد الفجوة بين الأعمال والتكنولوجيا. منذ بداية VARROX اثبتت
+                    قدراها
+                    علي ابتكار منتجات وتقنيات فريدة تميزنا بشكل فريد عن مزودي البرمجيات الاخرين لاننا متخصصون في تطوير
+                    حلول
+                    تقنية متنوعة في مجال الادارة والمحاسبة والتي تم تصميمها وفقا للخبرات العالمية في مجال ادارة الاعمال
+                    بانواعها .</p>
+
+                <h4 style="float: right;">نقاط القوة
+                </h4>
+                <h5 style="float: right;margin-top:5px">( اإلنتقال الي المستقبل )</h5>
+                <div style="clear:both"></div>
+                <ul>
+                    <li> تقديم تطبيقات آمنة وموثوقة وقابلة للتطوير تساعد الشركات على التفوق في اقتصاد اليوم سريع التطور.
+                    </li>
+                    <li> كسب رضا العميل من خلال الفهم الكامل لاحتياجاته والتعامل مع متطلباته في أقل وقت ممكن . </li>
+                    <li> ضمان جودة ثابتة من خلال الالتزام بالجودة العالية لمخرجاتنا. </li>
+                    <li>الحفاظ على التحسين المستمر من خالل تعزيز بيئة العمل لدينا ، والتأكد من أن موظفينا يتم تدريبهم
+                        على
+                        أحدث التقنيات. تتم مراقبة عملية تطوير
+                        البرامج لدينا وتحسينها باستمرار لزيادة اإلنتاجية. </li>
+                    <li> االستفادة من منهجيات التحليل والتصميم واالختبار الموجهة للكائنات. ضمان التكامل والتتبع السلس
+                        بين
+                        متطلبات المشروع والتصميم والتطوير
+                        وضمان الجودة والتسليم </li>
+                    <li> فهم متطلبات عمالئنا علي المدي البعيد للمساعده في التطوير والتحديث . </li>
+                    <li> تقديم حلول تكنولوجيا المعلومات الشاملة على مستوى عالمي.</li>
+                    <li> تنفيذ الحلول المبتكرة المتطورة أيا كان مجالها . </li>
+                    <li> ضمان الجودة العالية لمخرجاتنا. </li>
+                    <li> ضمان الجودة العالية لمخرجاتنا. </li>
+                    <li> اعتماد المعايير الدولية وأفضل الادوات . </li>
+                    <li>متابعة ممتازة لعمالئنا بعد البيع .
+                    </li>
+                </ul>
+                <div>
+                    <span>المهمة والموظفون والرؤية<span> (ملتزمون بالتميز)</span></span>
+                    <p style="font-size:.96;line-height:1.4; color: rgb(71, 68, 68);">نحن ملتزمون بتقديم استشارات إدارة
+                        األعمال والحلول المتكاملة لكافة األنشطة التجارية باإلضافة إلى دعم فني فريد لعمالئنا الكرام. يتم
+                        تشغيل VARROX
+                        بواسطة محترفين ذوي مهارات عالية من المصممين والمطورين والمديرين التنفيذيين المجهزين بأحدث
+                        األدوات
+                        اإلدارية وأدوات تكنولوجيا المعلومات
+                        يعملون على مدار الساعة لضمان تسليم وصيانة نظامك في الوقت المناسب بأعلى جودة. تتمثل رؤيتنا في أن
+                        نصبح
+                        مزودًا عالمًيا لتطوير البرمجيات
+                        والتكنولوجيا وأن نقدم للعمالئنا حلوًال تقنية وتجارية مبتكرة وفقا ألعلي المعايير العالمية
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page" style="border: 1px solid green; ">
+
+    </div>
+
+
+</body>
+
+</html>

@@ -30,7 +30,7 @@ async function getCommentedReq(id) {
    return requests
 }
 async function getCompletedReqs() {
-   const requests = await PriceOfferRequest.find({ SendToAdmin: true, Complete: true, InitialAmountOfMoney: { $ne: null } ,HavePriceOffer:false}).populate('ReprsentativeID').populate('Services.Service').sort({ createdAt: -1 })
+   const requests = await PriceOfferRequest.find({ SendToAdmin: true, Complete: true, InitialAmountOfMoney: { $ne: null }, HavePriceOffer: false }).populate('ReprsentativeID').populate('Services.Service').sort({ createdAt: -1 })
    return requests
 }
 async function updateReq(id, update) {

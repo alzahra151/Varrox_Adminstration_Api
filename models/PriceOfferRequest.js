@@ -37,9 +37,6 @@ PriceOfferRequestSchema.pre('save', async function (next) {
   const doc = this;
   const highestCode = await PriceOfferRequest.findOne().sort('-Code');
   doc.Code = highestCode ? highestCode.Code + 1 : 1;
-  if (!this.QrCode) {
-    this.QrCode = generateRandomNumber();
-  }
   next();
 });
 

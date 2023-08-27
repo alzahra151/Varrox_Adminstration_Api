@@ -214,7 +214,7 @@ app.post('/SendEmail', (req, res) => {
                 if (err) {
                     res.send(err);
                 } else {
-                    SendEmail(OfferData)
+                    // SendEmail(OfferData)
 
 
                     res.send("File created successfully");

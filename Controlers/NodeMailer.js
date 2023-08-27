@@ -7,9 +7,10 @@ const mailTransporter = nodemailer.createTransport({
     }
 })
 async function SendEmail(OfferData) {
-    let sender = OfferData.PriceOfferReq.ReprsentativeID.Email
-    let reciver = OfferData.PriceOfferReq.Email
-
+    // let sender = OfferData.PriceOfferReq.ReprsentativeID.Email
+    // let reciver = OfferData.PriceOfferReq.Email
+    let sender = 'alzahradesoky@gmail.com'
+    let reciver = 'alzahradesoky.15@gmail.com'
     let mailDetails = {
         from: sender,
         to: reciver,

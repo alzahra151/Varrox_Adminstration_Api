@@ -180,52 +180,52 @@ app.use('/Admin', AdminRoute)
 app.use('/PriceOfferReq', PriceOfferReqRoute)
 app.use('/PriceOffer', PriceOfferRoute)
 app.use('/Service', ServiceRoute)
-// app.post('/SendEmail', (req, res) => {
-//     let OfferData = req.body
-//     ejs.renderFile(("./views/OfferMail.ejs"), { data: OfferData }, (err, data) => {
-//         console.log(data)
-//         if (err) {
-//             res.send(err);
-//             // console.log(err)
-//         } else {
-//             let options = {
-//                 "height": "11.25in",
-//                 "width": "8.5in",
-//                 border: {
-//                     top: "0px",
-//                     bottom: "0px",
-//                     left: "0px",
-//                     right: "0px"
-//                 },
-//                 margin: {
-//                     top: "0px",
-//                     bottom: "0px",
-//                     left: "0px",
-//                     right: "0px"
-//                 },
-//                 padding: {
-//                     top: "0px",
-//                     bottom: "0px",
-//                     left: "0px",
-//                     right: "0px"
-//                 }
-//             };
-//             pdf.create(data, options).toFile("PDF/OfferEmail2.pdf", function (err, data) {
-//                 if (err) {
-//                     res.send(err);
-//                 } else {
-//                     SendEmail(OfferData)
+app.post('/SendEmail', (req, res) => {
+    let OfferData = req.body
+    ejs.renderFile(("./views/OfferMail.ejs"), { data: OfferData }, (err, data) => {
+        console.log(data)
+        if (err) {
+            res.send(err);
+            // console.log(err)
+        } else {
+            let options = {
+                "height": "11.25in",
+                "width": "8.5in",
+                border: {
+                    top: "0px",
+                    bottom: "0px",
+                    left: "0px",
+                    right: "0px"
+                },
+                margin: {
+                    top: "0px",
+                    bottom: "0px",
+                    left: "0px",
+                    right: "0px"
+                },
+                padding: {
+                    top: "0px",
+                    bottom: "0px",
+                    left: "0px",
+                    right: "0px"
+                }
+            };
+            pdf.create(data, options).toFile("PDF/OfferEmail2.pdf", function (err, data) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    SendEmail(OfferData)
 
 
-//                     res.send("File created successfully");
+                    res.send("File created successfully");
 
-//                 }
-//             });
-//         }
-//     });
+                }
+            });
+        }
+    });
 
-// },
-// );
+},
+);
 app.use('/PDF', PDFRoute)
 app.get('/', (req, res) => {
     // GeneratePDF()

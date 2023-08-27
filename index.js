@@ -171,7 +171,8 @@ data = {
     "updatedAt": "2023-08-04T19:56:11.264Z",
     "__v": 0
 },
-    app.set('view engine', 'ejs')
+    app.set('views', 'views');
+app.set('view engine', 'ejs')
 app.use(cookieParser())
 app.use(express.static(__dirname + '/public'));
 app.use('/Representative', RepresentativeRoute)

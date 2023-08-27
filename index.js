@@ -242,20 +242,20 @@ app.get('/', (req, res) => {
     // });
 });
 
-// app.get('/api/download', function (req, res) {
-//     const filePath = './PDF/VarroOffer.pdf';
-//     const fileName = 'varroxOffer.pdf';
-//     fs.readFile(filePath, function (err, data) {
-//         if (err) {
-//             console.error(err);
-//             res.status(500).send('Error reading file');
-//         } else {
-//             res.setHeader('Content-Type', 'application/pdf');
-//             res.setHeader('Content-Disposition', 'attachment; filename=' + fileName);
-//             res.send(data);
-//         }
-//     });
-// });
+app.post('/api/download', function (req, res) {
+    const filePath = './PDF/VarroOffer.pdf';
+    const fileName = 'varroxOffer.pdf';
+    fs.readFile(filePath, function (err, data) {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error reading file');
+        } else {
+            res.setHeader('Content-Type', 'application/pdf');
+            res.setHeader('Content-Disposition', 'attachment; filename=' + fileName);
+            res.send(data);
+        }
+    });
+});
 
 
 httpServer.listen(3000, () => {

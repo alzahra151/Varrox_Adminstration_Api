@@ -182,7 +182,7 @@ app.use('/PriceOffer', PriceOfferRoute)
 app.use('/Service', ServiceRoute)
 app.post('/SendEmail', (req, res) => {
     let OfferData = req.body
-    ejs.renderFile(("./views/OfferMail.ejs"), { data: OfferData }, (err, data) => {
+    ejs.renderFile(("views/OfferMail.ejs"), { data: OfferData }, (err, data) => {
         console.log(data)
         if (err) {
             res.send(err);

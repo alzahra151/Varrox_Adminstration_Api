@@ -14,6 +14,7 @@
             width: 8.5in;
             margin: 0;
             padding: 0;
+            /* border: 1px solid red; */
         }
 
         .qutation {
@@ -232,7 +233,7 @@
             <div>
                 <% data.PriceOffer.forEach((item,index)=> { %>
                     <div style="font-size: .8rem;border-top: 1px solid rgb(201, 191, 191); margin-top:20px">
-                        <div style="width: 30%;float: left;padding: 6px;">
+                        <div style="width: 40%;float: left;padding: 6px;">
                             <div
                                 style="width:17px;height: 17px; background-color: rgb(8, 8, 8);float: left;margin-right: 2px;">
 
@@ -241,8 +242,8 @@
                             <%=item.Service.Name%>
                                 <ul style="list-style-type: none; padding-left: 1px;">
                                     <% item.Service.Details.forEach((item,index)=> { %>
-                                        <li style="margin-top: 0px;">
-                                            <div style="margin: 2px; width:12px;height: 12px; background-color: rgb(255, 240, 34);float:
+                                        <li style="margin-top: 0px;font-size: small;">
+                                            <div style="margin: 2px; width:9px;height: 9px; background-color: rgb(248, 209, 35);float:
                                     left;">
                                             </div>
                                             <%=item%>
@@ -251,68 +252,104 @@
                                 </ul>
                         </div>
 
-                        <div style="width: 50%;float: left; ">
+                        <div style="width: 50%;float: left; border-left: 1px solid grey;">
                             <!-- <div style=" width:14px;height: 14px; background-color: rgb(8, 8, 8);float:
                         left;margin-right: 2px;">  -->
+                            <div class="" style="padding: 6px;margin :5px">
 
+                                <div
+                                    style="width:15px;height: 15px; background-color: rgb(8, 8, 8);float: left;margin-right: 2px;">
+
+                                </div>
+                                1 Copies as mentioned:
+
+                            </div>
                             <% item.DeviceOffer.forEach(device=> { %>
 
-                                <div class=""
-                                    style="width: 50%;float: left;padding: 6px;border-left: 1px solid grey;margin :5px">
-
-                                    <div style=" width:14px;height: 14px; background-color: rgb(253, 222, 48);float:
+                                <div class="" style="width: 50%;float: left;padding-left: 6px;margin-left :5px">
+                                    <!-- 
+                                    <div style=" width:11px;height: 11px; background-color: rgb(248, 209, 35);float:
                                     left;margin-right: 2px;">
                                     </div>
 
+                                    <%=device.Device%> -->
+                                    <!-- <ul style="list-style-type: none; padding-left: 1px;"> -->
+
+                                    <!-- <li style="margin-top: 0px;font-size: small;"> -->
+                                    <div style="margin: 2px; width:11px;height: 11px; background-color: rgb(248, 209, 35);float:
+                                        left;">
+                                    </div>
                                     <%=device.Device%>
+                                        <!-- </li> -->
+
+                                        <!-- </ul> -->
 
                                 </div>
 
-                                <div style="width: 20%;float: left;padding: 6px;border-left: 1px solid grey">
+                                <div style="width: 20%;float: left;padding: 6px;border-left: 1px solid grey;">
 
                                     EGP <%=device.DevicePricrOffer%>
 
                                 </div>
 
                                 <% } )%>
-
                                     <div style="clear: both;"></div>
-                                    <div style="padding-left: 90px;">
-                                        <h4 style="float:left ;margin-right: 80px;">Sub Total</h4> <span>
-                                            <h4> EGP <%=item.ServicePriceOffer%>
-                                            </h4>
-                                        </span>
+
+                                    <div class="" style="padding: 6px;margin :5px">
+
+                                        <div
+                                            style="width:15px;height: 15px; background-color: rgb(8, 8, 8);float: left;margin-right: 2px;">
+
+                                        </div>
+                                        Maintenance and Updates :
                                     </div>
+
+
+
                         </div>
                         <div style="clear: both;"></div>
+                        <div style="width: 100%;">
+                            <span style="width: 30%;float: right;">
+                                <h4> EGP <%=item.ServicePriceOffer%>
+                                </h4>
+                            </span>
+                            <div style="width: 30%;float: right;text-align: right;margin-right: 15px;">
+                                <h4 style=" ">Sub Total</h4>
+                            </div>
 
-
-
+                        </div>
                     </div>
-
-                    <!-- <hr style="color:black"> -->
                     <div style="clear: both;"></div>
-                    <% } )%>
-            </div>
-        </div>
-        <hr style="color:rgb(219, 217, 217);margin:10px">
 
-        <div style="margin: 10px;width:60%;float:left">
-            <div
-                style="width:14px;height: 14px; background-color: rgb(219, 217, 217);float: left;margin-right: 2px;float:left">
+
+
             </div>
-            <h4>Payment:
-            </h4>
-            <p>- 100% paid at In advance with system installation</p>
+
+            <!-- <hr style="color:black"> -->
+            <div style="clear: both;"></div>
+            <% } )%>
+                <hr style="color:rgb(219, 217, 217);margin-top: 30px;">
+
+                <div style="width:60%;float:left;margin: 10px;">
+                    <div
+                        style="width:14px;height: 14px; background-color: rgb(219, 217, 217);float: left;margin-right: 2px;float:left">
+                    </div>
+                    <h4>Payment:
+                    </h4>
+                    <p>- 100% paid at In advance with system installation</p>
+                </div>
+                <div style="width:30%;float:left;padding:2px">
+                    <h5>Sub Total:</h5>
+                    <h5>Vat:</h5>
+                    <hr>
+                    <h4>Last value:<%=data.TotalPrice%>
+                    </h4>
+                </div>
+                <div style="clear: both;"></div>
+                <hr style="color:rgb(219, 217, 217);margin:10px">
         </div>
-        <div style="width:30%;float:left;padding:2px">
-            <h5>Sub Total:</h5>
-            <h5>Vat:</h5>
-            <hr>
-            <h4>Last value:<%=data.TotalPrice%>
-            </h4>
-        </div>
-        <hr style="color:rgb(219, 217, 217);margin:10px">
+    </div>
+
     </div>
     <div class="page" style=" ">
         <div style="margin-top: 25px; margin-left: 30px;">
@@ -323,25 +360,33 @@
                 <div style="width:17px;height: 17px; background-color: rgb(255, 208, 0);float: left;margin-right: 2px;">
                 </div>
                 <h3>What does VARROX offer you?</h3>
-                <p style="font-size:.96rem;line-height:1.4">VARROX SYSTEMS FOR BUSINESS SOLUTIONS, well known as VARROX
+                <p style="font-size:.96rem;line-height:1.4">VARROX SYSTEMS FOR BUSINESS SOLUTIONS, well known as
+                    VARROX
                     is a
                     turnkey
                     software
                     and business
-                    solution provider. Established in 2013 to steer customers through the next generation of business
-                    innovation powered by technology with state-of-the-art business automation and software development.
-                    VARROX specialized in the management systems providing automation and solutions products for many
+                    solution provider. Established in 2013 to steer customers through the next generation of
+                    business
+                    innovation powered by technology with state-of-the-art business automation and software
+                    development.
+                    VARROX specialized in the management systems providing automation and solutions products for
+                    many
                     business fields. For companies operating in the information age, we help to leverage new
                     technologies to
                     competitive advantage. We deliver high value innovated solutions by bridging the gap between
                     business
                     and
-                    technology. Since VARROX inception, proven, demonstrate and invent unique products, techniques and
-                    capabilities that far and uniquely distinguish us from other software provider as we are specialized
+                    technology. Since VARROX inception, proven, demonstrate and invent unique products, techniques
+                    and
+                    capabilities that far and uniquely distinguish us from other software provider as we are
+                    specialized
                     in
-                    developing varies automated solutions in the field of management and accounting, it is designed to
+                    developing varies automated solutions in the field of management and accounting, it is designed
+                    to
                     benefit
-                    from all local and international experiences in the fields of business management of all kinds. </p>
+                    from all local and international experiences in the fields of business management of all kinds.
+                </p>
 
                 <h4 style="float: left;">Strengths
                 </h4>
@@ -351,11 +396,13 @@
                     <li> Deliver secure, reliable and scalable applications that help businesses excel in today's
                         rapidly
                         evolving economy. </li>
-                    <li> Gain client’s satisfaction by fully understand and address our client’s requirements within the
+                    <li> Gain client’s satisfaction by fully understand and address our client’s requirements within
+                        the
                         minimal time-to-market. </li>
                     <li> Assure a steady quality by guarantee high quality of our deliverables. </li>
                     <li> Maintain continuous improvement by promoting a learning environment, and ensuring that our
-                        employees are exposed to, and trained on state-of-the-art technologies. Our software development
+                        employees are exposed to, and trained on state-of-the-art technologies. Our software
+                        development
                         process is continuously monitored and improved to maximize productivity. </li>
                     <li> Utilize object-oriented analysis, design, and testing methodologies; ensure seamless
                         integration
@@ -390,7 +437,8 @@
                         Our vision is to become a world-class software development and technology provider and to
                         provide
                         clients
-                        with innovated technical and business solutions by utilizing industry standards and technology.
+                        with innovated technical and business solutions by utilizing industry standards and
+                        technology.
                     </p>
                 </div>
             </div>
@@ -406,18 +454,23 @@
                     style="width:17px;height: 17px; background-color: rgb(255, 208, 0);float: right;margin-right: 2px;">
                 </div>
                 <h3>ماذا تقدم لك VARROX</h3>
-                <p style="font-size:.96rem;line-height:1.4">أنظمة فاروكس لحلول األعمال ،، المعروفه باسم VARROX هي مزود
+                <p style="font-size:.96rem;line-height:1.4">أنظمة فاروكس لحلول األعمال ،، المعروفه باسم VARROX هي
+                    مزود
                     لحلول
                     األعمال والبرمجيات بكافة التخصصات. تأسست في عام 2013 لتوفر لعمالءها كافة ابتكارات
-                    األعمال المدعومة بالتكنولوجيا مع أحدث األنظمة والبرمجيات. تخصصت VARROX في أنظمة اإلدارة التي تقدم
+                    األعمال المدعومة بالتكنولوجيا مع أحدث األنظمة والبرمجيات. تخصصت VARROX في أنظمة اإلدارة التي
+                    تقدم
                     الحلول
-                    للعديد من مجاالت األعمال.نحن نسعي دائمالإلستفادة من كافة التقنيات الجديدة لتحقيق ميزة تنافسية أعلي
+                    للعديد من مجاالت األعمال.نحن نسعي دائمالإلستفادة من كافة التقنيات الجديدة لتحقيق ميزة تنافسية
+                    أعلي
                     كما
                     نقدم حلولا مبتكرةعالية القيمةمن خلال سد الفجوة بين الأعمال والتكنولوجيا. منذ بداية VARROX اثبتت
                     قدراها
-                    علي ابتكار منتجات وتقنيات فريدة تميزنا بشكل فريد عن مزودي البرمجيات الاخرين لاننا متخصصون في تطوير
+                    علي ابتكار منتجات وتقنيات فريدة تميزنا بشكل فريد عن مزودي البرمجيات الاخرين لاننا متخصصون في
+                    تطوير
                     حلول
-                    تقنية متنوعة في مجال الادارة والمحاسبة والتي تم تصميمها وفقا للخبرات العالمية في مجال ادارة الاعمال
+                    تقنية متنوعة في مجال الادارة والمحاسبة والتي تم تصميمها وفقا للخبرات العالمية في مجال ادارة
+                    الاعمال
                     بانواعها .</p>
 
                 <h4 style="float: right;">نقاط القوة
@@ -425,15 +478,18 @@
                 <h5 style="float: right;margin-top:5px">( اإلنتقال الي المستقبل )</h5>
                 <div style="clear:both"></div>
                 <ul>
-                    <li> تقديم تطبيقات آمنة وموثوقة وقابلة للتطوير تساعد الشركات على التفوق في اقتصاد اليوم سريع التطور.
+                    <li> تقديم تطبيقات آمنة وموثوقة وقابلة للتطوير تساعد الشركات على التفوق في اقتصاد اليوم سريع
+                        التطور.
                     </li>
                     <li> كسب رضا العميل من خلال الفهم الكامل لاحتياجاته والتعامل مع متطلباته في أقل وقت ممكن . </li>
                     <li> ضمان جودة ثابتة من خلال الالتزام بالجودة العالية لمخرجاتنا. </li>
-                    <li>الحفاظ على التحسين المستمر من خالل تعزيز بيئة العمل لدينا ، والتأكد من أن موظفينا يتم تدريبهم
+                    <li>الحفاظ على التحسين المستمر من خالل تعزيز بيئة العمل لدينا ، والتأكد من أن موظفينا يتم
+                        تدريبهم
                         على
                         أحدث التقنيات. تتم مراقبة عملية تطوير
                         البرامج لدينا وتحسينها باستمرار لزيادة اإلنتاجية. </li>
-                    <li> االستفادة من منهجيات التحليل والتصميم واالختبار الموجهة للكائنات. ضمان التكامل والتتبع السلس
+                    <li> االستفادة من منهجيات التحليل والتصميم واالختبار الموجهة للكائنات. ضمان التكامل والتتبع
+                        السلس
                         بين
                         متطلبات المشروع والتصميم والتطوير
                         وضمان الجودة والتسليم </li>
@@ -448,13 +504,16 @@
                 </ul>
                 <div>
                     <span>المهمة والموظفون والرؤية<span> (ملتزمون بالتميز)</span></span>
-                    <p style="font-size:.96;line-height:1.4; color: rgb(71, 68, 68);">نحن ملتزمون بتقديم استشارات إدارة
-                        األعمال والحلول المتكاملة لكافة األنشطة التجارية باإلضافة إلى دعم فني فريد لعمالئنا الكرام. يتم
+                    <p style="font-size:.96;line-height:1.4; color: rgb(71, 68, 68);">نحن ملتزمون بتقديم استشارات
+                        إدارة
+                        األعمال والحلول المتكاملة لكافة األنشطة التجارية باإلضافة إلى دعم فني فريد لعمالئنا الكرام.
+                        يتم
                         تشغيل VARROX
                         بواسطة محترفين ذوي مهارات عالية من المصممين والمطورين والمديرين التنفيذيين المجهزين بأحدث
                         األدوات
                         اإلدارية وأدوات تكنولوجيا المعلومات
-                        يعملون على مدار الساعة لضمان تسليم وصيانة نظامك في الوقت المناسب بأعلى جودة. تتمثل رؤيتنا في أن
+                        يعملون على مدار الساعة لضمان تسليم وصيانة نظامك في الوقت المناسب بأعلى جودة. تتمثل رؤيتنا في
+                        أن
                         نصبح
                         مزودًا عالمًيا لتطوير البرمجيات
                         والتكنولوجيا وأن نقدم للعمالئنا حلوًال تقنية وتجارية مبتكرة وفقا ألعلي المعايير العالمية

@@ -15,7 +15,7 @@ router.post('/SendEmail', async (req, res, next) => {
             console.log(err)
         } else {
             let options = {
-                "height": "11.25in",
+                "height": "13.25in",
                 "width": "8.5in",
                 border: {
                     top: "0px",
@@ -52,7 +52,7 @@ router.post('/SendEmail', async (req, res, next) => {
 
 router.post('/Download', async (req, res, next) => {
     let OfferData = req.body
-    await ejs.renderFile(("views/OfferMail.ejs"), { data: OfferData }, (err, data) => { //create pdf 
+    await ejs.renderFile(("./views/OfferMail.ejs"), { data: OfferData }, (err, data) => { //create pdf 
         if (err) {
             res.send(err);
             console.log(err)

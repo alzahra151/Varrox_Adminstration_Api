@@ -171,8 +171,8 @@ data = {
     "updatedAt": "2023-08-04T19:56:11.264Z",
     "__v": 0
 },
-    app.set('views', 'views');
-app.set('view engine', 'ejs')
+    // app.set('views', 'views');
+    app.set('view engine', 'ejs')
 app.use(cookieParser())
 app.use(express.static(__dirname + '/public'));
 app.use('/Representative', RepresentativeRoute)
@@ -180,52 +180,52 @@ app.use('/Admin', AdminRoute)
 app.use('/PriceOfferReq', PriceOfferReqRoute)
 app.use('/PriceOffer', PriceOfferRoute)
 app.use('/Service', ServiceRoute)
-app.post('/SendEmail', (req, res) => {
-    let OfferData = req.body
-    ejs.renderFile(("views/OfferMail.ejs"), { data: OfferData }, (err, data) => {
-        console.log(data)
-        if (err) {
-            res.send(err);
-            // console.log(err)
-        } else {
-            let options = {
-                "height": "11.25in",
-                "width": "8.5in",
-                border: {
-                    top: "0px",
-                    bottom: "0px",
-                    left: "0px",
-                    right: "0px"
-                },
-                margin: {
-                    top: "0px",
-                    bottom: "0px",
-                    left: "0px",
-                    right: "0px"
-                },
-                padding: {
-                    top: "0px",
-                    bottom: "0px",
-                    left: "0px",
-                    right: "0px"
-                }
-            };
-            pdf.create(data, options).toFile("PDF/OfferEmail2.pdf", function (err, data) {
-                if (err) {
-                    res.send(err);
-                } else {
-                    // SendEmail(OfferData)
+// app.post('/SendEmail', (req, res) => {
+//     let OfferData = req.body
+//     ejs.renderFile(("views/OfferMail.ejs"), { data: OfferData }, (err, data) => {
+//         console.log(data)
+//         if (err) {
+//             res.send(err);
+//             // console.log(err)
+//         } else {
+//             let options = {
+//                 "height": "11.25in",
+//                 "width": "8.5in",
+//                 border: {
+//                     top: "0px",
+//                     bottom: "0px",
+//                     left: "0px",
+//                     right: "0px"
+//                 },
+//                 margin: {
+//                     top: "0px",
+//                     bottom: "0px",
+//                     left: "0px",
+//                     right: "0px"
+//                 },
+//                 padding: {
+//                     top: "0px",
+//                     bottom: "0px",
+//                     left: "0px",
+//                     right: "0px"
+//                 }
+//             };
+//             pdf.create(data, options).toFile("PDF/OfferEmail2.pdf", function (err, data) {
+//                 if (err) {
+//                     res.send(err);
+//                 } else {
+//                     // SendEmail(OfferData)
 
 
-                    res.send("File created successfully");
+//                     res.send("File created successfully");
 
-                }
-            });
-        }
-    });
+//                 }
+//             });
+//         }
+//     });
 
-},
-);
+// },
+// );
 app.use('/PDF', PDFRoute)
 app.get('/', (req, res) => {
     // GeneratePDF()
@@ -242,20 +242,20 @@ app.get('/', (req, res) => {
     // });
 });
 
-app.post('/api/download', function (req, res) {
-    const filePath = './PDF/VarroOffer.pdf';
-    const fileName = 'varroxOffer.pdf';
-    fs.readFile(filePath, function (err, data) {
-        if (err) {
-            console.error(err);
-            res.status(500).send('Error reading file');
-        } else {
-            res.setHeader('Content-Type', 'application/pdf');
-            res.setHeader('Content-Disposition', 'attachment; filename=' + fileName);
-            res.send(data);
-        }
-    });
-});
+// app.post('/api/download', function (req, res) {
+//     const filePath = './PDF/VarroOffer.pdf';
+//     const fileName = 'varroxOffer.pdf';
+//     fs.readFile(filePath, function (err, data) {
+//         if (err) {
+//             console.error(err);
+//             res.status(500).send('Error reading file');
+//         } else {
+//             res.setHeader('Content-Type', 'application/pdf');
+//             res.setHeader('Content-Disposition', 'attachment; filename=' + fileName);
+//             res.send(data);
+//         }
+//     });
+// });
 
 
 httpServer.listen(3000, () => {

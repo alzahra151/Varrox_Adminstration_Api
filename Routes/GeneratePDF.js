@@ -55,7 +55,7 @@ router.post('/Download', async (req, res, next) => {
     await ejs.renderFile(("./views/OfferMail.ejs"), { data: OfferData }, (err, data) => { //create pdf 
         if (err) {
             res.send(err);
-            console.log(err)
+            console.log("faild render")
         } else {
             let options = {
                 "height": "11.25in",
@@ -80,10 +80,10 @@ router.post('/Download', async (req, res, next) => {
                 }
             };
 
-            pdf.create(data, options).toFile("./PDF/test3.pdf", function (err, data) {
+            pdf.create(data, options).toFile("./public/test3.pdf", function (err, data) {
                 if (err) {
                     res.send(err);
-                    console.log(err)
+                    console.log("failed create")
                 } else {
                     // const filePath = './public/PDF/VarroOffer.pdf';
                     // const fileName = 'VarroOffer.pdf';

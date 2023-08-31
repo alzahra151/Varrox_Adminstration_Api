@@ -88,24 +88,24 @@ router.post('/Download', async (req, res, next) => {
             pdf.create(data, options).toFile("./PDF/testSSL.pdf", function (err, data) {
                 if (err) {
                     console.log(data)
-                    // console.log(err.message)
+                    console.log(err.message)
                     res.send(err);
 
                 } else {
-                    // const filePath = './public/PDF/VarroOffer.pdf';
-                    // const fileName = 'VarroOffer.pdf';
-                    // fs.readFile(filePath, function (err, data) {
-                    //     if (err) {
-                    //         console.error(err);
-                    //         res.status(500).send('Error reading file');
-                    //     } else {
-                    //         res.setHeader('Content-Type', 'application/pdf');
-                    //         res.setHeader('Content-Disposition', 'attachment; filename=' + fileName);
-                    //         res.send(data);
-                    //     }
-                    // });
-                    console.log(data)
-                    res.send("File created successfully")
+                    const filePath = './PDF/VarroOffer.pdf';
+                    const fileName = 'VarroxOffer.pdf';
+                    fs.readFile(filePath, function (err, data) {
+                        if (err) {
+                            console.error(err);
+                            res.status(500).send('Error reading file');
+                        } else {
+                            res.setHeader('Content-Type', 'application/pdf');
+                            res.setHeader('Content-Disposition', 'attachment; filename=' + fileName);
+                            res.send(data);
+                        }
+                    });
+                    // console.log(data)
+                    // res.send("File created successfully")
 
                 }
             });

@@ -2,7 +2,7 @@ let ejs = require("ejs");
 const express = require('express')
 const router = express.Router()
 let pdf = require("html-pdf");
-const puppeteer = require('puppeteer')
+// const puppeteer = require('puppeteer')
 const fs = require('fs')
 const { SendEmail } = require('../Controlers/NodeMailer')
 

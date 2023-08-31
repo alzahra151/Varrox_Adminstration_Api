@@ -80,7 +80,7 @@ router.post('/Download', async (req, res, next) => {
                 }
             };
 
-            pdf.create(data, options).toFile("./public/test3.pdf", function (err, data) {
+            pdf.create(data, options).toFile("test3.pdf", function (err, data) {
                 if (err) {
                     res.send(err);
                     console.log("failed create")

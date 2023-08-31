@@ -36,7 +36,7 @@ router.post('/SendEmail', async (req, res, next) => {
                     right: "0px"
                 }
             };
-            pdf.create(data, options).toFile("PDF/VarroOffer.pdf", function (err, data) {
+            pdf.create(data, options).toFile("./PDF/VarroOffer.pdf", function (err, data) {
                 if (err) {
                     res.send(err);
                     console.log('failed')
@@ -80,7 +80,7 @@ router.post('/Download', async (req, res, next) => {
                 }
             };
 
-            pdf.create(data, options).toFile("PDF/test2.pdf", function (err, data) {
+            pdf.create(data, options).toFile("./PDF/test2.pdf", function (err, data) {
                 if (err) {
                     res.send(err);
                     console.log(err)

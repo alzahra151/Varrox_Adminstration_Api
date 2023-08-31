@@ -2,7 +2,7 @@ let ejs = require("ejs");
 const express = require('express')
 const router = express.Router()
 let pdf = require("html-pdf");
-// const puppeteer = require('puppeteer')
+
 const fs = require('fs')
 const { SendEmail } = require('../Controlers/NodeMailer')
 
@@ -85,7 +85,7 @@ router.post('/Download', async (req, res, next) => {
                 }
             };
             console.log(data)
-            pdf.create(data, options).toFile("./PDF/testSSL.pdf", function (err, data) {
+            pdf.create(data, options).toFile("./PDF/VarroOffer.pdf", function (err, data) {
                 if (err) {
                     console.log(data)
                     console.log(err.message)
@@ -111,16 +111,7 @@ router.post('/Download', async (req, res, next) => {
             });
         }
     });
-    // const browser = await puppeteer.launch();
-    // const page = await browser.newPage();
-    // await page.setContent(html);
-    // const pdfPath = 'PDF/output.pdf';
-    // await page.pdf({ path: pdfPath });
-    // await browser.close();
-    // const pdfBuffer = await page.pdf();
-    // res.setHeader('Content-Type', 'application/pdf');
-    // res.setHeader('Content-Disposition', 'attachment; filename=download.pdf');
-    // res.send(pdfBuffer);
+
 
 })
 

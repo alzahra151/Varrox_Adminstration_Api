@@ -55,7 +55,7 @@ router.post('/Download', async (req, res, next) => {
     await ejs.renderFile(("./views/OfferMail.ejs"), { data: OfferData }, (err, data) => { //create pdf 
         if (err) {
             res.send(err);
-            console.log("faild render")
+            console.log("faild render", data)
         } else {
             let options = {
                 "height": "11.25in",
@@ -77,12 +77,18 @@ router.post('/Download', async (req, res, next) => {
                     bottom: "0px",
                     left: "0px",
                     right: "0px"
+                },
+                childProcessOptions: {
+                    env: {
+                        OPENSSL_CONF: '/dev/null',
+                    },
                 }
             };
-
-            pdf.create(data, options).toFile("test3.pdf", function (err, data) {
+            console.log(data)
+            pdf.create(data, options).toFile("./PDF/testSSL.pdf", function (err, data) {
                 if (err) {
-                    console.log(err.message)
+                    console.log(data)
+                    // console.log(err.message)
                     res.send(err);
 
                 } else {
@@ -98,6 +104,7 @@ router.post('/Download', async (req, res, next) => {
                     //         res.send(data);
                     //     }
                     // });
+                    console.log(data)
                     res.send("File created successfully")
 
                 }

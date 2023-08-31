@@ -4,7 +4,7 @@
   "description": "varrox adminstration syetem",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -24,6 +24,7 @@
     "mongoose-sequence": "^5.3.1",
     "nodemailer": "^6.9.4",
     "nodemon": "^2.0.22",
+    "puppeteer": "^21.1.1",
     "socket.io": "^4.7.2"
   }
 }

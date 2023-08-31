@@ -92,20 +92,20 @@ router.post('/Download', async (req, res, next) => {
                     res.send(err);
 
                 } else {
-                    const filePath = './PDF/VarroOffer.pdf';
-                    const fileName = 'VarroxOffer.pdf';
-                    fs.readFile(filePath, function (err, data) {
-                        if (err) {
-                            console.error(err);
-                            res.status(500).send('Error reading file');
-                        } else {
-                            res.setHeader('Content-Type', 'application/pdf');
-                            res.setHeader('Content-Disposition', 'attachment; filename=' + fileName);
-                            res.send(data);
-                        }
-                    });
+                    // const filePath = './PDF/VarroOffer.pdf';
+                    // const fileName = 'VarroxOffer.pdf';
+                    // fs.readFile(filePath, function (err, data) {
+                    //     if (err) {
+                    //         console.error(err);
+                    //         res.status(500).send('Error reading file');
+                    //     } else {
+                    //         res.setHeader('Content-Type', 'application/pdf');
+                    //         res.setHeader('Content-Disposition', 'attachment; filename=' + fileName);
+                    //         res.send(data);
+                    //     }
+                    // });
                     // console.log(data)
-                    // res.send("File created successfully")
+                    res.send("File created successfully")
 
                 }
             });

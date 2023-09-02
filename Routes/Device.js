@@ -1,21 +1,21 @@
-const { AddService, GetAllServices, UpdateService, DeleteService } = require('../Controlers/Service')
+const { AddDevice, GetAllDevices, UpdateDevice, DeleteDevice } = require('../Controlers/Device')
 const express = require('express')
 const router = express.Router()
 
 router.post('/', async (req, res, next) => {
     const data = req.body
     try {
-        const newService = await AddService(data)
-        res.status(200).json(newService)
+        const newDevice = await AddDevice(data)
+        res.status(200).json(newDevice)
     } catch (error) {
         res.status(401).json(error.message)
     }
 })
-router.get('/GetServices', async (req, res, next) => {
+router.get('/GetDevices', async (req, res, next) => {
 
     try {
-        const Services = await GetAllServices()
-        res.status(200).json(Services)
+        const Devices = await GetAllDevices()
+        res.status(200).json(Devices)
     } catch (error) {
         res.status(401).json(error.message)
     }
@@ -24,8 +24,8 @@ router.patch('/:id', async (req, res, next) => {
     const id = req.params.id
     const data = req.body
     try {
-        const updatedService = await UpdateService(id, data)
-        res.status(200).json(updatedService)
+        const updatedDevice = await UpdateDevice(id, data)
+        res.status(200).json(updatedDevice)
     } catch (error) {
         res.status(401).json(error.message)
     }
@@ -33,7 +33,7 @@ router.patch('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
     const id = req.params.id
     try {
-        const deletedRes = await DeleteService(id)
+        const deletedRes = await DeleteDevice(id)
         res.status(200).json(deletedRes)
     } catch (error) {
         res.status(401).json(error.message)

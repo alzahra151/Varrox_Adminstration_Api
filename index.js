@@ -13,6 +13,7 @@ const ServiceRoute = require('./Routes/Service')
 const PriceOfferRoute = require('./Routes/PriceOffer')
 const PDFRoute = require('./Routes/GeneratePDF')
 const AdminRoute = require('./Routes/Admin')
+const DeviceRout = require('./Routes/Device')
 const PriceOfferReq = require('./models/PriceOfferRequest')
 const PriceOffer = require('./models/PriceOffer')
 const { GeneratePDF } = require('./Controlers/GeneratePDF')
@@ -180,6 +181,7 @@ app.use('/Admin', AdminRoute)
 app.use('/PriceOfferReq', PriceOfferReqRoute)
 app.use('/PriceOffer', PriceOfferRoute)
 app.use('/Service', ServiceRoute)
+app.use('/Device', DeviceRout)
 // app.post('/SendEmail', (req, res) => {
 //     let OfferData = req.body
 //     ejs.renderFile(("views/OfferMail.ejs"), { data: OfferData }, (err, data) => {

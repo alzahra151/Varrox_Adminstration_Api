@@ -87,7 +87,7 @@ router.post('/Download', async (req, res, next) => {
             console.log(data)
             pdf.create(data, options).toFile("./PDF/VarroOffer.pdf", function (err, data) {
                 if (err) {
-                    console.log(data)
+                    // console.log(data)
                     console.log(err.message)
                     res.send(err);
 

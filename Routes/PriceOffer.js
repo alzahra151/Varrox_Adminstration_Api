@@ -53,6 +53,7 @@ router.get('/getRepresentativeOffers', VerfiyToken, async (req, res) => {
         const RepresentativeId = req.Representative.id
         console.log(req.Representative.id)
         const offers = await getAllPriceOffers()
+        console.log(offers)
         const filteredOffers = offers.filter(offer => offer.PriceOfferReq.ReprsentativeID._id.valueOf() === RepresentativeId);
         console.log(filteredOffers);
         res.status(200).json(filteredOffers)

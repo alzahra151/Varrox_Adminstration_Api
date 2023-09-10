@@ -5,7 +5,7 @@ async function AddService(data) {
   return service
 }
 async function GetAllServices() {
-  const services = await Service.find()
+  const services = await Service.find().populate('Devices')
   return services
 }
 async function UpdateService(id, data) {

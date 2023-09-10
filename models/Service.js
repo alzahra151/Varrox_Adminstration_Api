@@ -3,7 +3,8 @@ const Device = require('./Device')
 const ServiceSchema = mongoose.Schema({
     Name: { type: String, required: true },
     Details: [{ type: String }],
-    Devices: [{ type: mongoose.Schema.Types.ObjectId, ref: Device }]
+    Devices: [{ type: mongoose.Schema.Types.ObjectId, ref: Device }],
+
 }, { timestamps: true })
 
 // Define pre 'remove' middleware on the ServiceSchema

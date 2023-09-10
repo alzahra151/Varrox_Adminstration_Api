@@ -13,6 +13,10 @@ async function GetAllDevices() {
     const devices = await Device.find()
     return devices
 }
+async function GetDeviceByID(id) {
+    const device = await Device.findById(id)
+    return device
+}
 async function UpdateDevice(id, data) {
     const device = await Device.findOneAndUpdate({ _id: id }, data, {
         new: true
@@ -45,4 +49,4 @@ async function DeleteDevice(id) {
     }
 
 }
-module.exports = { AddDevice, GetAllDevices, UpdateDevice, DeleteDevice }
+module.exports = { AddDevice, GetAllDevices, UpdateDevice, DeleteDevice, GetDeviceByID }

@@ -14,8 +14,6 @@ async function getAllPriceOffers() {
       },
 
     }).populate('PriceOffer.Service').sort({ createdAt: -1 })
-
-
   return PriceOffers
 }
 async function deleteOffer(id) {

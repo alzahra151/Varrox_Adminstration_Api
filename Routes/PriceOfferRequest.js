@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const { AddPriceOfferReq, getRepresentativeRequests, GetAllRequestsForSalesManger, updateReq, GetAcceptedReq, GetRejectedReq,
-    GetPendingReq, NewReqCount, GetAllSendRequests, getReqByID, getCommentedReq, getCompletedReqs } = require('../Controlers/PriceOfferRequest')
+const { AddPriceOfferReq, GetAllRequestsForSalesManger, getRepresentativeRequests, updateReq, DeleteReq, GetReprsentativeApprovedReq, GetRejectedReq, NewReqCount, GetAllSendRequests,
+    getReqByID, getCommentedReq, getCompletedReqs, GetAllRequests, GetSalesMangersApprovedReq, NewPriceOfferCount } = require('../Controlers/PriceOfferRequest')
 const { VerfiyToken, AuthorizeRoles } = require('../MiddleWare/Auth')
 const { VerfiyAdminToken } = require('../MiddleWare/AdminAuth')
 
@@ -12,6 +12,14 @@ router.post('/AddRequest', VerfiyToken, async (req, res, next) => {
     const NewClient = await AddPriceOfferReq(data)
     console.log(NewClient)
     res.status(200).json(NewClient)
+})
+router.get('/', async (req, res, next) => {
+    try {
+        const requestes = await GetAllRequests()
+        res.status(200).json(requestes)
+    } catch (err) {
+        res.status(401).json(err.message)
+    }
 })
 router.get('/SalesMangerRequests', VerfiyToken, async (req, res, next) => {
     try {
@@ -39,9 +47,18 @@ router.get('/GetAllSendRequests', async (req, res, next) => {
         res.status(401).json(err.message)
     }
 })
-router.get('/AcceptedReq', async (req, res, next) => {
+router.get('/ReprsentativeApprovedReq', VerfiyToken, async (req, res, next) => {
+    const RepresentativeId = req.Representative.id
     try {
-        const requestes = await GetAcceptedReq()
+        const requestes = await GetReprsentativeApprovedReq(RepresentativeId)
+        res.status(200).json(requestes)
+    } catch (err) {
+        res.status(401).json(err.message)
+    }
+})
+router.get('/SalesMangersApprovedReq', async (req, res, next) => {
+    try {
+        const requestes = await GetSalesMangersApprovedReq()
         res.status(200).json(requestes)
     } catch (err) {
         res.status(401).json(err.message)
@@ -66,6 +83,14 @@ router.get('/PendingReq', async (req, res, next) => {
 router.get('/NewReqCount', async (req, res) => {
     try {
         const count = await NewReqCount()
+        res.status(200).json(count)
+    } catch (err) {
+        res.status(401).json(err.message)
+    }
+})
+router.get('/NewOffersCount', async (req, res) => {
+    try {
+        const count = await NewPriceOfferCount()
         res.status(200).json(count)
     } catch (err) {
         res.status(401).json(err.message)
@@ -115,7 +140,7 @@ router.patch('/:id', async (req, res, next) => {
 router.delete('/DeleteReq', async (req, res, next) => {
     const id = req.body.id
     try {
-        const deletedReq = await updateReq(id)
+        const deletedReq = await DeleteReq(id)
         res.status(200).json("Deleted")
     } catch (err) {
         res.status(401).json(err.message)

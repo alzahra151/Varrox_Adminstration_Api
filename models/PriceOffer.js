@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
-const PriceOfferReq = require('../models/PriceOfferRequest')
-const Service = require('../models/Service')
-const Device = require('../models/Device')
+const PriceOfferReq = require('./PriceOfferRequest')
+const Service = require('./Service')
+const Device = require('./Device')
+const PaymentPlan = require('./PaymentPlan')
 
 const DeviceSchema = new mongoose.Schema({
   Device: { type: mongoose.Schema.Types.ObjectId, ref: Device },
@@ -15,7 +16,7 @@ const ServiceSchema = new mongoose.Schema({
 });
 const PriceOfferSchema = mongoose.Schema({
   Services: [ServiceSchema],
-  TotalPrice: { type: String },
+  TotalPrice: { type: Number },
 }, { timestamps: true })
 
 

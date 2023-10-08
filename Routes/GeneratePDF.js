@@ -150,8 +150,9 @@ router.post("/SendEmail", async (req, res, next) => {
 router.post('/down-pdf', async (req, res) => {
   let OfferData = req.body;
   const qrCode = OfferData.QrCode
-
-  QRCode.toDataURL(JSON.stringify(qrCode), async (err, qrCodeDataURL) => {
+  const strCode = JSON.stringify(qrCode)
+  console.log(qrCode, strCode)
+  QRCode.toDataURL(strCode, async (err, qrCodeDataURL) => {
     // console.log(img)
     if (err) {
       console.error(err);

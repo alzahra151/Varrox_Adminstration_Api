@@ -18,7 +18,7 @@ async function generatePdf(data) {
             format: 'A4',
             printBackground: true
         });
-        console.log(pdf.path)
+        // console.log(pdf.path)
         return pdf
 
     } catch (err) {

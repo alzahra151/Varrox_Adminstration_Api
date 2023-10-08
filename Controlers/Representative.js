@@ -8,7 +8,8 @@ async function SignUp(data) {
         Email: data.Email,
         Mobile: data.Mobile,
         Password: data.Password,
-        Country: data.Country
+        Country: data.Country,
+        Image: data.Image
     })
     console.log(NewRepresentative)
 

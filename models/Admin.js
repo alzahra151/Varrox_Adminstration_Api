@@ -1,12 +1,14 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt');
+const router = require('../Routes/PriceOfferRequest');
 const AdminSchema = mongoose.Schema({
     FullName: { type: String, required: true },
     Email: { type: String, required: true, unique: true },
     Country: { type: String, required: true },
     Mobile: { type: String, required: true },
     Password: { type: String, required: true },
-    Role: { type: String, enum: ['secretarial', 'Manager'], default: 'secretarial' }
+    Role: { type: String, enum: ['secretarial', 'Manager'], default: 'secretarial' },
+    Image: { type: String },
 },
     { timestamps: true })
 
@@ -22,12 +24,13 @@ AdminSchema.pre('save', async function (next) {
         next(err)
     }
 })
-AdminSchema.pre('validate', function (next) {
-    if (!this.Role) {
-        this.Role = this.constructor.schema.path('Role').default();
-    }
-    next();
-});
+
+// AdminSchema.pre('validate', function (next) {
+//     if (!this.Role) {
+//         this.Role = this.constructor.schema.path('Role').default();
+//     }
+//     next();
+// });
 
 const Admin = mongoose.model('Admin', AdminSchema)
 module.exports = Admin

@@ -4,8 +4,8 @@ const ServiceSchema = mongoose.Schema(
   {
     Name: { type: String, required: true },
     Details: [{ type: String }],
-    Devices: [{ type: mongoose.Schema.Types.ObjectId, ref: Device }],
-    Maintenance:{type:String}
+    Devices: [{ type: mongoose.Schema.Types.ObjectId, ref: Device, autopopulate: true }],
+    Maintenance: { type: String }
   },
   { timestamps: true }
 );
@@ -26,5 +26,7 @@ ServiceSchema.pre(
     }
   }
 );
+
+ServiceSchema.plugin(require('mongoose-autopopulate'));
 const Service = mongoose.model("Service", ServiceSchema);
 module.exports = Service;

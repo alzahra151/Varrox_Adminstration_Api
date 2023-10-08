@@ -8,7 +8,9 @@ async function SignUp(data) {
         Email: data.Email,
         Mobile: data.Mobile,
         Password: data.Password,
-        Country: data.Country
+        Country: data.Country,
+        Image: data.Image
+
     })
     console.log(NewUser)
 
@@ -32,5 +34,37 @@ async function Login(data) {
         }
     }
 }
+async function changePassword(currentPass, newpass, userId) {
+    const user = await Admin.findById(userId)
+    if (user === null) {
+        return { status: 401, result: "incorrect user" }
+    }
+    else {
+        const verfiyPassword = await bcrypt.compareSync(currentPass, user.Password)
+        if (verfiyPassword == true) {
+            try {
+                const salt = await bcrypt.genSaltSync(10);
+                const hash = await bcrypt.hashSync(newpass, salt);
+                console.log(hash)
+                const user = await Admin.findByIdAndUpdate(userId, { Password: hash }, { new: true })
+                return user
+            }
+            catch (err) {
+                return { error: err }
+            }
+        } else {
+            return { result: "incorrect password" }
+        }
+    }
+}
+async function getUserById(userId) {
+    const user = await Admin.findById(userId)
+    return user
+}
+async function updateAdmin(id, data) {
+    const user = await Admin.findByIdAndUpdate(id, data, { new: true })
+    return user
 
-module.exports = { SignUp, Login }
+}
+
+module.exports = { SignUp, Login, changePassword, getUserById, updateAdmin }

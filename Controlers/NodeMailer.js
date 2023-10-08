@@ -6,11 +6,11 @@ const mailTransporter = nodemailer.createTransport({
     pass: "qgjk gpbx idjk clfw",
   },
 });
-async function SendEmail(OfferData) {
-  let sender = OfferData.PriceOfferReq.ReprsentativeID.Email;
-  let reciver = OfferData.PriceOfferReq.Email;
-  // let sender = 'alzahradesoky@gmail.com'
-  // let reciver = 'alzahradesoky.15@gmail.com'
+async function SendEmail(OfferData, pdfBuffer) {
+  // let sender = OfferData.PriceOfferReq.ReprsentativeID.Email;
+  // let reciver = OfferData.PriceOfferReq.Email;
+  let sender = 'alzahradesoky@gmail.com'
+  let reciver = 'alzahradesoky.15@gmail.com'
   let mailDetails = {
     from: sender,
     to: reciver,
@@ -18,8 +18,8 @@ async function SendEmail(OfferData) {
     text: "our Offer from varrox systems ",
     attachments: [
       {
-        filename: "VarroOffer.pdf",
-        path: "./PDF/VarroOffer.pdf",
+        filename: `${OfferData.QrCode}.pdf`,
+        content: pdfBuffer,
       },
     ],
   };

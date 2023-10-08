@@ -4,10 +4,10 @@ const mongoose = require("mongoose");
 
 async function AddDevice(data) {
   const device = await Device.create(data);
-  await Service.findByIdAndUpdate(data.ServiceID, {
+  const service = await Service.findByIdAndUpdate(data.ServiceID, {
     $push: { Devices: device._id },
   }); //Add device to his service
-  return device;
+  return service;
 }
 async function GetAllDevices() {
   const devices = await Device.find();

@@ -8,15 +8,18 @@ const {
   updateReq,
   DeleteReq,
   GetReprsentativeApprovedReq,
-  GetRejectedReq,
+  GetAllRejectedReq,
   NewReqCount,
   GetAllSendRequests,
   getReqByID,
-  getCommentedReq,
+  getRepresentCommentedReq,
   getCompletedReqs,
   GetAllRequests,
   GetSalesMangersApprovedReq,
   NewPriceOfferCount,
+  getRepRejectedreqs,
+  getAllCommentedReq,
+  NewReqs
 } = require("../Controlers/PriceOfferRequest");
 const { VerfiyToken, AuthorizeRoles } = require("../MiddleWare/Auth");
 const { VerfiyAdminToken } = require("../MiddleWare/AdminAuth");
@@ -36,7 +39,7 @@ router.get("/", async (req, res, next) => {
     res.status(401).json(err.message);
   }
 });
-router.get("/SalesMangerRequests", VerfiyToken, async (req, res, next) => {
+router.get("/SalesMangerRequests", VerfiyToken, async (req, res, next) => { ///done
   try {
     const requestes = await GetAllRequestsForSalesManger();
     res.status(200).json(requestes);
@@ -45,7 +48,7 @@ router.get("/SalesMangerRequests", VerfiyToken, async (req, res, next) => {
   }
 });
 
-router.get("/CompletedRequests", VerfiyToken, async (req, res, next) => {
+router.get("/completed-requests", VerfiyToken, async (req, res, next) => { ///done
   try {
     const requestes = await getCompletedReqs();
     res.status(200).json(requestes);
@@ -62,7 +65,7 @@ router.get("/GetAllSendRequests", async (req, res, next) => {
     res.status(401).json(err.message);
   }
 });
-router.get("/ReprsentativeApprovedReq", VerfiyToken, async (req, res, next) => {
+router.get("/reprsentative-approved-req", VerfiyToken, async (req, res, next) => { ///done
   const RepresentativeId = req.Representative.id;
   try {
     const requestes = await GetReprsentativeApprovedReq(RepresentativeId);
@@ -71,7 +74,33 @@ router.get("/ReprsentativeApprovedReq", VerfiyToken, async (req, res, next) => {
     res.status(401).json(err.message);
   }
 });
-router.get("/SalesMangersApprovedReq", async (req, res, next) => {
+router.get("/reprsentative-approved-req", VerfiyToken, async (req, res, next) => {
+  const RepresentativeId = req.Representative.id;
+  try {
+    const requestes = await GetReprsentativeApprovedReq(RepresentativeId);
+    res.status(200).json(requestes);
+  } catch (err) {
+    res.status(401).json(err.message);
+  }
+});
+router.get("/reprsentative-rejected-req", VerfiyToken, async (req, res, next) => { /// done
+  const RepresentativeId = req.Representative.id;
+  try {
+    const requestes = await getRepRejectedreqs(RepresentativeId);
+    res.status(200).json(requestes);
+  } catch (err) {
+    res.status(401).json(err.message);
+  }
+});
+router.get("/commented-reqs", VerfiyToken, async (req, res, next) => { /// done
+  try {
+    const requestes = await getAllCommentedReq();
+    res.status(200).json(requestes);
+  } catch (err) {
+    res.status(401).json(err.message);
+  }
+});
+router.get("/salesMangersApprovedReq", async (req, res, next) => { //done
   try {
     const requestes = await GetSalesMangersApprovedReq();
     res.status(200).json(requestes);
@@ -79,9 +108,9 @@ router.get("/SalesMangersApprovedReq", async (req, res, next) => {
     res.status(401).json(err.message);
   }
 });
-router.get("/RejectedReq", async (req, res, next) => {
+router.get("/rejected-req", async (req, res, next) => { //done
   try {
-    const requestes = await GetRejectedReq();
+    const requestes = await GetAllRejectedReq();
     res.status(200).json(requestes);
   } catch (err) {
     res.status(401).json(err.message);
@@ -95,7 +124,7 @@ router.get("/PendingReq", async (req, res, next) => {
     res.status(401).json(err.message);
   }
 });
-router.get("/NewReqCount", async (req, res) => {
+router.get("/NewReqCount", async (req, res) => { ///done
   try {
     const count = await NewReqCount();
     res.status(200).json(count);
@@ -103,17 +132,15 @@ router.get("/NewReqCount", async (req, res) => {
     res.status(401).json(err.message);
   }
 });
-router.get("/NewOffersCount", async (req, res) => {
+router.get("/new-reqs", async (req, res) => {
   try {
-    const count = await NewPriceOfferCount();
-    res.status(200).json(count);
+    const reqs = await NewReqs();
+    res.status(200).json(reqs);
   } catch (err) {
     res.status(401).json(err.message);
   }
 });
-router.get(
-  "/RepresenetitaveRequests",
-  [VerfiyToken, AuthorizeRoles(["Representative"])],
+router.get("/RepresenetitaveRequests", [VerfiyToken, AuthorizeRoles(["Representative"])], ///done (archieve)
   async (req, res, next) => {
     try {
       const RepresentativeId = req.Representative.id;
@@ -124,19 +151,18 @@ router.get(
     }
   }
 );
-router.get(
-  "/CommentedReqs",
-  AuthorizeRoles(["Representative"]),
+router.get("/commented-represent-reqs", AuthorizeRoles(["Representative"]), //done
   async (req, res, next) => {
     try {
       const RepresentativeId = req.Representative.id;
-      const Requests = await getCommentedReq(RepresentativeId);
+      const Requests = await getRepresentCommentedReq(RepresentativeId);
       res.status(200).json(Requests);
     } catch (err) {
       res.status(401).json(err.message);
     }
   }
 );
+
 router.get("/:id", async (req, res, next) => {
   try {
     const id = req.params.id;

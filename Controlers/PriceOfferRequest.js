@@ -9,80 +9,39 @@ async function AddPriceOfferReq(data) {
 async function GetAllRequests() {
   const requests = await PriceOfferRequest.find()
     .populate("ReprsentativeID")
-    .populate({
-      path: "Services",
-      populate: {
-        path: "Devices",
-        model: "Device",
-      },
-    })
     .sort({ createdAt: -1 });
   return requests;
 }
 async function GetAllSendRequests() {
   const requests = await PriceOfferRequest.find({ SendToAdmin: true })
     .populate("ReprsentativeID")
-    .populate({
-      path: "Services",
-      populate: {
-        path: "Devices",
-        model: "Device",
-      },
-    })
     .sort({ createdAt: -1 });
   return requests;
 }
-async function GetAllRequestsForSalesManger() {
+async function GetAllRequestsForSalesManger() { ////done
   const requests = await PriceOfferRequest.find({
     SendToAdmin: false,
     Complete: true,
   })
     .populate("ReprsentativeID")
-    .populate({
-      path: "Services",
-      populate: {
-        path: "Devices",
-        model: "Device",
-      },
-    })
     .sort({ createdAt: -1 });
   return requests;
 }
-async function getReqByID(id) {
+async function getReqByID(id) { ///done
   const request = await PriceOfferRequest.findById(id)
     .populate("ReprsentativeID")
-    .populate({
-      path: "Services",
-      populate: {
-        path: "Devices",
-        model: "Device",
-      },
-    });
   return request;
 }
-async function getRepresentativeRequests(id) {
-   const requests = await PriceOfferRequest.find({
-      ReprsentativeID: id,
-      Complete: false,
-   })
-      .populate("ReprsentativeID")
-      .populate({
-         path: "PriceOffer",
-         populate: {
-            path: "Services",
-            model: "Service",
-         },
-         populate: {
-            path: "Services.Devices",
-            model:"Device"
-         }
-        
-
-    })
+async function getRepresentativeRequests(id) { ///done
+  const requests = await PriceOfferRequest.find({
+    ReprsentativeID: id,
+    Complete: false,
+  })
+    .populate("ReprsentativeID")
     .sort({ createdAt: -1 });
   return requests;
 }
-async function getCommentedReq(id) {
+async function getRerpresentCommentedReq(id) {  ///// done
   const requests = await PriceOfferRequest.find({
     ReprsentativeID: id,
     Comment: { $ne: null },
@@ -90,24 +49,17 @@ async function getCommentedReq(id) {
   });
   return requests;
 }
-async function getCompletedReqs() {
+async function getCompletedReqs() { //// done
   const requests = await PriceOfferRequest.find({
     SendToAdmin: true,
     Complete: true,
     InitialAmountOfMoney: { $ne: null },
   })
     .populate("ReprsentativeID")
-    .populate({
-      path: "Services",
-      populate: {
-        path: "Devices",
-        model: "Device",
-      },
-    })
     .sort({ createdAt: -1 });
   return requests;
 }
-async function updateReq(id, updatedData) {
+async function updateReq(id, updatedData) { /// done
   const updatedReq = await PriceOfferRequest.findByIdAndUpdate(
     id,
     updatedData,
@@ -117,66 +69,101 @@ async function updateReq(id, updatedData) {
   );
   return updatedReq;
 }
-async function DeleteReq(id) {
+async function DeleteReq(id) { ///done
   const deletedReq = await PriceOfferRequest.findOneAndDelete(id);
   return response.json("deleted");
 }
-async function GetReprsentativeApprovedReq(id) {
+async function GetReprsentativeApprovedReq(id) { //done
   const requests = await PriceOfferRequest.find({
     ReprsentativeID: id,
     ApproveToReprsentative: true,
+    Complete: true,
+    SendToAdmin: true,
   })
     .populate("ReprsentativeID")
-    .populate({
-      path: "Services",
-      populate: {
-        path: "Devices",
-        model: "Device",
-      },
-    })
     .sort({ createdAt: -1 });
   return requests;
 }
-async function GetSalesMangersApprovedReq() {
-  const requests = await PriceOfferRequest.find({ ApproveToSalesManger: true })
+async function GetSalesMangersApprovedReq() {  /// done
+  const requests = await PriceOfferRequest.find({
+    ApproveToSalesManger: true, Complete: true,
+    SendToAdmin: true,
+  })
     .populate("ReprsentativeID")
-    .populate({
-      path: "Services",
-      populate: {
-        path: "Devices",
-        model: "Device",
-      },
-    })
     .sort({ createdAt: -1 });
   return requests;
 }
-async function GetRejectedReq() {
-  const requests = await PriceOfferRequest.find({ Rejected: true })
+async function GetAllRejectedReq() {
+  const requests = await PriceOfferRequest.find({
+    Rejected: true,
+    Complete: true,
+    SendToAdmin: true,
+  })
     .populate("ReprsentativeID")
-    .populate({
-      path: "Services",
-      populate: {
-        path: "Devices",
-        model: "Device",
-      },
-    })
     .sort({ createdAt: -1 });
   return requests;
+}
+async function getRepRejectedreqs(id) { /// done
+  const requests = await PriceOfferRequest.find({
+    ReprsentativeID: id,
+    Rejected: true,
+  }).sort({ createdAt: -1 })
+  return requests
+}
+async function getRepresentCommentedReq(id) { /// 
+  const requests = await PriceOfferRequest.find({
+    ReprsentativeID: id,
+    Comment: { $ne: null },
+    Complete: false,
+    SendToAdmin: true,
+  }).sort({ createdAt: -1 })
+  return requests
+}
+async function getAllCommentedReq() { ////done
+  const requests = await PriceOfferRequest.find({
+    Comment: { $ne: null },
+    Complete: false,
+    SendToAdmin: true,
+  }).sort({ createdAt: -1 })
+  return requests
 }
 
-async function NewReqCount() {
+async function NewReqCount() { /// done
   const count = await PriceOfferRequest.countDocuments({
-    SendToAdmin: false,
+    IsOpen: false,
     Complete: true,
+    SendToAdmin: true,
   });
   return count;
 }
+async function NewReqs() { /// done
+  const count = await PriceOfferRequest.find({
+    IsOpen: false,
+    Complete: true,
+    SendToAdmin: true,
+  });
+  return count;
+}
+
 async function NewPriceOfferCount() {
   const count = await PriceOfferRequest.countDocuments({
     SendToAdmin: true,
     Complete: true,
   });
   return count;
+}
+async function generateRandomNumber() {
+  const min = 100000; // Minimum 6-digit number
+  const max = 999999; // Maximum 6-digit number
+
+  // Generate a random number
+  const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  // Check if the generated number is unique
+  // You can implement your own logic to ensure uniqueness,
+  // such as checking against a database or an existing list of numbers.
+
+  return randomNumber;
 }
 module.exports = {
   AddPriceOfferReq,
@@ -185,13 +172,17 @@ module.exports = {
   updateReq,
   DeleteReq,
   GetReprsentativeApprovedReq,
-  GetRejectedReq,
+  GetAllRejectedReq,
   NewReqCount,
   GetAllSendRequests,
   getReqByID,
-  getCommentedReq,
+  getRerpresentCommentedReq,
   getCompletedReqs,
   GetAllRequests,
   GetSalesMangersApprovedReq,
   NewPriceOfferCount,
+  getRepRejectedreqs,
+  getRepresentCommentedReq,
+  getAllCommentedReq,
+  NewReqs
 };

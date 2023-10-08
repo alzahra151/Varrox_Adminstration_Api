@@ -1,7 +1,18 @@
 const Service = require('../models/Service')
-
+const Device = require('../models/Device')
 async function AddService(data) {
-  const service = await Service.create(data)
+  console.log(data)
+  const NewService = new Service({
+    Name: data.Name,
+    Details: data.Details,
+    Maintenance: data.Maintenance
+  })
+  await NewService.save()
+  const devices = await Device.create(data.Devices)
+  const service = await Service.findByIdAndUpdate(NewService._id.valueOf(), {
+    $push: { Devices: { $each: devices } }
+  }, { new: true });
+
   return service
 }
 async function GetAllServices() {
@@ -14,6 +25,10 @@ async function UpdateService(id, data) {
   })
   return service
 }
+async function getServiceById(id) {
+  const service = await Service.findById(id)
+  return service
+}
 async function DeleteService(id) {
   const service = await Service.findById(id)
   if (service == null) {
@@ -24,4 +39,4 @@ async function DeleteService(id) {
     return "Deleted Successfully"
   }
 }
-module.exports = { AddService, GetAllServices, UpdateService, DeleteService }
+module.exports = { AddService, GetAllServices, UpdateService, DeleteService, getServiceById }

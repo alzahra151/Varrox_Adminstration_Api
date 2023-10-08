@@ -6,6 +6,7 @@ const RepresentativeSchema = mongoose.Schema({
     Country: { type: String, required: true },
     Mobile: { type: String, required: true },
     Password: { type: String, required: true },
+    Image: { type: String },
     Role: { type: String, enum: ['SalesManager', 'Representative'], default: 'Representative' }
 },
     { timestamps: true })

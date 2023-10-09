@@ -1,11 +1,6 @@
 const ejs = require("ejs");
 const puppeteer = require('puppeteer')
-// if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
-//     chrome = require("chrome-aws-lambda");
-//     puppeteer = require("puppeteer-core");
-// } else {
-//     puppeteer = require("puppeteer");
-// }
+require("dotenv").config()
 async function generatePdf(data) {
     console.log("test")
     console.log(data)

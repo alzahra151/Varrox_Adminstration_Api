@@ -7,7 +7,7 @@ async function generatePdf(data) {
     let browser;
     try {
         browser = await puppeteer.launch({
-            headless: 'new',
+            headless: false,
             args: [
                 "--disable-setuid-sandbox",
                 "--no-sandbox",
@@ -23,9 +23,17 @@ async function generatePdf(data) {
 
         const html = await ejs.renderFile("./views/OfferMail.ejs", { data: data })
         // console.log(html)
-        await page.setContent(html, { waitUntil: 'networkidle0' });
-        await page.waitForNavigation({ timeout: 60000 });
+
+        await page.setContent(html, { waitUntil: 'domcontentloaded' });
+        // await page.waitForNavigation({ timeout: 60000 });
+        // await page.waitForEvent('domcontentloaded', { timeout: 60000 });
         await page.emulateMediaType('screen');
+        // await page.waitForNavigation({
+        //     waitUntil: 'networkidle0',
+        //     timeout: 9000,
+        // });
+
+
         const pdf = await page.pdf({
 
             format: 'A4',

@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer')
 require("dotenv").config()
 async function generatePdf(data) {
     console.log("test")
-    console.log(data)
+    // console.log(data)
     let browser;
     try {
         browser = await puppeteer.launch({
@@ -22,7 +22,9 @@ async function generatePdf(data) {
         const [page] = await browser.pages();
 
         const html = await ejs.renderFile("./views/OfferMail.ejs", { data: data })
+        console.log(html)
         await page.setContent(html, { waitUntil: 'networkidle0' });
+        console.log(page)
         await page.emulateMediaType('screen');
         const pdf = await page.pdf({
 

@@ -7,10 +7,7 @@ async function generatePdf(data) {
     console.log(data)
     let browser;
     try {
-        browser = await puppeteer.launch({
-            headless: 'new',
-            args: ['--no-sandbox', '--disable-setuid-sandbox'],
-        });
+        browser = await puppeteer.launch({ headless: false, args: ['--disable-extensions', '--disable-web-security', '--no-sandbox', '--disable-setuid-sandbox'], });
         const [page] = await browser.pages();
         const html = await ejs.renderFile("./views/OfferMail.ejs", { data: data })
         // console.log(html)

@@ -1,6 +1,6 @@
 const ejs = require("ejs");
 const chrome = require("chrome-aws-lambda");
-const puppeteer = require('puppeteer-core')
+const puppeteer = require('puppeteer')
 // if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
 //     chrome = require("chrome-aws-lambda");
 //     puppeteer = require("puppeteer-core");

@@ -22,7 +22,7 @@ async function generatePdf(data) {
         const [page] = await browser.pages();
 
         const html = await ejs.renderFile("./views/OfferMail.ejs", { data: data })
-        await page.setContent(html, { waitUntil: 'networkidle0' });
+        await page.setContent(html, { waitUntil: 'domcontentloaded' });
         await page.emulateMediaType('screen');
         const pdf = await page.pdf({
 

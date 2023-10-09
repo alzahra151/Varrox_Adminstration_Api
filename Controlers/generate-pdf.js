@@ -13,9 +13,9 @@ async function generatePdf(data) {
     let browser;
     try {
         browser = await puppeteer.launch({
-            args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
-            defaultViewport: chrome.defaultViewport,
-            executablePath: await chrome.executablePath,
+            args: ["--hide-scrollbars", "--disable-web-security"],
+            // defaultViewport: chrome.defaultViewport,
+            executablePath: "./.cache/puppeteer/chrome/win64-1108766/chrome-win/chrome.exe",
             headless: true,
             ignoreHTTPSErrors: true,
         });

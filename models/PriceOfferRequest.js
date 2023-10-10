@@ -11,7 +11,7 @@ const PriceOfferRequestSchema = mongoose.Schema({
   Country: { type: String, require: true },
   Governorate: { type: String },
   City: { type: String },
-  ReprsentativeID: { type: mongoose.Schema.Types.ObjectId, ref: Representative },
+  ReprsentativeID: { type: mongoose.Schema.Types.ObjectId, ref: Representative, autopopulate: true },
   Name: { type: String, required: true },
   Mobile: { type: String, required: true },
   Phone: { type: String },

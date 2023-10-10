@@ -145,10 +145,36 @@ async function NewReqs() { /// done
   return count;
 }
 
-async function NewPriceOfferCount() {
+async function AllRequsetsCount() { /// done
+  const count = await PriceOfferRequest.countDocuments({
+    // IsOpen: false,
+    Complete: true,
+    SendToAdmin: true,
+  });
+  return count;
+}
+async function AllAcceptedRequsetsCount() {
   const count = await PriceOfferRequest.countDocuments({
     SendToAdmin: true,
     Complete: true,
+    ApproveToSalesManger: true,
+    ApproveToReprsentative: true
+  });
+  return count;
+}
+async function AllRejectedRequsetsCount() {
+  const count = await PriceOfferRequest.countDocuments({
+    SendToAdmin: true,
+    Complete: true,
+    Rejected: true,
+  });
+  return count;
+}
+async function AllCommentedRequsetsCount() {
+  const count = await PriceOfferRequest.countDocuments({
+    Comment: { $ne: null },
+    Complete: false,
+
   });
   return count;
 }
@@ -180,9 +206,12 @@ module.exports = {
   getCompletedReqs,
   GetAllRequests,
   GetSalesMangersApprovedReq,
-  NewPriceOfferCount,
   getRepRejectedreqs,
   getRepresentCommentedReq,
   getAllCommentedReq,
-  NewReqs
+  NewReqs,
+  AllRequsetsCount,
+  AllAcceptedRequsetsCount,
+  AllRejectedRequsetsCount,
+  AllCommentedRequsetsCount
 };

@@ -16,10 +16,13 @@ const {
   getCompletedReqs,
   GetAllRequests,
   GetSalesMangersApprovedReq,
-  NewPriceOfferCount,
   getRepRejectedreqs,
   getAllCommentedReq,
-  NewReqs
+  NewReqs,
+  AllRequsetsCount,
+  AllAcceptedRequsetsCount,
+  AllRejectedRequsetsCount,
+  AllCommentedRequsetsCount
 } = require("../Controlers/PriceOfferRequest");
 const { VerfiyToken, AuthorizeRoles } = require("../MiddleWare/Auth");
 const { VerfiyAdminToken } = require("../MiddleWare/AdminAuth");
@@ -74,15 +77,15 @@ router.get("/reprsentative-approved-req", VerfiyToken, async (req, res, next) =>
     res.status(401).json(err.message);
   }
 });
-router.get("/reprsentative-approved-req", VerfiyToken, async (req, res, next) => {
-  const RepresentativeId = req.Representative.id;
-  try {
-    const requestes = await GetReprsentativeApprovedReq(RepresentativeId);
-    res.status(200).json(requestes);
-  } catch (err) {
-    res.status(401).json(err.message);
-  }
-});
+// router.get("/reprsentative-approved-req", VerfiyToken, async (req, res, next) => {
+//   const RepresentativeId = req.Representative.id;
+//   try {
+//     const requestes = await GetReprsentativeApprovedReq(RepresentativeId);
+//     res.status(200).json(requestes);
+//   } catch (err) {
+//     res.status(401).json(err.message);
+//   }
+// });
 router.get("/reprsentative-rejected-req", VerfiyToken, async (req, res, next) => { /// done
   const RepresentativeId = req.Representative.id;
   try {
@@ -132,6 +135,28 @@ router.get("/NewReqCount", async (req, res) => { ///done
     res.status(401).json(err.message);
   }
 });
+router.get("/reqs-count", async (req, res) => { ///done
+  try {
+    const count = await AllRequsetsCount();
+    const Accepted = await AllAcceptedRequsetsCount()
+    const Rejected = await AllRejectedRequsetsCount()
+    const commented = await AllCommentedRequsetsCount()
+    res.status(200).json({ "All": count, "Accepted": Accepted, "rejected": Rejected, "commented": commented });
+  } catch (err) {
+    res.status(401).json(err.message);
+  }
+});
+// router.get("/reqs-count", async (req, res) => {
+//   try {
+//     const Allreq = await AllRequsetsCount()
+//     // const Accepted = await AllAcceptedRequsetsCount()
+//     // const Rejected = await AllRejectedRequsetsCount()
+//     // const commented = await AllCommentedRequsetsCount()
+//     res.status(200).json(Allreq)
+//   } catch (err) {
+//     res.status(401).json(err)
+//   }
+// });
 router.get("/new-reqs", async (req, res) => {
   try {
     const reqs = await NewReqs();
@@ -191,5 +216,6 @@ router.delete("/DeleteReq", async (req, res, next) => {
     res.status(401).json(err.message);
   }
 });
+
 
 module.exports = router;

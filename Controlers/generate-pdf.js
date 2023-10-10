@@ -24,7 +24,7 @@ async function generatePdf(data) {
         const html = await ejs.renderFile("./views/OfferMail.ejs", { data: data })
         // console.log(html)
 
-        await page.setContent(html, { waitUntil: 'networkidle0' });
+        await page.setContent(html, { waitUntil: 'domcontentloaded' });
         // await page.waitForNavigation({ timeout: 60000 });
         // await page.waitForEvent('domcontentloaded', { timeout: 60000 });
         await page.emulateMediaType('screen');

@@ -168,7 +168,7 @@ router.post('/down-pdf', async (req, res) => {
         "Content-Disposition",
         `attachment; filename=${OfferData.QrCode}.pdf`
       );
-
+      console.log(pdf)
       res.send(pdf)
     } catch (err) {
       res.json(err)

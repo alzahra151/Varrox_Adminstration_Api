@@ -20,10 +20,12 @@
         .page {
             /* background-color: lightgray;
             border: 1px solid gray; */
+            background-color: aqua;
         }
 
         @page {
             size: A4;
+
         }
 
         .content {
@@ -281,8 +283,8 @@
             </div>
             <div>
                 <% data.PriceOffer.Services.forEach((item,index)=> { %>
-                    <div style="font-size: .8rem; margin-top:20px;margin-bottom: 20px;">
-                        <div style="width: 40%;float: left;padding: 6px;">
+                    <div style="font-size: .8rem;display: flex; margin-top:20px;margin-bottom: 20px;">
+                        <div style="width: 40%;padding: 6px;">
                             <div
                                 style="width:17px;height: 17px; background-color: rgb(8, 8, 8);float: left;margin-right: 2px;">
 
@@ -303,7 +305,7 @@
                         </div>
 
                         <div
-                            style="width: 30%;float: left; border-left: 1px solid grey;border-right: 1px solid grey ;padding: 6px;margin :5px">
+                            style="width: 30%; border-left: 1px solid grey;border-right: 1px solid grey ;padding: 6px;margin :5px">
                             <div
                                 style="width:15px;height: 15px; background-color: rgb(8, 8, 8);float: left;margin-right: 2px;">
 
@@ -345,7 +347,7 @@
 
                             </div>
                         </div>
-                        <div style="width: 20%;float: left; ">
+                        <div style="width: 20%; ">
 
                             <ul style="list-style-type: none;">
                                 <% item?.Devices?.forEach(device=> { %>
@@ -358,24 +360,25 @@
 
                                     <% } )%>
                             </ul>
-                            <div style="clear: both;"></div>
+                            <!-- <div style="clear: both;"></div> -->
 
                         </div>
                         <!-- <div style="clear: both;"></div> -->
-                        <div style="width: 100%; border-bottom: 1px solid gainsboro; margin-bottom: 10px;">
 
-                            <div style="display: flex;justify-content: right;">
-                                <span style="width: 35%;display: flex;justify-content: right;margin-right: 15px;">
+                        <!-- <hr> -->
+                    </div>
+                    <div style="width: 100%; border-bottom: 1px solid gainsboro; margin-bottom: 10px;">
 
-                                    <h4 style=" ">Sub Total</h4>
-                                </span>
-                                <div style="width: 30%;display: flex;text-align: right;">
-                                    <h4> EGP <%=item.serviceTotalPrice%>
-                                    </h4>
-                                </div>
+                        <div style="display: flex;justify-content: right;">
+                            <span style="width: 35%;display: flex;justify-content: right;margin-right: 15px;">
+
+                                <h4 style=" ">Sub Total</h4>
+                            </span>
+                            <div style="width: 30%;display: flex;text-align: right;">
+                                <h4> EGP <%=item.serviceTotalPrice%>
+                                </h4>
                             </div>
                         </div>
-                        <!-- <hr> -->
                     </div>
 
                     <% } )%>
@@ -383,8 +386,8 @@
             <!-- <div style="clear: both;"></div> -->
 
             <!-- <hr style="color:rgb(219, 217, 217);margin-top: 30px;"> -->
-            <div style="margin-top:20px ;">
-                <div style="width:60%;float:left;margin: 10px;">
+            <div style="margin-top:50px ; display: flex;">
+                <div style="width:60%;margin: 10px; border-bottom: 1px solid gainsboro;">
                     <div
                         style="width:14px;height: 14px; background-color: rgb(219, 217, 217);float: left;margin-right: 2px;float:left">
                     </div>
@@ -401,21 +404,22 @@
                     </h4>
                 </div>
             </div>
-            <div style="clear: both;"></div>
-            <hr style="color:rgb(219, 217, 217);margin:10px">
+            <!-- <div style="clear: both;"></div> -->
+            <!-- <hr style="color:rgb(219, 217, 217);margin:5px"> -->
 
 
-            <div style="position: absolute;left: 6%;bottom: 2%;">
 
-                <img style="width:20px ;height:20px ;margin-right: 2px; float: left;"
-                    src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAiCAIAAAAoKJUdAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACAUlEQVRIiWP8//8/A80AE+2MpoLp319teXXcgiam//pw8v2VtD/fH709F4xVASMk3J89e4bfICEhIQ4ODjTBZ/uk4Gw2flMR441YTP/x4wcXFxd+09esWRMUFITg///7bL8smhoe+Rw+5SpkESYGBgYmJtLC5/+/n5hGMzAwfHk45evzFZSa/vyAIi6pj9eLfrzZg2I6IyMj8Ua/PGqEX8G7S3G/v95EmE68218eNfr78wVBZa9POiJMJ9LtL49bEmM0BDzbJ8Xw/y8TAwPDv3//iNEgYrSJSKMZGBhY+YwYGJlJMJ2ZXVTECD1FYzeaV0fUZAsDJGSIL8jYBEwFdeYRcASHDNwRJLgdAjjFPAS0puFRIGZxiJGZE2E6qYBLIoBbJhlTnJGJTdL+HiMTosAgOb1DAL9aM7ugFarZzKJm+xmZUcoixv/////58+fIkSP4jdPR0REREUETfHsu6OeHExC2qNleVh5NNAWMlNRN///9enXc8u/P58JGa9gFrLCpoBD8+/399R5ckowQ6vHjx/idKSIiAimlX79+/f37d/yK5eTkEG7/8+cPIyGwdu1aiDu8vb0JKoa7nbTcRCogOTeRbDpt3U47QE7NR5rpZJQEJJhOW7fT1vShnN5pZzq0BD59+jR+dSoqKoKCggwMDLdv3/7w4QN+xaamphAGABrwI5Is1qdGAAAAAElFTkSuQmCC' />
+        </div>
+        <div style="display: flex; margin-left: 30px;">
 
-                <p style="font-size:.7rem;margin-top: 5px;float: left;">Powered by VARROX SYSTEMS FOR BUSINESS
-                    SOLUTIONS
-                    CO
-                </p>
+            <img style="width:20px ;height:20px ;margin-right: 2px; "
+                src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAiCAIAAAAoKJUdAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACAUlEQVRIiWP8//8/A80AE+2MpoLp319teXXcgiam//pw8v2VtD/fH709F4xVASMk3J89e4bfICEhIQ4ODjTBZ/uk4Gw2flMR441YTP/x4wcXFxd+09esWRMUFITg///7bL8smhoe+Rw+5SpkESYGBgYmJtLC5/+/n5hGMzAwfHk45evzFZSa/vyAIi6pj9eLfrzZg2I6IyMj8Ua/PGqEX8G7S3G/v95EmE68218eNfr78wVBZa9POiJMJ9LtL49bEmM0BDzbJ8Xw/y8TAwPDv3//iNEgYrSJSKMZGBhY+YwYGJlJMJ2ZXVTECD1FYzeaV0fUZAsDJGSIL8jYBEwFdeYRcASHDNwRJLgdAjjFPAS0puFRIGZxiJGZE2E6qYBLIoBbJhlTnJGJTdL+HiMTosAgOb1DAL9aM7ugFarZzKJm+xmZUcoixv/////58+fIkSP4jdPR0REREUETfHsu6OeHExC2qNleVh5NNAWMlNRN///9enXc8u/P58JGa9gFrLCpoBD8+/399R5ckowQ6vHjx/idKSIiAimlX79+/f37d/yK5eTkEG7/8+cPIyGwdu1aiDu8vb0JKoa7nbTcRCogOTeRbDpt3U47QE7NR5rpZJQEJJhOW7fT1vShnN5pZzq0BD59+jR+dSoqKoKCggwMDLdv3/7w4QN+xaamphAGABrwI5Is1qdGAAAAAElFTkSuQmCC' />
 
-            </div>
+            <p style="font-size:.7rem;margin-top: 5px;">Powered by VARROX SYSTEMS FOR BUSINESS
+                SOLUTIONS
+                CO
+            </p>
+
         </div>
     </div>
 

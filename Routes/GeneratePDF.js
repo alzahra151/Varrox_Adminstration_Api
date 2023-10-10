@@ -149,6 +149,7 @@ router.post("/SendEmail", async (req, res, next) => {
 // })
 router.post('/down-pdf', async (req, res) => {
   let OfferData = req.body;
+  console.log(OfferData)
   const qrCode = OfferData.QrCode
   const strCode = JSON.stringify(qrCode)
   console.log(qrCode, strCode)
@@ -167,6 +168,7 @@ router.post('/down-pdf', async (req, res) => {
         "Content-Disposition",
         `attachment; filename=${OfferData.QrCode}.pdf`
       );
+
       res.send(pdf)
     } catch (err) {
       res.json(err)

@@ -162,6 +162,7 @@ router.post('/down-pdf', async (req, res) => {
     try {
       const pdf = await generatePdf(OfferData)
       res.contentType("application/pdf");
+      res.setHeader("Access-Control-Allow-Origin", "*");
       res.setHeader(
         "Content-Disposition",
         `attachment; filename=${OfferData.QrCode}.pdf`

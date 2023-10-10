@@ -7,7 +7,7 @@ async function generatePdf(data) {
     let browser;
     try {
         browser = await puppeteer.launch({
-            headless: 'new',
+            headless: false,
             args: [
                 "--disable-setuid-sandbox",
                 "--no-sandbox",

@@ -33,7 +33,9 @@ async function generatePdf(data) {
         //     timeout: 9000,
         // });
 
-
+        // await page.addStyleTag({
+        //     // content: `.content{  background-color: red;heigt:12in}`,
+        // })
         const pdf = await page.pdf({
 
             format: 'A4',

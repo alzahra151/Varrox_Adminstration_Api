@@ -1,11 +1,16 @@
 const mongoose = require("mongoose");
 const Device = require("./Device");
+
+const mentenanceSchema = mongoose.Schema({
+  description: { type: String, required: true },
+  price: { type: Number, required: true }
+})
 const ServiceSchema = mongoose.Schema(
   {
     Name: { type: String, required: true },
     Details: [{ type: String }],
     Devices: [{ type: mongoose.Schema.Types.ObjectId, ref: Device, autopopulate: true }],
-    Maintenance: { type: String }
+    Maintenance: mentenanceSchema
   },
   { timestamps: true }
 );

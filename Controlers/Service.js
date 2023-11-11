@@ -20,7 +20,8 @@ async function GetAllServices() {
   return services
 }
 async function UpdateService(id, data) {
-  const service = await Service.findOneAndUpdate({ _id: id }, data, {
+  console.log(id)
+  const service = await Service.findByIdAndUpdate(id, data, {
     new: true
   })
   return service

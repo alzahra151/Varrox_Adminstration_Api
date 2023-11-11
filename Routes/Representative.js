@@ -30,8 +30,9 @@ router.post('/', uploader.single("Image"), async (req, res) => {
 })
 router.post("/Login", async (req, res, next) => {
   try {
-    const StoredRepresentative = await Login(req.body);
-    res.status(200).json(StoredRepresentative);
+    const { status, result } = await Login(req.body);
+    // res.status(200).json(StoredRepresentative);
+    res.status(status).json(result);
   } catch (err) {
     res.status(401).json(err.message);
   }

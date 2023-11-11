@@ -42,10 +42,10 @@ router.post('/', uploader.single("Image"), async (req, res) => {
 })
 router.post('/Login', async (req, res, next) => {
     try {
-        const StoredAdmin = await Login(req.body)
-        const token = StoredAdmin.result.AccessToken
+        const { status, result } = await Login(req.body)
+        // const token = StoredAdmin.result.AccessToken
         // res.cookie('token', token, { maxAge: 3600000, httpOnly: true, secure: true })
-        res.status(200).json(StoredAdmin);
+        res.status(status).json(result);
     } catch (err) {
         res.status(401).json(err.message)
     }

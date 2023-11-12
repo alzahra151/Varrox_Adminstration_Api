@@ -45,7 +45,7 @@ async function DeleteDevice(id) {
       await session.abortTransaction();
       console.error(
         "An error occurred while deleting relational devices and service:",
-        error
+        err
       );
     } finally {
       // End the session

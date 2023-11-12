@@ -21,9 +21,20 @@ async function GetAllServices() {
 }
 async function UpdateService(id, data) {
   console.log(id)
-  const service = await Service.findByIdAndUpdate(id, data, {
+  const devices = await Device.create(data.Devices)
+  // const { Name, Details, Maintenance } = data
+  const serviceData = {
+    Name: data.Name,
+    Details: data.Details,
+    Maintenance: data.Maintenance
+  }
+  console.log(serviceData)
+  const service = await Service.findByIdAndUpdate(id, { $set: serviceData, $push: { Devices: { $each: devices } } }, {
     new: true
   })
+  // const service = await Service.findByIdAndUpdate(NewService._id.valueOf(), {
+  //   $push: { Devices: { $each: devices } }
+  // }, { new: true });
   return service
 }
 async function getServiceById(id) {

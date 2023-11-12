@@ -33,7 +33,7 @@ async function DeleteDevice(id) {
     try {
       await Device.deleteOne({ _id: id }, { session });
       // Remove child ID from parent's children array
-      await Service.update(
+      await Service.findOneAndUpdate(
         { _id: device.ServiceID },
         { $pull: { Devices: device._id } },
         { session }

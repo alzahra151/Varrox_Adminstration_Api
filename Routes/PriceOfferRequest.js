@@ -22,7 +22,8 @@ const {
   AllRequsetsCount,
   AllAcceptedRequsetsCount,
   AllRejectedRequsetsCount,
-  AllCommentedRequsetsCount
+  AllCommentedRequsetsCount,
+  getRepresentCompletedReqs
 } = require("../Controlers/PriceOfferRequest");
 const { VerfiyToken, AuthorizeRoles } = require("../MiddleWare/Auth");
 const { VerfiyAdminToken } = require("../MiddleWare/AdminAuth");
@@ -59,7 +60,16 @@ router.get("/completed-requests", VerfiyToken, async (req, res, next) => { ///do
     res.status(401).json(err.message);
   }
 });
+router.get("/representative-complete-reqs", VerfiyToken, async (req, res, next) => {
+  const RepresentativeId = req.Representative.id;
+  try {
+    const reqs = await getRepresentCompletedReqs(RepresentativeId)
+    res.status(200).json(reqs);
 
+  } catch (err) {
+    res.status(401).json(err.message);
+  }
+})
 router.get("/GetAllSendRequests", async (req, res, next) => {
   try {
     const requestes = await GetAllSendRequests();

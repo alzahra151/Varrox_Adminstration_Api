@@ -59,6 +59,17 @@ async function getCompletedReqs() { //// done
     .sort({ createdAt: -1 });
   return requests;
 }
+async function getRepresentCompletedReqs(id) { //// done
+  const requests = await PriceOfferRequest.find({
+    ReprsentativeID: id,
+    SendToAdmin: true,
+    Complete: true,
+    InitialAmountOfMoney: { $ne: null },
+  })
+    .populate("ReprsentativeID")
+    .sort({ createdAt: -1 });
+  return requests;
+}
 async function updateReq(id, updatedData) { /// done
   const updatedReq = await PriceOfferRequest.findByIdAndUpdate(
     id,
@@ -213,5 +224,6 @@ module.exports = {
   AllRequsetsCount,
   AllAcceptedRequsetsCount,
   AllRejectedRequsetsCount,
-  AllCommentedRequsetsCount
+  AllCommentedRequsetsCount,
+  getRepresentCompletedReqs
 };

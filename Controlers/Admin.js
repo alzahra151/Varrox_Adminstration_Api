@@ -9,8 +9,8 @@ async function SignUp(data) {
         Mobile: data.Mobile,
         Password: data.Password,
         Country: data.Country,
-        Image: data.Image
-
+        Image: data.Image,
+        Role: data.Role
     })
     console.log(NewUser)
 

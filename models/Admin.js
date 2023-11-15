@@ -25,12 +25,5 @@ AdminSchema.pre('save', async function (next) {
     }
 })
 
-// AdminSchema.pre('validate', function (next) {
-//     if (!this.Role) {
-//         this.Role = this.constructor.schema.path('Role').default();
-//     }
-//     next();
-// });
-
 const Admin = mongoose.model('Admin', AdminSchema)
 module.exports = Admin

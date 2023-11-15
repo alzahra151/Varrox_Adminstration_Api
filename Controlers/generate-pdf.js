@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer')
 require("dotenv").config()
 async function generatePdf(data) {
     console.log("test")
-    console.log(data)
+    // console.log(data)
     let browser;
     try {
         browser = await puppeteer.launch({

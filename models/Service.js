@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const Device = require("./Device");
 
 const mentenanceSchema = mongoose.Schema({
-  description: { type: String, required: true },
-  price: { type: Number, required: true }
+  description: { type: String },
+  price: { type: Number }
 })
 const ServiceSchema = mongoose.Schema(
   {

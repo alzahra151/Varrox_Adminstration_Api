@@ -268,8 +268,9 @@
                     <div style="width:23%;padding: 6px; background-color: rgb(255, 230, 0);">Price</div>
                 </div>
                 <div dir="ltr">
+
                     <% data.PriceOffer.Services.forEach((item,index)=> { %>
-                        <div style="font-size: .8rem;display: flex; margin-top:20px;margin-bottom: 20px;">
+                        <div style="font-size: .8rem;display: flex; margin-top:10px;margin-bottom: 0px;">
                             <div style="width: 40%;padding: 6px;">
                                 <div style="display: flex;">
                                     <div
@@ -359,13 +360,13 @@
 
                                 <li style="padding: 6px ;list-style-type: none;">
                                     EGP <%=item.Service?.Maintenance?.price%>3000
-                                </li>
-                            </div> -->
-
+                                </li>-->
                             </div>
 
                         </div>
-                        <div style="width: 100%; border-bottom: 1px solid gainsboro; margin-bottom: 10px;">
+
+
+                        <div style="width: 100%; border-bottom: 1px solid gainsboro;">
 
                             <div style="display: flex;justify-content: right;">
                                 <span style="width: 35%;display: flex;justify-content: right;margin-right: 15px;">
@@ -381,542 +382,542 @@
 
                         <% } )%>
                 </div>
+            </div>
 
+            <div
+                style="margin-top:50px ; display: flex; position: absolute;left: 0%;bottom: 5%;right: 0%; padding: 20px;">
                 <div
-                    style="margin-top:50px ; display: flex; position: absolute;left: 0%;bottom: 5%;right: 0%; padding: 20px;">
-                    <div
-                        style="border-bottom: 1px solid gainsboro;border-top: 1px solid gainsboro;display: flex;width: 100%;">
-                        <div style="width:60%;margin: 10px;">
-                            <div
-                                style="width:14px;height: 14px; background-color: rgb(219, 217, 217);float: left;margin-right: 2px;float:left">
-                            </div>
-                            <h4>Payment:
-                            </h4>
-                            <p>- <%=data.PaymentPlan?.Plan %>
-                            </p>
+                    style="border-bottom: 1px solid gainsboro;border-top: 1px solid gainsboro;display: flex;width: 100%;">
+                    <div style="width:60%;margin: 10px;">
+                        <div
+                            style="width:14px;height: 14px; background-color: rgb(219, 217, 217);float: left;margin-right: 2px;float:left">
                         </div>
-                        <div style="width:30%;float:left;padding:2px">
-                            <h5>Sub Total:</h5>
-                            <h5>Vat:</h5>
-                            <hr>
-                            <h4>Last value:<%=data.PriceOffer.TotalPrice%>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div style="clear: both;"></div> -->
-                <!-- <hr style="color:rgb(219, 217, 217);margin:5px"> -->
-
-
-
-            </div>
-            <!-- <div style="display: flex; margin-left: 30px;position: absolute;bottom: 1%;left: 5%;">
-
-            <img style="width:20px ;height:20px ;margin-right: 2px; "
-                src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAiCAIAAAAoKJUdAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACAUlEQVRIiWP8//8/A80AE+2MpoLp319teXXcgiam//pw8v2VtD/fH709F4xVASMk3J89e4bfICEhIQ4ODjTBZ/uk4Gw2flMR441YTP/x4wcXFxd+09esWRMUFITg///7bL8smhoe+Rw+5SpkESYGBgYmJtLC5/+/n5hGMzAwfHk45evzFZSa/vyAIi6pj9eLfrzZg2I6IyMj8Ua/PGqEX8G7S3G/v95EmE68218eNfr78wVBZa9POiJMJ9LtL49bEmM0BDzbJ8Xw/y8TAwPDv3//iNEgYrSJSKMZGBhY+YwYGJlJMJ2ZXVTECD1FYzeaV0fUZAsDJGSIL8jYBEwFdeYRcASHDNwRJLgdAjjFPAS0puFRIGZxiJGZE2E6qYBLIoBbJhlTnJGJTdL+HiMTosAgOb1DAL9aM7ugFarZzKJm+xmZUcoixv/////58+fIkSP4jdPR0REREUETfHsu6OeHExC2qNleVh5NNAWMlNRN///9enXc8u/P58JGa9gFrLCpoBD8+/399R5ckowQ6vHjx/idKSIiAimlX79+/f37d/yK5eTkEG7/8+cPIyGwdu1aiDu8vb0JKoa7nbTcRCogOTeRbDpt3U47QE7NR5rpZJQEJJhOW7fT1vShnN5pZzq0BD59+jR+dSoqKoKCggwMDLdv3/7w4QN+xaamphAGABrwI5Is1qdGAAAAAElFTkSuQmCC' />
-
-            <p style="font-size:.7rem;margin-top: 5px;">Powered by VARROX SYSTEMS FOR BUSINESS
-                SOLUTIONS
-                CO
-            </p>
-
-        </div> -->
-        </div>
-
-        <div class="content" style=" padding-top: 20px;margin: 10px 30px ">
-            <div style="margin-top: 25px; margin-left: 30px;">
-                <img width="40px ;" style=""
-                    src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAIAAAC3LO29AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACbElEQVR4nO2aPUvDQBjHnxQjSI2H1IJkECkdSkGolOIuuOjm5DcQWnB2ar9BB8kX8EPo2ElH0Y9QHCpoMhQHsVbiEKzapte7y73K/ac0PHkuP355uSR14jiGf52c6h0QHktofrQmHPT8Qc/P2ERfwglbRkhNCaeoskDqSJjKwwypHSGGhA3S+X3H7/f7DC0w8TyvUCiQ15Mw+PsDqn34Q5jLcVbabDaDICAsJldEBfmDFEUR+WbcQ3UEUhX/EFIdTnzDcIKRb6LeIfNFctDzx+9PC8sUO8x4N3++rS+sUekw+4yMpIkyh1zwSFqpccgRb2FDBQ654+HbynYoCA/TXKpDoXjzhpDnUAJe6kCSHErDmx1OhsPx26Ogzpi89i+SBRkOl1a2ins3gpqnxiude9tnybKk89DNl6RB/sYDmddSOZBTeCD5figacq3cmcID+XMacZBr5c7q1unsegXzUhGQ8/BA1bOFmy8V69e8umHwQOHzoYtqXEzi8UDtM352k6jSxeOB8vc0WUyiSjfvnywsU/+ujc0kIR4od5jERTUqSHI80MFhEnJIVA3I8QBgabIURVG73abeNWwajQZ5cQL5cneIqUGVbn7zmGofHN3+i/ExfJgHiaoBLR5o+HXNRbWN+tXsejY80NBhktHwPrw7mvxc37lcKR6wtdLOYZJltDu58KBqwIwH2jpMMhref47CLHigOSGXaHqU8kz8nTAMHd5ptVpxWrgP5DhO6kBxHOsypxEXLealQmMdmh/r0PxYh+bHOjQ/1qH5sQ7Nj3VofqxD82Mdmh/r0PxYh+bHOjQ//9+h/fZkfr4AT2cxvsrrNa4AAAAASUVORK5CYII=' />
-                <hr>
-                <div>
-                    <div
-                        style="width:17px;height: 17px; background-color: rgb(255, 208, 0);float: left;margin-right: 2px;">
-                    </div>
-                    <h3>What does VARROX offer you?</h3>
-                    <p style="font-size:.96rem;line-height:1.4">VARROX SYSTEMS FOR BUSINESS SOLUTIONS, well known as
-                        VARROX
-                        is a
-                        turnkey
-                        software
-                        and business
-                        solution provider. Established in 2013 to steer customers through the next generation of
-                        business
-                        innovation powered by technology with state-of-the-art business automation and software
-                        development.
-                        VARROX specialized in the management systems providing automation and solutions products for
-                        many
-                        business fields. For companies operating in the information age, we help to leverage new
-                        technologies to
-                        competitive advantage. We deliver high value innovated solutions by bridging the gap between
-                        business
-                        and
-                        technology. Since VARROX inception, proven, demonstrate and invent unique products,
-                        techniques
-                        and
-                        capabilities that far and uniquely distinguish us from other software provider as we are
-                        specialized
-                        in
-                        developing varies automated solutions in the field of management and accounting, it is
-                        designed
-                        to
-                        benefit
-                        from all local and international experiences in the fields of business management of all
-                        kinds.
-                    </p>
-                    <div style="display: flex;">
-                        <h4 style="">Strengths
+                        <h4>Payment:
                         </h4>
-                        <h5 style="margin-top:5px">(Moving To The Future)</h5>
-                    </div>
-
-                    <!-- <div style="clear:both"></div> -->
-                    <ul>
-                        <li> Deliver secure, reliable and scalable applications that help businesses excel in
-                            today's
-                            rapidly
-                            evolving economy. </li>
-                        <li> Gain client’s satisfaction by fully understand and address our client’s requirements
-                            within
-                            the
-                            minimal time-to-market. </li>
-                        <li> Assure a steady quality by guarantee high quality of our deliverables. </li>
-                        <li> Maintain continuous improvement by promoting a learning environment, and ensuring that
-                            our
-                            employees are exposed to, and trained on state-of-the-art technologies. Our software
-                            development
-                            process is continuously monitored and improved to maximize productivity. </li>
-                        <li> Utilize object-oriented analysis, design, and testing methodologies; ensure seamless
-                            integration
-                            and
-                            traceability between the project’s requirements, design, development, quality assurance,
-                            and
-                            delivery. </li>
-                        <li> Understand In-depth clients’ business requirements. </li>
-                        <li> Deliver world-class End-to-End IT solutions.</li>
-                        <li> Implement cutting-edge innovative solutions. </li>
-                        <li> Guarantees high quality of our deliverables. </li>
-                        <li> Seeking Continuous improvement. </li>
-                        <li> Adopting International & best practice standards. </li>
-                        <li>Excellent following up for our customers after sales
-                        </li>
-                    </ul>
-                    <div>
-                        <span>Mission<span>,Staff & Vision (Committed to Excellence)</span></span>
-                        <p style="font-size:.96;line-height:1.4; color: rgb(71, 68, 68);">We are committed to
-                            offering
-                            unrivaled
-                            business automation
-                            consultation and
-                            turnkey solutions in
-                            addition
-                            to a unique technical support to our valuable clients. VARROX is powered by highly
-                            skilled
-                            professionals of
-                            professors, consultants, engineers, developers, and executives equipped with the latest
-                            managerial
-                            and IT
-                            tools and works round the-clock to assure the timely delivery of your applications with
-                            the
-                            highest
-                            quality.
-                            Our vision is to become a world-class software development and technology provider and
-                            to
-                            provide
-                            clients
-                            with innovated technical and business solutions by utilizing industry standards and
-                            technology.
+                        <p>- <%=data.PaymentPlan?.Plan %>
                         </p>
                     </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="content" style=" padding-top: 20px;margin: 10px 30px ;">
-            <div style="margin-top: 25px; margin-right: 30px;">
-                <img width="40px ;" style="margin-left:20px"
-                    src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAIAAAC3LO29AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACbElEQVR4nO2aPUvDQBjHnxQjSI2H1IJkECkdSkGolOIuuOjm5DcQWnB2ar9BB8kX8EPo2ElH0Y9QHCpoMhQHsVbiEKzapte7y73K/ac0PHkuP355uSR14jiGf52c6h0QHktofrQmHPT8Qc/P2ERfwglbRkhNCaeoskDqSJjKwwypHSGGhA3S+X3H7/f7DC0w8TyvUCiQ15Mw+PsDqn34Q5jLcVbabDaDICAsJldEBfmDFEUR+WbcQ3UEUhX/EFIdTnzDcIKRb6LeIfNFctDzx+9PC8sUO8x4N3++rS+sUekw+4yMpIkyh1zwSFqpccgRb2FDBQ654+HbynYoCA/TXKpDoXjzhpDnUAJe6kCSHErDmx1OhsPx26Ogzpi89i+SBRkOl1a2ins3gpqnxiude9tnybKk89DNl6RB/sYDmddSOZBTeCD5figacq3cmcID+XMacZBr5c7q1unsegXzUhGQ8/BA1bOFmy8V69e8umHwQOHzoYtqXEzi8UDtM352k6jSxeOB8vc0WUyiSjfvnywsU/+ujc0kIR4od5jERTUqSHI80MFhEnJIVA3I8QBgabIURVG73abeNWwajQZ5cQL5cneIqUGVbn7zmGofHN3+i/ExfJgHiaoBLR5o+HXNRbWN+tXsejY80NBhktHwPrw7mvxc37lcKR6wtdLOYZJltDu58KBqwIwH2jpMMhref47CLHigOSGXaHqU8kz8nTAMHd5ptVpxWrgP5DhO6kBxHOsypxEXLealQmMdmh/r0PxYh+bHOjQ/1qH5sQ7Nj3VofqxD82Mdmh/r0PxYh+bHOjQ//9+h/fZkfr4AT2cxvsrrNa4AAAAASUVORK5CYII=' />
-                <hr>
-                <div style="direction:rtl;text-align:right">
-                    <div
-                        style="width:17px;height: 17px; background-color: rgb(255, 208, 0);float: right;margin-right: 2px;">
+                    <div style="width:30%;float:left;padding:2px">
+                        <h5>Sub Total:</h5>
+                        <h5>Vat:</h5>
+                        <hr>
+                        <h4>Last value:<%=data.PriceOffer.TotalPrice%>
+                        </h4>
                     </div>
-                    <h3>ماذا تقدم لك VARROX</h3>
-                    <p style="font-size:.96rem;line-height:1.4">أنظمة فاروكس لحلول الأعمال ،، المعروفه باسم VARROX
-                        هي
-                        مزود
-                        لحلول
-                        الأعمال والبرمجيات بكافة التخصصات. تأسست في عام 2013 لتوفر لعمالءها كافة ابتكارات
-                        الأعمال المدعومة بالتكنولوجيا مع أحدث الأنظمة والبرمجيات. تخصصت VARROX في أنظمة الأدارة التي
-                        تقدم
-                        الحلول
-                        للعديد من مجالات الأعمال.نحن نسعي دائمالإلستفادة من كافة التقنيات الجديدة لتحقيق ميزة
-                        تنافسية
-                        أعلي
-                        كما
-                        نقدم حلولا مبتكرةعالية القيمةمن خلال سد الفجوة بين الأعمال والتكنولوجيا. منذ بداية VARROX
-                        اثبتت
-                        قدراها
-                        علي ابتكار منتجات وتقنيات فريدة تميزنا بشكل فريد عن مزودي البرمجيات الاخرين لاننا متخصصون في
-                        تطوير
-                        حلول
-                        تقنية متنوعة في مجال الادارة والمحاسبة والتي تم تصميمها وفقا للخبرات العالمية في مجال ادارة
-                        الاعمال
-                        بانواعها .</p>
+                </div>
+            </div>
+            <!-- <div style="clear: both;"></div> -->
+            <!-- <hr style="color:rgb(219, 217, 217);margin:5px"> -->
 
-                    <h4 style="float: right;">نقاط القوة
+
+
+        </div>
+        <!-- <div style="display: flex; margin-left: 30px;position: absolute;bottom: 1%;left: 5%;">
+
+                <img style="width:20px ;height:20px ;margin-right: 2px; "
+                    src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAiCAIAAAAoKJUdAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACAUlEQVRIiWP8//8/A80AE+2MpoLp319teXXcgiam//pw8v2VtD/fH709F4xVASMk3J89e4bfICEhIQ4ODjTBZ/uk4Gw2flMR441YTP/x4wcXFxd+09esWRMUFITg///7bL8smhoe+Rw+5SpkESYGBgYmJtLC5/+/n5hGMzAwfHk45evzFZSa/vyAIi6pj9eLfrzZg2I6IyMj8Ua/PGqEX8G7S3G/v95EmE68218eNfr78wVBZa9POiJMJ9LtL49bEmM0BDzbJ8Xw/y8TAwPDv3//iNEgYrSJSKMZGBhY+YwYGJlJMJ2ZXVTECD1FYzeaV0fUZAsDJGSIL8jYBEwFdeYRcASHDNwRJLgdAjjFPAS0puFRIGZxiJGZE2E6qYBLIoBbJhlTnJGJTdL+HiMTosAgOb1DAL9aM7ugFarZzKJm+xmZUcoixv/////58+fIkSP4jdPR0REREUETfHsu6OeHExC2qNleVh5NNAWMlNRN///9enXc8u/P58JGa9gFrLCpoBD8+/399R5ckowQ6vHjx/idKSIiAimlX79+/f37d/yK5eTkEG7/8+cPIyGwdu1aiDu8vb0JKoa7nbTcRCogOTeRbDpt3U47QE7NR5rpZJQEJJhOW7fT1vShnN5pZzq0BD59+jR+dSoqKoKCggwMDLdv3/7w4QN+xaamphAGABrwI5Is1qdGAAAAAElFTkSuQmCC' />
+
+                <p style="font-size:.7rem;margin-top: 5px;">Powered by VARROX SYSTEMS FOR BUSINESS
+                    SOLUTIONS
+                    CO
+                </p>
+
+            </div> -->
+    </div>
+
+    <div class="content" style=" padding-top: 20px;margin: 10px 30px ">
+        <div style="margin-top: 25px; margin-left: 30px;">
+            <img width="40px ;" style=""
+                src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAIAAAC3LO29AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACbElEQVR4nO2aPUvDQBjHnxQjSI2H1IJkECkdSkGolOIuuOjm5DcQWnB2ar9BB8kX8EPo2ElH0Y9QHCpoMhQHsVbiEKzapte7y73K/ac0PHkuP355uSR14jiGf52c6h0QHktofrQmHPT8Qc/P2ERfwglbRkhNCaeoskDqSJjKwwypHSGGhA3S+X3H7/f7DC0w8TyvUCiQ15Mw+PsDqn34Q5jLcVbabDaDICAsJldEBfmDFEUR+WbcQ3UEUhX/EFIdTnzDcIKRb6LeIfNFctDzx+9PC8sUO8x4N3++rS+sUekw+4yMpIkyh1zwSFqpccgRb2FDBQ654+HbynYoCA/TXKpDoXjzhpDnUAJe6kCSHErDmx1OhsPx26Ogzpi89i+SBRkOl1a2ins3gpqnxiude9tnybKk89DNl6RB/sYDmddSOZBTeCD5figacq3cmcID+XMacZBr5c7q1unsegXzUhGQ8/BA1bOFmy8V69e8umHwQOHzoYtqXEzi8UDtM352k6jSxeOB8vc0WUyiSjfvnywsU/+ujc0kIR4od5jERTUqSHI80MFhEnJIVA3I8QBgabIURVG73abeNWwajQZ5cQL5cneIqUGVbn7zmGofHN3+i/ExfJgHiaoBLR5o+HXNRbWN+tXsejY80NBhktHwPrw7mvxc37lcKR6wtdLOYZJltDu58KBqwIwH2jpMMhref47CLHigOSGXaHqU8kz8nTAMHd5ptVpxWrgP5DhO6kBxHOsypxEXLealQmMdmh/r0PxYh+bHOjQ/1qH5sQ7Nj3VofqxD82Mdmh/r0PxYh+bHOjQ//9+h/fZkfr4AT2cxvsrrNa4AAAAASUVORK5CYII=' />
+            <hr>
+            <div>
+                <div style="width:17px;height: 17px; background-color: rgb(255, 208, 0);float: left;margin-right: 2px;">
+                </div>
+                <h3>What does VARROX offer you?</h3>
+                <p style="font-size:.96rem;line-height:1.4">VARROX SYSTEMS FOR BUSINESS SOLUTIONS, well known as
+                    VARROX
+                    is a
+                    turnkey
+                    software
+                    and business
+                    solution provider. Established in 2013 to steer customers through the next generation of
+                    business
+                    innovation powered by technology with state-of-the-art business automation and software
+                    development.
+                    VARROX specialized in the management systems providing automation and solutions products for
+                    many
+                    business fields. For companies operating in the information age, we help to leverage new
+                    technologies to
+                    competitive advantage. We deliver high value innovated solutions by bridging the gap between
+                    business
+                    and
+                    technology. Since VARROX inception, proven, demonstrate and invent unique products,
+                    techniques
+                    and
+                    capabilities that far and uniquely distinguish us from other software provider as we are
+                    specialized
+                    in
+                    developing varies automated solutions in the field of management and accounting, it is
+                    designed
+                    to
+                    benefit
+                    from all local and international experiences in the fields of business management of all
+                    kinds.
+                </p>
+                <div style="display: flex;">
+                    <h4 style="">Strengths
                     </h4>
-                    <h5 style="float: right;margin-top:5px">( الأنتقال الي المستقبل )</h5>
-                    <div style="clear:both"></div>
-                    <ul>
-                        <li> تقديم تطبيقات آمنة وموثوقة وقابلة للتطوير تساعد الشركات على التفوق في اقتصاد اليوم سريع
-                            التطور.
-                        </li>
-                        <li> كسب رضا العميل من خلال الفهم الكامل لاحتياجاته والتعامل مع متطلباته في أقل وقت ممكن .
-                        </li>
-                        <li> ضمان جودة ثابتة من خلال الالتزام بالجودة العالية لمخرجاتنا. </li>
-                        <li>الحفاظ على التحسين المستمر من خالل تعزيز بيئة العمل لدينا ، والتأكد من أن موظفينا يتم
-                            تدريبهم
-                            على
-                            أحدث التقنيات. تتم مراقبة عملية تطوير
-                            البرامج لدينا وتحسينها باستمرار لزيادة الأنتاجية. </li>
-                        <li> الاستفادة من منهجيات التحليل والتصميم والاختبار الموجهة للكائنات. ضمان التكامل والتتبع
-                            السلس
-                            بين
-                            متطلبات المشروع والتصميم والتطوير
-                            وضمان الجودة والتسليم </li>
-                        <li> فهم متطلبات عمالئنا علي المدي البعيد للمساعده في التطوير والتحديث . </li>
-                        <li> تقديم حلول تكنولوجيا المعلومات الشاملة على مستوى عالمي.</li>
-                        <li> تنفيذ الحلول المبتكرة المتطورة أيا كان مجالها . </li>
-                        <li> ضمان الجودة العالية لمخرجاتنا. </li>
-                        <li> ضمان الجودة العالية لمخرجاتنا. </li>
-                        <li> اعتماد المعايير الدولية وأفضل الادوات . </li>
-                        <li>متابعة ممتازة لعمالئنا بعد البيع .
-                        </li>
-                    </ul>
-                    <div>
-                        <span>المهمة والموظفون والرؤية<span> (ملتزمون بالتميز)</span></span>
-                        <p style="font-size:.96;line-height:1.4; color: rgb(71, 68, 68);">نحن ملتزمون بتقديم
-                            استشارات
-                            إدارة
-                            الأعمال والحلول المتكاملة لكافة الأنشطة التجارية بالأضافة إلى دعم فني فريد لعمالئنا
-                            الكرام.
-                            يتم
-                            تشغيل VARROX
-                            بواسطة محترفين ذوي مهارات عالية من المصممين والمطورين والمديرين التنفيذيين المجهزين
-                            بأحدث
-                            الأدوات
-                            الأدارية وأدوات تكنولوجيا المعلومات
-                            يعملون على مدار الساعة لضمان تسليم وصيانة نظامك في الوقت المناسب بأعلى جودة. تتمثل
-                            رؤيتنا في
-                            أن
-                            نصبح
-                            مزودًا عالمًيا لتطوير البرمجيات
-                            والتكنولوجيا وأن نقدم للعمالئنا حلوًال تقنية وتجارية مبتكرة وفقا ألعلي المعايير العالمية
-                        </p>
-                    </div>
+                    <h5 style="margin-top:5px">(Moving To The Future)</h5>
+                </div>
+
+                <!-- <div style="clear:both"></div> -->
+                <ul>
+                    <li> Deliver secure, reliable and scalable applications that help businesses excel in
+                        today's
+                        rapidly
+                        evolving economy. </li>
+                    <li> Gain client’s satisfaction by fully understand and address our client’s requirements
+                        within
+                        the
+                        minimal time-to-market. </li>
+                    <li> Assure a steady quality by guarantee high quality of our deliverables. </li>
+                    <li> Maintain continuous improvement by promoting a learning environment, and ensuring that
+                        our
+                        employees are exposed to, and trained on state-of-the-art technologies. Our software
+                        development
+                        process is continuously monitored and improved to maximize productivity. </li>
+                    <li> Utilize object-oriented analysis, design, and testing methodologies; ensure seamless
+                        integration
+                        and
+                        traceability between the project’s requirements, design, development, quality assurance,
+                        and
+                        delivery. </li>
+                    <li> Understand In-depth clients’ business requirements. </li>
+                    <li> Deliver world-class End-to-End IT solutions.</li>
+                    <li> Implement cutting-edge innovative solutions. </li>
+                    <li> Guarantees high quality of our deliverables. </li>
+                    <li> Seeking Continuous improvement. </li>
+                    <li> Adopting International & best practice standards. </li>
+                    <li>Excellent following up for our customers after sales
+                    </li>
+                </ul>
+                <div>
+                    <span>Mission<span>,Staff & Vision (Committed to Excellence)</span></span>
+                    <p style="font-size:.96;line-height:1.4; color: rgb(71, 68, 68);">We are committed to
+                        offering
+                        unrivaled
+                        business automation
+                        consultation and
+                        turnkey solutions in
+                        addition
+                        to a unique technical support to our valuable clients. VARROX is powered by highly
+                        skilled
+                        professionals of
+                        professors, consultants, engineers, developers, and executives equipped with the latest
+                        managerial
+                        and IT
+                        tools and works round the-clock to assure the timely delivery of your applications with
+                        the
+                        highest
+                        quality.
+                        Our vision is to become a world-class software development and technology provider and
+                        to
+                        provide
+                        clients
+                        with innovated technical and business solutions by utilizing industry standards and
+                        technology.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="content" style=" padding-top: 20px;margin: 10px 30px ;">
+        <div style="margin-top: 25px; margin-right: 30px;">
+            <img width="40px ;" style="margin-left:20px"
+                src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAIAAAC3LO29AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACbElEQVR4nO2aPUvDQBjHnxQjSI2H1IJkECkdSkGolOIuuOjm5DcQWnB2ar9BB8kX8EPo2ElH0Y9QHCpoMhQHsVbiEKzapte7y73K/ac0PHkuP355uSR14jiGf52c6h0QHktofrQmHPT8Qc/P2ERfwglbRkhNCaeoskDqSJjKwwypHSGGhA3S+X3H7/f7DC0w8TyvUCiQ15Mw+PsDqn34Q5jLcVbabDaDICAsJldEBfmDFEUR+WbcQ3UEUhX/EFIdTnzDcIKRb6LeIfNFctDzx+9PC8sUO8x4N3++rS+sUekw+4yMpIkyh1zwSFqpccgRb2FDBQ654+HbynYoCA/TXKpDoXjzhpDnUAJe6kCSHErDmx1OhsPx26Ogzpi89i+SBRkOl1a2ins3gpqnxiude9tnybKk89DNl6RB/sYDmddSOZBTeCD5figacq3cmcID+XMacZBr5c7q1unsegXzUhGQ8/BA1bOFmy8V69e8umHwQOHzoYtqXEzi8UDtM352k6jSxeOB8vc0WUyiSjfvnywsU/+ujc0kIR4od5jERTUqSHI80MFhEnJIVA3I8QBgabIURVG73abeNWwajQZ5cQL5cneIqUGVbn7zmGofHN3+i/ExfJgHiaoBLR5o+HXNRbWN+tXsejY80NBhktHwPrw7mvxc37lcKR6wtdLOYZJltDu58KBqwIwH2jpMMhref47CLHigOSGXaHqU8kz8nTAMHd5ptVpxWrgP5DhO6kBxHOsypxEXLealQmMdmh/r0PxYh+bHOjQ/1qH5sQ7Nj3VofqxD82Mdmh/r0PxYh+bHOjQ//9+h/fZkfr4AT2cxvsrrNa4AAAAASUVORK5CYII=' />
+            <hr>
+            <div style="direction:rtl;text-align:right">
+                <div
+                    style="width:17px;height: 17px; background-color: rgb(255, 208, 0);float: right;margin-right: 2px;">
+                </div>
+                <h3>ماذا تقدم لك VARROX</h3>
+                <p style="font-size:.96rem;line-height:1.4">أنظمة فاروكس لحلول الأعمال ،، المعروفه باسم VARROX
+                    هي
+                    مزود
+                    لحلول
+                    الأعمال والبرمجيات بكافة التخصصات. تأسست في عام 2013 لتوفر لعمالءها كافة ابتكارات
+                    الأعمال المدعومة بالتكنولوجيا مع أحدث الأنظمة والبرمجيات. تخصصت VARROX في أنظمة الأدارة التي
+                    تقدم
+                    الحلول
+                    للعديد من مجالات الأعمال.نحن نسعي دائمالإلستفادة من كافة التقنيات الجديدة لتحقيق ميزة
+                    تنافسية
+                    أعلي
+                    كما
+                    نقدم حلولا مبتكرةعالية القيمةمن خلال سد الفجوة بين الأعمال والتكنولوجيا. منذ بداية VARROX
+                    اثبتت
+                    قدراها
+                    علي ابتكار منتجات وتقنيات فريدة تميزنا بشكل فريد عن مزودي البرمجيات الاخرين لاننا متخصصون في
+                    تطوير
+                    حلول
+                    تقنية متنوعة في مجال الادارة والمحاسبة والتي تم تصميمها وفقا للخبرات العالمية في مجال ادارة
+                    الاعمال
+                    بانواعها .</p>
+
+                <h4 style="float: right;">نقاط القوة
+                </h4>
+                <h5 style="float: right;margin-top:5px">( الأنتقال الي المستقبل )</h5>
+                <div style="clear:both"></div>
+                <ul>
+                    <li> تقديم تطبيقات آمنة وموثوقة وقابلة للتطوير تساعد الشركات على التفوق في اقتصاد اليوم سريع
+                        التطور.
+                    </li>
+                    <li> كسب رضا العميل من خلال الفهم الكامل لاحتياجاته والتعامل مع متطلباته في أقل وقت ممكن .
+                    </li>
+                    <li> ضمان جودة ثابتة من خلال الالتزام بالجودة العالية لمخرجاتنا. </li>
+                    <li>الحفاظ على التحسين المستمر من خالل تعزيز بيئة العمل لدينا ، والتأكد من أن موظفينا يتم
+                        تدريبهم
+                        على
+                        أحدث التقنيات. تتم مراقبة عملية تطوير
+                        البرامج لدينا وتحسينها باستمرار لزيادة الأنتاجية. </li>
+                    <li> الاستفادة من منهجيات التحليل والتصميم والاختبار الموجهة للكائنات. ضمان التكامل والتتبع
+                        السلس
+                        بين
+                        متطلبات المشروع والتصميم والتطوير
+                        وضمان الجودة والتسليم </li>
+                    <li> فهم متطلبات عمالئنا علي المدي البعيد للمساعده في التطوير والتحديث . </li>
+                    <li> تقديم حلول تكنولوجيا المعلومات الشاملة على مستوى عالمي.</li>
+                    <li> تنفيذ الحلول المبتكرة المتطورة أيا كان مجالها . </li>
+                    <li> ضمان الجودة العالية لمخرجاتنا. </li>
+                    <li> ضمان الجودة العالية لمخرجاتنا. </li>
+                    <li> اعتماد المعايير الدولية وأفضل الادوات . </li>
+                    <li>متابعة ممتازة لعمالئنا بعد البيع .
+                    </li>
+                </ul>
+                <div>
+                    <span>المهمة والموظفون والرؤية<span> (ملتزمون بالتميز)</span></span>
+                    <p style="font-size:.96;line-height:1.4; color: rgb(71, 68, 68);">نحن ملتزمون بتقديم
+                        استشارات
+                        إدارة
+                        الأعمال والحلول المتكاملة لكافة الأنشطة التجارية بالأضافة إلى دعم فني فريد لعمالئنا
+                        الكرام.
+                        يتم
+                        تشغيل VARROX
+                        بواسطة محترفين ذوي مهارات عالية من المصممين والمطورين والمديرين التنفيذيين المجهزين
+                        بأحدث
+                        الأدوات
+                        الأدارية وأدوات تكنولوجيا المعلومات
+                        يعملون على مدار الساعة لضمان تسليم وصيانة نظامك في الوقت المناسب بأعلى جودة. تتمثل
+                        رؤيتنا في
+                        أن
+                        نصبح
+                        مزودًا عالمًيا لتطوير البرمجيات
+                        والتكنولوجيا وأن نقدم للعمالئنا حلوًال تقنية وتجارية مبتكرة وفقا ألعلي المعايير العالمية
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="content" style=" padding-top: 20px;margin: 10px 30px" dir="rtl">
-            <h4>الحقوق والواجبات</h4>
-            <ul>
-                <li>تسري هذه الشروط والأحكام على استخدامك لكافة أنظمة VARROX سواء كانت سحابية أو محلية ، وجميع الخدمات
-                    والاضافات المرتبطة
-                    بها بما في ذلك خدمات التطوير
-                    والتعديل والأضافة .</li>
-                <li>يرجى قراءة الشروط بعناية قبل استخدام أنظمة وخدمات VARROXوتحتفظ الشركة بالحق في تغيير أو تعديل أو
-                    إضافة
-                    أو إزالة أجزاء من هذه الشروط في أي وقت. كما تقع
-                    على عاتقك مسؤولية التحقق من هذه الشروط بشكل دوري إلجراء تغييرات. ومن خالل الوصول إلى خدمات VARROX أو
-                    استخدامها أو
-                    الاستمرار في استخدامها ، فإنك توافق
+    </div>
+    <div class="content" style=" padding-top: 20px;margin: 10px 30px" dir="rtl">
+        <h4>الحقوق والواجبات</h4>
+        <ul>
+            <li>تسري هذه الشروط والأحكام على استخدامك لكافة أنظمة VARROX سواء كانت سحابية أو محلية ، وجميع الخدمات
+                والاضافات المرتبطة
+                بها بما في ذلك خدمات التطوير
+                والتعديل والأضافة .</li>
+            <li>يرجى قراءة الشروط بعناية قبل استخدام أنظمة وخدمات VARROXوتحتفظ الشركة بالحق في تغيير أو تعديل أو
+                إضافة
+                أو إزالة أجزاء من هذه الشروط في أي وقت. كما تقع
+                على عاتقك مسؤولية التحقق من هذه الشروط بشكل دوري إلجراء تغييرات. ومن خالل الوصول إلى خدمات VARROX أو
+                استخدامها أو
+                الاستمرار في استخدامها ، فإنك توافق
 
-                    على الالتزام قانونًا بكافة بالشروط. إذا كنت لا توافق على أي من هذه الشروط ، فلا يجب عليك استخدام
-                    الخدمات. جميع الحقوق
-                    غير الممنوحة لك صراحةً
-                    محفوظة من قبل الشركة.</li>
-            </ul>
-            <ol>
-                <li>
-                    <h4 style="text-decoration: underline">لتعاقد والدفع والمعالجة</h4>
-                    <ul>
-                        <li><span>1.1. </span>بعد استلام نموذج عرض الأسعار الخاص بنا ، سيتعين عليك الموافقة رسميًا على
-                            هذا
-                            العرض من خالل
-                            إرسال
-                            رسالة بريد إلكتروني
-                            رسمية بالموافقه . يجب أن يحتوي
-                            البريد الالكتروني على ملاحظة "موافقة" واضحة منك ردًا على عرض الأسعار الخاص بنا. قد نطلب أيضا
-                            رقم السجل التجاري ورخصة
-                            التجارة الخاصة بك إذا كان ذلك
-                            ممكنًا.</li>
-                        <li>
-                            <span>1.2. </span>مدة سريان بنود عرض السعر 30 يوماً من تاريخ إرساله اليك ولا ينظر لأي
-                            موافقات أو
-                            طلبات إعتماداً علي عروض الأسعار المتجاوزة
-                            لهذه الفتره ويحق للشركة تغيير كافة
-                            البنود والأسعار بعد هذه الفتره .
+                على الالتزام قانونًا بكافة بالشروط. إذا كنت لا توافق على أي من هذه الشروط ، فلا يجب عليك استخدام
+                الخدمات. جميع الحقوق
+                غير الممنوحة لك صراحةً
+                محفوظة من قبل الشركة.</li>
+        </ul>
+        <ol>
+            <li>
+                <h4 style="text-decoration: underline">لتعاقد والدفع والمعالجة</h4>
+                <ul>
+                    <li><span>1.1. </span>بعد استلام نموذج عرض الأسعار الخاص بنا ، سيتعين عليك الموافقة رسميًا على
+                        هذا
+                        العرض من خالل
+                        إرسال
+                        رسالة بريد إلكتروني
+                        رسمية بالموافقه . يجب أن يحتوي
+                        البريد الالكتروني على ملاحظة "موافقة" واضحة منك ردًا على عرض الأسعار الخاص بنا. قد نطلب أيضا
+                        رقم السجل التجاري ورخصة
+                        التجارة الخاصة بك إذا كان ذلك
+                        ممكنًا.</li>
+                    <li>
+                        <span>1.2. </span>مدة سريان بنود عرض السعر 30 يوماً من تاريخ إرساله اليك ولا ينظر لأي
+                        موافقات أو
+                        طلبات إعتماداً علي عروض الأسعار المتجاوزة
+                        لهذه الفتره ويحق للشركة تغيير كافة
+                        البنود والأسعار بعد هذه الفتره .
+                    </li>
+                    <li>
+                        <span>
+                            1.3.
+                        </span>لن يتم تقديم الخدمات لك ما لم تدفع ما قيمته %50 من مبلغ الفاتورة مقدًما. سيتم تركيب
+                        النظام
+                        وتفعيل الخدمات في غضون 24
+                        ساعه كحد أقصى من تاريخ الدفع. سيكون لديك
+                        الحق بعد الدفع في تأجيل تركيب النظام أو تفعيل الخدمة في أي وقت ، الفتره المتاحة للتأجيل هي
+                        30
+                        يوم من تاريخ الدفع وهذه
+                        الفترة ال تخضع لمزيد من التمديدات وسنقوم
+                        تلقائيًا بتنشيط حسابك لدينا بشكل تلقائي وسيسري عليك كافة الشروط الخاصه برد الأموال .
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h4>تركيب النظام</h4>
+                <ul>
+                    <li>
+                        <div style="display: flex;">
+                            <div style="margin-left:10px ;">2.1. </div>
+                            <div>توفير معلومات دقيقة وحديثة وكاملة عن نظام عملك وعدد المستخدمين وعدد الفروع والأقسام
+                                وصالحيات
+                                المستخدمين</div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="margin-left:10px ;">2.2. </div>
+                            <div>تعيين موظف واحد على ألاقل على دراية جيدا بالتعامل مع ألاجهزه ويمتلك خبرة ولو بسيطة
+                                بأنظمة
+                                إلادارة
+                                والحسابات .</div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="margin-left:10px ;">2.3. </div>
+                            <div>توفير جميع المتطلبات الالزمة لتركيب النظام ، بما في ذلك كافة الأجهزة و جميع أعمال
+                                الكابالت
+                                الداخلية
+                                والكهربائية
+                                والميكانيكية المطلوبة والأنترنت. لن نبدأ أي تثبيت أو
+                                تدريب حتى نتأكد من توفير الوسائل والتسهيالت المطلوبة لتنفيذ هذه المهام وجاهزية
+                                الموقع.
+                            </div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="margin-left:10px ;">2.4. </div>
+                            <div>
+                                الحفاظ على أمان كلمات المرور الخاصة بك فأنت المسئول الوحيد عن سرية بياناتك وأمن
+                                معلوماتك
+                                داخل
+                                مكان
+                                عملك .
+                            </div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="margin-left:10px ;">2.5. </div>
+                            <div>
+                                تحديث أي معلومات أخرى تم تقديمها الي الشركة بشكل دقيق
+                            </div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="margin-left:10px ;">2.6. </div>
+                            <div>
+                                الحفاظ علي وسيلة وصولنا الي البيانات وعدم العبث بها أو تغيير أي اعدادات خاصة بها أو
+                                كلمات
+                                مرور
+                                وإلا
+                                أصبحت مسئولا
+                                مسئولية كامله عن أي إخترقات أو عبث
+                                بالبيانات. </div>
+                        </div>
+
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h4>حقوقنا</h4>
+                <div style="display: flex;">
+                    <div style="margin-left: 10px;">3.1.</div>
+                    <div>يحق لشركة VARROX إضافة وظائف أو إجراء تغييرات عليها أو إزالتها تماما أو تنفيذ تعديلات
+                        وتحسينات فنية طفيفة في حالات
+                        التهديدات ألامنية والتقنية. قد تؤثر هذه
+                        التغييرات على استخدامك للخدمات وألانظمة. وقد نقرر أيضا التوقف عن تقديم كل الخدمات أو بعضها
+                        في
+                        أي وقت وفقا لطبيعة
+                        التهديد وضمانا لسلامة البيانات .</div>
+                </div>
+                <div style="display: flex;">
+                    <div style="margin-left: 10px;">3.2.</div>
+                    <div>يحق لنا إلغاء التعاقد في أي وقت في حال مخالفة العميل لشروط الاتفاق او اختالف الظروف
+                        الملائمة
+                        الستمرار عمل النظام .</div>
+                </div>
+                <div style="display: flex;">
+                    <div style="margin-left: 10px;">3.3.</div>
+                    <div>إذا سمح العميل لاي شركة منافسة بالعمل بدون التنسيق معنا أو سمح ألي متخصص غير موظفينا
+                        بالاطلاع
+                        علي نظامنا أو استخراج
+                        البيانات منه أو التعديل عليه أو إزالة تثبيته فستقوم الشركة بإنهاء التعاقد فورا ولن يتم
+                        إسترجاع
+                        أي
+                        مبالغ مالية أو إشتراكات والشركة غير مسئوله عن ضمان سالمة
+                        البيانات أو تسليمها أو نقلها .
+                    </div>
+                </div>
+                <div style="display: flex;">
+                    <div style="margin-left: 10px;">3.4.</div>
+                    <div>يحق لنا إلغاء التعاقد إذا تعمل العميل التأخر بدون إبداء أي أسباب في سداد المبالغ المستحقه .
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h4>كيفية إنهاء العقد معنا</h4>
+                <div style="display: flex;">
+                    <div style="margin-left: 10px;">4.1.</div>
+                    <div>في حالة رغبتك في إنهاء عقدك معنا أو إذا كنت ال ترغب في تجديد اشتراكك ، يجب عليك إبالغنا عبر
+                        البريد اإللكتروني من خلال customers@varroxsystems.com قبل 15 يو ًما من تاريخ تركيب
+                        النظام. بمجرد إرسال طلب اإللغاء ، ستتلقى نموذج بريد إلكتروني يتضمن التفاصيل
+                        المطلوبة.
+                        يرجى تقديم اسم عملك ، واسم الشخص المسؤول عن االتصال ورقم هاتفه ، ورقم الطلب وتفاصيله ،
+                        واألسباب
+                        الكامنة وراء اإللغاء ،
+                        وتفاصيل حسابك المصرفي
+                        (رقم الحساب المصرفي الدولي ، واسم البنك واسم المستفيد)</div>
+                </div>
+                <div style="display: flex;">
+                    <div style="margin-left: 10px;">4.2.</div>
+                    <div>إذا قمت بإنهاء تعاقدك أو اشتراكك أو اتفاقك ( ان وجد) بعد 15 يوم من تركيب النظام ، فسيتم
+                        تفعيل
+                        اإللغاء على الفور ولن يحق
+                        لك استرداد أي رسوم مدفوعة مقدًما.</div>
+                </div>
+                <div style="display: flex;">
+                    <div style="margin-left: 10px;">4.3.</div>
+                    <div>إذا قمت بإنهاء تعاقدك أو أشتراكك أو اتفاقك (ان وجد) في خلال 15 يوم من تاريخ التركيب وقد تم
+                        عمل أي تعديل أو تطوير أو
+                        إضافة علي نظامك بنائاً علي طلبك أو بسبب
+                        إحتياجات خاصة بنظام عملك ولم تقدم أي اعتراض عليها ال يتم استرداد كامل المبالغ والرسوم
+                        المدفوعه
+                        وإنما تحدد الشركة النسبة
+                        المسترده .</div>
+                </div>
+
+            </li>
+
+
+        </ol>
+
+
+    </div>
+    <div class="content" style="padding-top: 20px;margin: 10px 30px">
+        <div class="" dir="rtl">
+            <h4 style="text-decoration: underline;margin-bottom: 4px;">5. مسؤوليات الشركة</h4>
+            <div style="display: flex;">
+                <div style="margin-left: 10px;">5.1.</div>
+                <div>تضمن VARROX لكافة عمالئها اإلستجابة السريعه والدقيقه لكافة طلباتهم وإحتياجاتهم وتسعي دائما
+                    الي
+                    حل كافة مشاكلهم وتلبية
+                    كافة متطلبات أعمالهم .</div>
+            </div>
+            <div style="display: flex;">
+                <div style="margin-left: 10px;">5.2.</div>
+                <div>تضمن VARROX تركيب النظام بشكل صحيح والتأكد من استكمال كافة عناصرة وإعداداته لضمان عمله بشكل
+                    سليم</div>
+            </div>
+            <div style="display: flex;">
+                <div style="margin-left: 10px;">5.3.</div>
+                <div>تلتزم VARROX بمتابعة وصيانة النظام في الشهر األول بشكل مستمر لضمان خلوه من أي مشاكل تقنية .
+                </div>
+            </div>
+            <div style="display: flex;">
+                <div style="margin-left: 10px;">5.4.</div>
+                <div>
+                    سنقوم بتدريب الموظف المسؤول عن النظام لديك على كيفية استخدام النظام وإعداداته كما سيتم تدريب
+                    كافة المستخدمين كل حسب
+                    تخصصه والصالحيات الممنوحة له .
+                </div>
+            </div>
+            <div style="display: flex;">
+                <div style="margin-left: 10px;">5.5.</div>
+                <div>
+                    VARROX مسئولة مسئولية كامله عن إعداد التقارير وضمان سالمتها ودقة بياناتها وإستكمال إعداداتها
+                    وتلبية كافة طلبات التطوير
+                    الخاصة بها.
+                </div>
+            </div>
+            <div style="display: flex;">
+                <div style="margin-left: 10px;">5.6.</div>
+                <div>
+                    تلتزم VARROX بالتعديل والتطوير علي نظامها المثبت بما يتناسب مع طبيعة النشاط ومتطلباته ويتم
+                    تحديد
+                    المقابل المادي بناءا
+                    على عرض سعر مستقل
+                </div>
+            </div>
+            <div style="display: flex;">
+                <div style="margin-left: 10px;">5.7.</div>
+                <div>
+                    تلتزم VARROX بتحديث النظام بشكل دوري ومستمر خالل فترة عمله وتزويدة بكافة التقنيات والتحديثات
+                    ما
+                    يضمن مالئمته للتطور
+                    التقني المتسارع
+                </div>
+            </div>
+            <div style="display: flex;" class="">
+                <div style="margin-left: 10px;">5.8.</div>
+                <div>
+                    تلتزم VARROX بالمحافظة علي سالمة وسرية معلومات عمالئها وصيانة النظام بشكل مستمر لضمان الحفاظ
+                    عليها وحمايتها من اي
+                    اختراقات او مخاطر أمنية
+                </div>
+            </div>
+            <div style="display: flex;">
+                <div style="margin-left: 10px;">5.9.</div>
+                <div>
+                    في حال قام العميل بتغيير أجهزته أو تغيير مقر عمله أو رغب في اي وقت بنقل النظام الي مكان آخر
+                    تلتزم VARROX بنقله وتركيبه
+                    والتأكد من سالمة بياناته , ويتم تحديد
+                    المقابل المالي وفقا لعرض سعر مستقل .
+                </div>
+            </div>
+            <div style="display: flex;">
+                <div style="margin-left: 10px;">5.10.</div>
+                <div>
+                    تلتزم VARROX بعدم استغالل بيانات عمالئها أو السماح الي شخص باستغاللها واستخدامها في اي نزاع
+                    قد
+                    ينشا بينها وبين العميل .
+                    كما تضمن سالمة البيانات في أي وقت
+                    أراد العميل استردادها .
+                </div>
+            </div>
+            </li>
+            <div style="margin-top: 30px;padding-top: 50px;position: absolute;bottom: 20%;left: 0%;right: 0%;">
+                <div style="display: flex;justify-content: space-between;width: 100%;">
+                    <img src="https://i.imgur.com/Qo6ZVqE.png" style="width:230px;height: 230px;">
+                    <img style="width: 270px;height: 270px;" src="<%= data.qrCodeImage %>" />
+                </div>
+
+                <div style="display: flex;justify-content: end; margin-left: 30px;" dir="rtl">
+                    <h4 style="margin-top: 5px;">VARROX SYSTEMS FOR BUSINESS SOLUTIONS
+                    </h4>
+                    <img style="width:20px ;height:20px ;margin-right: 2px; "
+                        src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAiCAIAAAAoKJUdAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACAUlEQVRIiWP8//8/A80AE+2MpoLp319teXXcgiam//pw8v2VtD/fH709F4xVASMk3J89e4bfICEhIQ4ODjTBZ/uk4Gw2flMR441YTP/x4wcXFxd+09esWRMUFITg///7bL8smhoe+Rw+5SpkESYGBgYmJtLC5/+/n5hGMzAwfHk45evzFZSa/vyAIi6pj9eLfrzZg2I6IyMj8Ua/PGqEX8G7S3G/v95EmE68218eNfr78wVBZa9POiJMJ9LtL49bEmM0BDzbJ8Xw/y8TAwPDv3//iNEgYrSJSKMZGBhY+YwYGJlJMJ2ZXVTECD1FYzeaV0fUZAsDJGSIL8jYBEwFdeYRcASHDNwRJLgdAjjFPAS0puFRIGZxiJGZE2E6qYBLIoBbJhlTnJGJTdL+HiMTosAgOb1DAL9aM7ugFarZzKJm+xmZUcoixv/////58+fIkSP4jdPR0REREUETfHsu6OeHExC2qNleVh5NNAWMlNRN///9enXc8u/P58JGa9gFrLCpoBD8+/399R5ckowQ6vHjx/idKSIiAimlX79+/f37d/yK5eTkEG7/8+cPIyGwdu1aiDu8vb0JKoa7nbTcRCogOTeRbDpt3U47QE7NR5rpZJQEJJhOW7fT1vShnN5pZzq0BD59+jR+dSoqKoKCggwMDLdv3/7w4QN+xaamphAGABrwI5Is1qdGAAAAAElFTkSuQmCC' />
+
+
+
+                </div>
+                <div style="display: flex;justify-content: start;" dir="ltr">
+                    <ul style="list-style-type: none;">
+                        <li><a>varroxsystems.com</a></li>
+                        <li>customers@varroxsystems.com
                         </li>
-                        <li>
-                            <span>
-                                1.3.
-                            </span>لن يتم تقديم الخدمات لك ما لم تدفع ما قيمته %50 من مبلغ الفاتورة مقدًما. سيتم تركيب
-                            النظام
-                            وتفعيل الخدمات في غضون 24
-                            ساعه كحد أقصى من تاريخ الدفع. سيكون لديك
-                            الحق بعد الدفع في تأجيل تركيب النظام أو تفعيل الخدمة في أي وقت ، الفتره المتاحة للتأجيل هي
-                            30
-                            يوم من تاريخ الدفع وهذه
-                            الفترة ال تخضع لمزيد من التمديدات وسنقوم
-                            تلقائيًا بتنشيط حسابك لدينا بشكل تلقائي وسيسري عليك كافة الشروط الخاصه برد الأموال .
+                        <li>01050526660
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <h4>تركيب النظام</h4>
-                    <ul>
-                        <li>
-                            <div style="display: flex;">
-                                <div style="margin-left:10px ;">2.1. </div>
-                                <div>توفير معلومات دقيقة وحديثة وكاملة عن نظام عملك وعدد المستخدمين وعدد الفروع والأقسام
-                                    وصالحيات
-                                    المستخدمين</div>
-                            </div>
-                            <div style="display: flex;">
-                                <div style="margin-left:10px ;">2.2. </div>
-                                <div>تعيين موظف واحد على ألاقل على دراية جيدا بالتعامل مع ألاجهزه ويمتلك خبرة ولو بسيطة
-                                    بأنظمة
-                                    إلادارة
-                                    والحسابات .</div>
-                            </div>
-                            <div style="display: flex;">
-                                <div style="margin-left:10px ;">2.3. </div>
-                                <div>توفير جميع المتطلبات الالزمة لتركيب النظام ، بما في ذلك كافة الأجهزة و جميع أعمال
-                                    الكابالت
-                                    الداخلية
-                                    والكهربائية
-                                    والميكانيكية المطلوبة والأنترنت. لن نبدأ أي تثبيت أو
-                                    تدريب حتى نتأكد من توفير الوسائل والتسهيالت المطلوبة لتنفيذ هذه المهام وجاهزية
-                                    الموقع.
-                                </div>
-                            </div>
-                            <div style="display: flex;">
-                                <div style="margin-left:10px ;">2.4. </div>
-                                <div>
-                                    الحفاظ على أمان كلمات المرور الخاصة بك فأنت المسئول الوحيد عن سرية بياناتك وأمن
-                                    معلوماتك
-                                    داخل
-                                    مكان
-                                    عملك .
-                                </div>
-                            </div>
-                            <div style="display: flex;">
-                                <div style="margin-left:10px ;">2.5. </div>
-                                <div>
-                                    تحديث أي معلومات أخرى تم تقديمها الي الشركة بشكل دقيق
-                                </div>
-                            </div>
-                            <div style="display: flex;">
-                                <div style="margin-left:10px ;">2.6. </div>
-                                <div>
-                                    الحفاظ علي وسيلة وصولنا الي البيانات وعدم العبث بها أو تغيير أي اعدادات خاصة بها أو
-                                    كلمات
-                                    مرور
-                                    وإلا
-                                    أصبحت مسئولا
-                                    مسئولية كامله عن أي إخترقات أو عبث
-                                    بالبيانات. </div>
-                            </div>
-
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <h4>حقوقنا</h4>
-                    <div style="display: flex;">
-                        <div style="margin-left: 10px;">3.1.</div>
-                        <div>يحق لشركة VARROX إضافة وظائف أو إجراء تغييرات عليها أو إزالتها تماما أو تنفيذ تعديلات
-                            وتحسينات فنية طفيفة في حالات
-                            التهديدات ألامنية والتقنية. قد تؤثر هذه
-                            التغييرات على استخدامك للخدمات وألانظمة. وقد نقرر أيضا التوقف عن تقديم كل الخدمات أو بعضها
-                            في
-                            أي وقت وفقا لطبيعة
-                            التهديد وضمانا لسلامة البيانات .</div>
-                    </div>
-                    <div style="display: flex;">
-                        <div style="margin-left: 10px;">3.2.</div>
-                        <div>يحق لنا إلغاء التعاقد في أي وقت في حال مخالفة العميل لشروط الاتفاق او اختالف الظروف
-                            الملائمة
-                            الستمرار عمل النظام .</div>
-                    </div>
-                    <div style="display: flex;">
-                        <div style="margin-left: 10px;">3.3.</div>
-                        <div>إذا سمح العميل لاي شركة منافسة بالعمل بدون التنسيق معنا أو سمح ألي متخصص غير موظفينا
-                            بالاطلاع
-                            علي نظامنا أو استخراج
-                            البيانات منه أو التعديل عليه أو إزالة تثبيته فستقوم الشركة بإنهاء التعاقد فورا ولن يتم
-                            إسترجاع
-                            أي
-                            مبالغ مالية أو إشتراكات والشركة غير مسئوله عن ضمان سالمة
-                            البيانات أو تسليمها أو نقلها .
-                        </div>
-                    </div>
-                    <div style="display: flex;">
-                        <div style="margin-left: 10px;">3.4.</div>
-                        <div>يحق لنا إلغاء التعاقد إذا تعمل العميل التأخر بدون إبداء أي أسباب في سداد المبالغ المستحقه .
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <h4>كيفية إنهاء العقد معنا</h4>
-                    <div style="display: flex;">
-                        <div style="margin-left: 10px;">4.1.</div>
-                        <div>في حالة رغبتك في إنهاء عقدك معنا أو إذا كنت ال ترغب في تجديد اشتراكك ، يجب عليك إبالغنا عبر
-                            البريد اإللكتروني من خلال customers@varroxsystems.com قبل 15 يو ًما من تاريخ تركيب
-                            النظام. بمجرد إرسال طلب اإللغاء ، ستتلقى نموذج بريد إلكتروني يتضمن التفاصيل
-                            المطلوبة.
-                            يرجى تقديم اسم عملك ، واسم الشخص المسؤول عن االتصال ورقم هاتفه ، ورقم الطلب وتفاصيله ،
-                            واألسباب
-                            الكامنة وراء اإللغاء ،
-                            وتفاصيل حسابك المصرفي
-                            (رقم الحساب المصرفي الدولي ، واسم البنك واسم المستفيد)</div>
-                    </div>
-                    <div style="display: flex;">
-                        <div style="margin-left: 10px;">4.2.</div>
-                        <div>إذا قمت بإنهاء تعاقدك أو اشتراكك أو اتفاقك ( ان وجد) بعد 15 يوم من تركيب النظام ، فسيتم
-                            تفعيل
-                            اإللغاء على الفور ولن يحق
-                            لك استرداد أي رسوم مدفوعة مقدًما.</div>
-                    </div>
-                    <div style="display: flex;">
-                        <div style="margin-left: 10px;">4.3.</div>
-                        <div>إذا قمت بإنهاء تعاقدك أو أشتراكك أو اتفاقك (ان وجد) في خلال 15 يوم من تاريخ التركيب وقد تم
-                            عمل أي تعديل أو تطوير أو
-                            إضافة علي نظامك بنائاً علي طلبك أو بسبب
-                            إحتياجات خاصة بنظام عملك ولم تقدم أي اعتراض عليها ال يتم استرداد كامل المبالغ والرسوم
-                            المدفوعه
-                            وإنما تحدد الشركة النسبة
-                            المسترده .</div>
-                    </div>
-
-                </li>
-
-
-            </ol>
-
-
-        </div>
-        <div class="content" style="padding-top: 20px;margin: 10px 30px">
-            <div class="" dir="rtl">
-                <h4 style="text-decoration: underline;margin-bottom: 4px;">5. مسؤوليات الشركة</h4>
-                <div style="display: flex;">
-                    <div style="margin-left: 10px;">5.1.</div>
-                    <div>تضمن VARROX لكافة عمالئها اإلستجابة السريعه والدقيقه لكافة طلباتهم وإحتياجاتهم وتسعي دائما
-                        الي
-                        حل كافة مشاكلهم وتلبية
-                        كافة متطلبات أعمالهم .</div>
                 </div>
-                <div style="display: flex;">
-                    <div style="margin-left: 10px;">5.2.</div>
-                    <div>تضمن VARROX تركيب النظام بشكل صحيح والتأكد من استكمال كافة عناصرة وإعداداته لضمان عمله بشكل
-                        سليم</div>
-                </div>
-                <div style="display: flex;">
-                    <div style="margin-left: 10px;">5.3.</div>
-                    <div>تلتزم VARROX بمتابعة وصيانة النظام في الشهر األول بشكل مستمر لضمان خلوه من أي مشاكل تقنية .
-                    </div>
-                </div>
-                <div style="display: flex;">
-                    <div style="margin-left: 10px;">5.4.</div>
-                    <div>
-                        سنقوم بتدريب الموظف المسؤول عن النظام لديك على كيفية استخدام النظام وإعداداته كما سيتم تدريب
-                        كافة المستخدمين كل حسب
-                        تخصصه والصالحيات الممنوحة له .
-                    </div>
-                </div>
-                <div style="display: flex;">
-                    <div style="margin-left: 10px;">5.5.</div>
-                    <div>
-                        VARROX مسئولة مسئولية كامله عن إعداد التقارير وضمان سالمتها ودقة بياناتها وإستكمال إعداداتها
-                        وتلبية كافة طلبات التطوير
-                        الخاصة بها.
-                    </div>
-                </div>
-                <div style="display: flex;">
-                    <div style="margin-left: 10px;">5.6.</div>
-                    <div>
-                        تلتزم VARROX بالتعديل والتطوير علي نظامها المثبت بما يتناسب مع طبيعة النشاط ومتطلباته ويتم
-                        تحديد
-                        المقابل المادي بناءا
-                        على عرض سعر مستقل
-                    </div>
-                </div>
-                <div style="display: flex;">
-                    <div style="margin-left: 10px;">5.7.</div>
-                    <div>
-                        تلتزم VARROX بتحديث النظام بشكل دوري ومستمر خالل فترة عمله وتزويدة بكافة التقنيات والتحديثات
-                        ما
-                        يضمن مالئمته للتطور
-                        التقني المتسارع
-                    </div>
-                </div>
-                <div style="display: flex;" class="">
-                    <div style="margin-left: 10px;">5.8.</div>
-                    <div>
-                        تلتزم VARROX بالمحافظة علي سالمة وسرية معلومات عمالئها وصيانة النظام بشكل مستمر لضمان الحفاظ
-                        عليها وحمايتها من اي
-                        اختراقات او مخاطر أمنية
-                    </div>
-                </div>
-                <div style="display: flex;">
-                    <div style="margin-left: 10px;">5.9.</div>
-                    <div>
-                        في حال قام العميل بتغيير أجهزته أو تغيير مقر عمله أو رغب في اي وقت بنقل النظام الي مكان آخر
-                        تلتزم VARROX بنقله وتركيبه
-                        والتأكد من سالمة بياناته , ويتم تحديد
-                        المقابل المالي وفقا لعرض سعر مستقل .
-                    </div>
-                </div>
-                <div style="display: flex;">
-                    <div style="margin-left: 10px;">5.10.</div>
-                    <div>
-                        تلتزم VARROX بعدم استغالل بيانات عمالئها أو السماح الي شخص باستغاللها واستخدامها في اي نزاع
-                        قد
-                        ينشا بينها وبين العميل .
-                        كما تضمن سالمة البيانات في أي وقت
-                        أراد العميل استردادها .
-                    </div>
-                </div>
-                </li>
-                <div style="margin-top: 30px;padding-top: 50px;position: absolute;bottom: 20%;left: 0%;right: 0%;">
-                    <div style="display: flex;justify-content: space-between;width: 100%;">
-                        <img src="https://i.imgur.com/Qo6ZVqE.png" style="width:230px;height: 230px;">
-                        <img style="width: 270px;height: 270px;" src="<%= data.qrCodeImage %>" />
-                    </div>
-
-                    <div style="display: flex;justify-content: end; margin-left: 30px;" dir="rtl">
-                        <h4 style="margin-top: 5px;">VARROX SYSTEMS FOR BUSINESS SOLUTIONS
-                        </h4>
-                        <img style="width:20px ;height:20px ;margin-right: 2px; "
-                            src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAiCAIAAAAoKJUdAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACAUlEQVRIiWP8//8/A80AE+2MpoLp319teXXcgiam//pw8v2VtD/fH709F4xVASMk3J89e4bfICEhIQ4ODjTBZ/uk4Gw2flMR441YTP/x4wcXFxd+09esWRMUFITg///7bL8smhoe+Rw+5SpkESYGBgYmJtLC5/+/n5hGMzAwfHk45evzFZSa/vyAIi6pj9eLfrzZg2I6IyMj8Ua/PGqEX8G7S3G/v95EmE68218eNfr78wVBZa9POiJMJ9LtL49bEmM0BDzbJ8Xw/y8TAwPDv3//iNEgYrSJSKMZGBhY+YwYGJlJMJ2ZXVTECD1FYzeaV0fUZAsDJGSIL8jYBEwFdeYRcASHDNwRJLgdAjjFPAS0puFRIGZxiJGZE2E6qYBLIoBbJhlTnJGJTdL+HiMTosAgOb1DAL9aM7ugFarZzKJm+xmZUcoixv/////58+fIkSP4jdPR0REREUETfHsu6OeHExC2qNleVh5NNAWMlNRN///9enXc8u/P58JGa9gFrLCpoBD8+/399R5ckowQ6vHjx/idKSIiAimlX79+/f37d/yK5eTkEG7/8+cPIyGwdu1aiDu8vb0JKoa7nbTcRCogOTeRbDpt3U47QE7NR5rpZJQEJJhOW7fT1vShnN5pZzq0BD59+jR+dSoqKoKCggwMDLdv3/7w4QN+xaamphAGABrwI5Is1qdGAAAAAElFTkSuQmCC' />
-
-
-
-                    </div>
-                    <div style="display: flex;justify-content: start;" dir="ltr">
-                        <ul style="list-style-type: none;">
-                            <li><a>varroxsystems.com</a></li>
-                            <li>customers@varroxsystems.com
-                            </li>
-                            <li>01050526660
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
             </div>
 
+        </div>
 
+    </div>
 
 
 

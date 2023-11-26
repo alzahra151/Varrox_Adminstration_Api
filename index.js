@@ -29,143 +29,136 @@ app.use(
     origin: "*",
   })
 );
+
 data = {
-  "_id": "650958cafc7af606145e5c33",
-  "ActivityName": "test",
-  "ActivityNature": "test2",
-  "activityLocation": "test",
-  "Country": "teest",
-  "Governorate": "test test",
-  "City": "tahta",
+  "_id": "654ce7c0be93ab4e2e9564e1",
+  "ActivityName": "مطعم جديد جدا ",
+  "ActivityNature": "مطاعم ",
+  "activityLocation": "طهطا ",
+  "Country": "مصر ",
+  "Governorate": "سوهاج ",
+  "City": "طهطا ",
   "ReprsentativeID": {
-    "_id": "64d41329deb63b50ae4adb22",
-    "FullName": "Alzahra desoky",
-    "Email": "alzahradesoky.15@gmail.com",
-    "Country": "egypt",
-    "Mobile": "01151105670",
-    "Password": "$2b$10$NzHdJu9yL/SrZMGPjNIMMeX374AmPLYHyKi71KLfQ6kYQibdRJxWa",
-    "Role": "SalesManager",
-    "createdAt": "2023-08-09T22:28:57.234Z",
-    "updatedAt": "2023-08-09T22:28:57.234Z",
+    "_id": "64d4162d837d435ace272301",
+    "FullName": "hossam Mohamed",
+    "Email": "hossam@gmail.com",
+    "Country": "مصر",
+    "Mobile": "012456879",
+    "Password": "$2b$10$0Sno0GtlRYX3Od3NKo70merZVL.HjJnkEqPT1/yJI4W7YUInPL2Hq",
+    "Role": "Representative",
+    "createdAt": "2023-08-09T22:41:49.424Z",
+    "updatedAt": "2023-08-09T22:41:49.424Z",
     "__v": 0
   },
-  "Name": "test",
-  "Mobile": "2133331",
-  "Phone": "2133331",
-  "Email": "",
+  "Name": "احمد ",
+  "Mobile": "01064144493",
+  "Phone": "0934293858",
+  "Email": "abdulrahmanahmed@varroxsystems.com",
   "PriceOffer": {
-    "_id": "650958c9fc7af606145e5c2a",
+    "_id": "654ce7c0be93ab4e2e9564da",
     "Services": [
       {
         "Service": {
-          "_id": "64e26979a2df7c7d11855fd3",
-          "Name": "service test",
+          "_id": "6547a23f2c74706a7f40d672",
+          "Name": "VARROX SYSTEMS Semi Pro 1.0.5. ERP Solution",
           "Details": [
-            "Resturant Screen – POS withSales Reportstest",
-            "Stores Screen with Reports"
+            "قسم المبيعات ونقاط البيع وإدارة العملاء ",
+            "قسم المشتريات و إدارة الموردين ",
+            "قسم المخازن و ادارة حركة الاصناف ",
+            "قسم الحسابات ومتابعة حركة القيود ",
+            "قسم المالية وإدارة النقد و البنوك ",
+            "قسم مركز التقارير"
           ],
           "Devices": [
             {
-              "_id": "64f26e2e790f588ca9d29cb9",
-              "Title": "pos1 pc",
-              "Price": 2000,
-              "ServiceID": "64e26979a2df7c7d11855fd3",
-              "createdAt": "2023-09-01T23:05:18.823Z",
-              "updatedAt": "2023-09-01T23:05:18.823Z",
+              "_id": "6547a23f2c74706a7f40d675",
+              "Title": " جهاز ادارة 1 ",
+              "Price": 15000,
+              "createdAt": "2023-11-05T14:10:07.421Z",
+              "updatedAt": "2023-11-05T14:10:07.421Z",
               "__v": 0
             },
             {
-              "_id": "64f26f6f3c9726b6454f458e",
-              "Title": "pos2 pc",
-              "Price": 2000,
-              "ServiceID": "64e26979a2df7c7d11855fd3",
-              "createdAt": "2023-09-01T23:10:39.420Z",
-              "updatedAt": "2023-09-01T23:10:39.420Z",
+              "_id": "6547a23f2c74706a7f40d676",
+              "Title": "جهاز نقطة بيع ",
+              "Price": 5000,
+              "createdAt": "2023-11-05T14:10:07.421Z",
+              "updatedAt": "2023-11-05T14:10:07.421Z",
+              "__v": 0
+            },
+            {
+              "_id": "6547a23f2c74706a7f40d677",
+              "Title": "جهاز مجاني ",
+              "Price": 0,
+              "createdAt": "2023-11-05T14:10:07.421Z",
+              "updatedAt": "2023-11-05T14:10:07.421Z",
+              "__v": 0
+            },
+            {
+              "_id": "655e9125407f90095597c511",
+              "Title": "",
+              "Price": null,
+              "createdAt": "2023-11-22T23:39:17.315Z",
+              "updatedAt": "2023-11-22T23:39:17.315Z",
               "__v": 0
             }
           ],
-          "createdAt": "2023-09-01T23:04:31.004Z",
-          "updatedAt": "2023-09-02T00:43:23.574Z",
+          "Maintenance": {
+            "description": "تدريب ومتابعة صيانة ودعم فنى تحديث وتطوير تدفع سنويا للفروع المذكورة وف حالة زيادة الفروع يتم الاتفاق على مبلغ مقابل اشتراك سنوي يدفع بعد اول سنة\n",
+            "price": 5000,
+            "_id": "655e9125407f90095597c513"
+          },
+          "createdAt": "2023-11-05T14:10:07.215Z",
+          "updatedAt": "2023-11-22T23:39:17.398Z",
           "__v": 0
         },
         "Devices": [
           {
             "Device": {
-              "_id": "64f26e2e790f588ca9d29cb9",
-              "Title": "pos1 pc",
-              "Price": 2000,
-              "ServiceID": "64e26979a2df7c7d11855fd3",
-              "createdAt": "2023-09-01T23:05:18.823Z",
-              "updatedAt": "2023-09-01T23:05:18.823Z",
-              "__v": 0
-            },
-            "Quantity": 2,
-            "SubTotalPrice": 4000,
-            "_id": "650958c9fc7af606145e5c2c"
-          },
-          {
-            "Device": {
-              "_id": "64f26f6f3c9726b6454f458e",
-              "Title": "pos2 pc",
-              "Price": 2000,
-              "ServiceID": "64e26979a2df7c7d11855fd3",
-              "createdAt": "2023-09-01T23:10:39.420Z",
-              "updatedAt": "2023-09-01T23:10:39.420Z",
+              "_id": "6547a23f2c74706a7f40d675",
+              "Title": " جهاز ادارة 1 ",
+              "Price": 15000,
+              "createdAt": "2023-11-05T14:10:07.421Z",
+              "updatedAt": "2023-11-05T14:10:07.421Z",
               "__v": 0
             },
             "Quantity": 1,
-            "SubTotalPrice": 2000,
-            "_id": "650958c9fc7af606145e5c2d"
+            "SubTotalPrice": 15000,
+            "_id": "654ce7c0be93ab4e2e9564dc"
           }
         ],
-        "serviceTotalPrice": 6000,
-        "_id": "650958c9fc7af606145e5c2b"
-      },
-      {
-        "Service": null,
-        "Devices": [
-          {
-            "Device": {
-              "_id": "64f26f6f3c9726b6454f458e",
-              "Title": "pos2 pc",
-              "Price": 2000,
-              "ServiceID": "64e26979a2df7c7d11855fd3",
-              "createdAt": "2023-09-01T23:10:39.420Z",
-              "updatedAt": "2023-09-01T23:10:39.420Z",
-              "__v": 0
-            },
-            "Quantity": 2,
-            "SubTotalPrice": 4000,
-            "_id": "650958c9fc7af606145e5c2f"
-          }
-        ],
-        "serviceTotalPrice": 4000,
-        "_id": "650958c9fc7af606145e5c2e"
+        "serviceTotalPrice": 15000,
+        "_id": "654ce7c0be93ab4e2e9564db",
+        "Maintenance": {
+          "description": "test maintainace",
+          "price": 2000,
+          "_id": "6562dd3777ae0b15899813f7"
+        }
       }
     ],
-    "TotalPrice": 10000,
-    "createdAt": "2023-09-19T08:16:09.691Z",
-    "updatedAt": "2023-09-19T08:16:09.691Z",
+    "TotalPrice": 15000,
+    "createdAt": "2023-11-09T14:08:00.034Z",
+    "updatedAt": "2023-11-26T05:52:55.051Z",
     "__v": 0
   },
   "SendToAdmin": true,
-  "Complete": false,
-  "Comment": "test comment",
+  "Complete": true,
+  "Comment": null,
   "IsOpen": true,
-  "ApproveToSalesManger": true,
-  "ApproveToReprsentative": true,
+  "ApproveToSalesManger": false,
+  "ApproveToReprsentative": false,
   "Rejected": false,
-  "BranchesNumber": 2,
+  "BranchesNumber": 1,
   "PaymentPlan": {
     "_id": "64ffd269f72c1e1236fab793",
     "Plan": "100% payment before installation",
     "__v": 0
   },
-  "Notes": "test",
-  "createdAt": "2023-09-19T08:16:10.122Z",
-  "updatedAt": "2023-09-21T02:56:35.271Z",
-  "Code": 16,
-  "QrCode": 192,
+  "Notes": "",
+  "createdAt": "2023-11-09T14:08:00.894Z",
+  "updatedAt": "2023-11-26T06:12:46.154Z",
+  "Code": 36,
+  "QrCode": 130,
   "__v": 0,
   "InitialAmountOfMoney": "5000"
 }

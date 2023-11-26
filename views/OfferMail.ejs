@@ -191,76 +191,77 @@
             </div>
             <p>Quotation Details</p>
             <div style="width: 100%; margin: 30px;">
-                <div style="width: 50%;margin: 2px;float: left;">
-                    <div style="width: 100%; " class="detailsContainer">
-                        <div class="detailsKeys">Customer Name </div>
-                        <div class="details"> : <%=data.Name %>
-                        </div>
-                    </div>
-                    <div style="width: 100%; " class="detailsContainer">
-                        <div class="detailsKeys">Contact name </div>
-                        <div class="details"> : <%=data.Name %>
-                        </div>
-                    </div>
-                    <div style="width: 100%;" class="detailsContainer">
-                        <div class="detailsKeys">Mobile No. </div>
-                        <div class="details">: <%=data.Mobile %>
-                        </div>
-                    </div>
-                    <div style="width: 100%; margin-bottom: 20px;" class="detailsContainer">
-                        <div class="detailsKeys">E-Mail Address</div>
-                        <div class="details"> : <%=data.Email %>
-                        </div>
-                    </div>
-                    <div style="width: 100%;" class="detailsContainer">
-                        <div class="detailsKeys">Business Name </div>
-                        <div class="details">: <%=data.ActivityName%>
-                        </div>
-                    </div>
-                    <div style="width: 100%; " class="detailsContainer">
-                        <div class="detailsKeys">Business Area</div>
-                        <div class="details"> : <%=data.activityLocation%>
-                        </div>
-                    </div>
-                    <div style="width: 100%;" class="detailsContainer">
-                        <div class="detailsKeys">Business Specialist</div>
-                        <div class="details">: <%=data.ActivityNature%>
-                        </div>
-                    </div>
-
-                </div>
-                <div style="width:40%;float: left;">
-
-                    <div style="width: 100%; " class="detailsContainer">
-                        <div style=" font-size: .75rem;" class="detailsKeys">Quotation No. </div>
-                        <div style=" font-size: .75rem;" class="details"> : <%=data.Code%>
-                        </div>
-                    </div>
-                    <div style="width: 100%; " class="detailsContainer">
-                        <div style=" font-size: .75rem;" class="detailsKeys">Quotation Date </div>
-                        <div style=" font-size: .75rem;" class="details"> : <%= new
-                                Date(data.createdAt).toLocaleDateString('en-US')%>
+                <div style="display: flex;">
+                    <div style="width: 50%;margin: 2px;;">
+                        <div style="width: 100%; " class="detailsContainer">
+                            <div class="detailsKeys">Customer Name </div>
+                            <div class="details"> : <%=data.Name %>
+                            </div>
                         </div>
                         <div style="width: 100%; " class="detailsContainer">
-                            <div style=" font-size: .75rem;" class="detailsKeys">Branch Name </div>
-                            <div style=" font-size: .75rem;" class="details"> :Egypt</div>
+                            <div class="detailsKeys">Contact name </div>
+                            <div class="details"> : <%=data.Name %>
+                            </div>
+                        </div>
+                        <div style="width: 100%;" class="detailsContainer">
+                            <div class="detailsKeys">Mobile No. </div>
+                            <div class="details">: <%=data.Mobile %>
+                            </div>
+                        </div>
+                        <div style="width: 100%; margin-bottom: 20px;" class="detailsContainer">
+                            <div class="detailsKeys">E-Mail Address</div>
+                            <div class="details"> : <%=data.Email %>
+                            </div>
+                        </div>
+                        <div style="width: 100%;" class="detailsContainer">
+                            <div class="detailsKeys">Business Name </div>
+                            <div class="details">: <%=data.ActivityName%>
+                            </div>
                         </div>
                         <div style="width: 100%; " class="detailsContainer">
-                            <div style=" font-size: .75rem;" class="detailsKeys">Branch ID </div>
-                            <div style=" font-size: .75rem;" class="details"> :1001</div>
+                            <div class="detailsKeys">Business Area</div>
+                            <div class="details"> : <%=data.activityLocation%>
+                            </div>
                         </div>
-                        <div class="lastQout">
-                            <p>Quotation Last Value :
-                            <h2>
-                                <%=data.PriceOffer.TotalPrice%>
-                            </h2>
-                            </p>
+                        <div style="width: 100%;" class="detailsContainer">
+                            <div class="detailsKeys">Business Specialist</div>
+                            <div class="details">: <%=data.ActivityNature%>
+                            </div>
+                        </div>
 
+                    </div>
+                    <div style="width:40%;">
+
+                        <div style="width: 100%; " class="detailsContainer">
+                            <div style=" font-size: .75rem;" class="detailsKeys">Quotation No. </div>
+                            <div style=" font-size: .75rem;" class="details"> : <%=data.Code%>
+                            </div>
+                        </div>
+                        <div style="width: 100%; " class="detailsContainer">
+                            <div style=" font-size: .75rem;" class="detailsKeys">Quotation Date </div>
+                            <div style=" font-size: .75rem;" class="details"> : <%= new
+                                    Date(data.createdAt).toLocaleDateString('en-US')%>
+                            </div>
+                            <div style="width: 100%; " class="detailsContainer">
+                                <div style=" font-size: .75rem;" class="detailsKeys">Branch Name </div>
+                                <div style=" font-size: .75rem;" class="details"> :Egypt</div>
+                            </div>
+                            <div style="width: 100%; " class="detailsContainer">
+                                <div style=" font-size: .75rem;" class="detailsKeys">Branch ID </div>
+                                <div style=" font-size: .75rem;" class="details"> :1001</div>
+                            </div>
+                            <div class="lastQout">
+                                <p>Quotation Last Value :
+                                <h2>
+                                    <%=data.PriceOffer.TotalPrice%>
+                                </h2>
+                                </p>
+
+                            </div>
                         </div>
                     </div>
+                    <!-- <div style="clear: both;"></div> -->
                 </div>
-                <div style="clear: both;"></div>
-
 
                 <div style="display: flex; color: white;" dir="ltr">
                     <div style="width:37%;padding: 6px;background-color: black;">Software Details</div>

@@ -1,4 +1,5 @@
 const PriceOffer = require('../models/PriceOffer')
+// const PriceOffer = require('../models/PriceOffer')
 
 async function AddPriceOffer(data) {
   const newPriceOffer = await PriceOffer.create(data)
@@ -39,15 +40,31 @@ async function updateOffer(id, updatedData) {
 }
 async function getOfferByID(id) {
   const offer = await PriceOffer.findById(id)
-    .populate({
-      path: 'PriceOfferReq',
-      populate: {
-        path: 'ReprsentativeID',
-        model: 'Representative'
-      },
-
-    }).populate('PriceOffer.Service')
   return offer
 }
+async function getPriceOfferService(id, allmentenanceData) {
+  const priceOffer = await PriceOffer.findById(id)
+  // console.log(priceOffer)
+  if (priceOffer) {
+    allmentenanceData.forEach(async (maintenanceUpdate) => {
+      const { serviceId, maintainanceData } = maintenanceUpdate;
+      // console.log(serviceId, maintainanceData)
+      const service = await priceOffer.Services.id(serviceId)
+      if (service === null) {
+        return { status: 401, result: "service not found" }
 
-module.exports = { AddPriceOffer, getAllPriceOffers, deleteOffer, updateOffer, getOfferByID }
+      } else {
+        service.Maintenance = maintainanceData
+
+        await priceOffer.save();
+        return { status: 200, result: priceOffer }
+      }
+    })
+    return { status: 200, result: priceOffer }
+
+
+  } else {
+    return { status: 401, result: "price offer not found" }
+  }
+}
+module.exports = { AddPriceOffer, getAllPriceOffers, deleteOffer, updateOffer, getOfferByID, getPriceOfferService }

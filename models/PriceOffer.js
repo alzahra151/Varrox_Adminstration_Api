@@ -8,13 +8,19 @@ const DeviceSchema = new mongoose.Schema({
   Quantity: { type: Number, required: true },
   SubTotalPrice: { type: Number, required: true }
 })
+const mentenanceSchema = mongoose.Schema({
+  description: { type: String },
+  price: { type: Number }
+})
 const ServiceSchema = new mongoose.Schema({
   Service: {
     type: mongoose.Schema.Types.ObjectId, ref: Service, autopopulate: true
   },
   Devices: [DeviceSchema],
+  Maintenance: mentenanceSchema,
   serviceTotalPrice: { type: Number, required: true }
 });
+
 const PriceOfferSchema = mongoose.Schema({
   Services: [ServiceSchema],
   TotalPrice: { type: Number },

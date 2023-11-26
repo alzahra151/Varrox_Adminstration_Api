@@ -30,7 +30,8 @@ const PriceOfferRequestSchema = mongoose.Schema({
   QrCode: { type: Number, unique: true },
   BranchesNumber: { type: Number, required: true },
   PaymentPlan: { type: mongoose.Schema.Types.ObjectId, ref: PaymentPlan, autopopulate: true },
-  Notes: { type: String }
+  Notes: { type: String },
+  TotalCopies: { type: Number }
 }, { timestamps: true })
 
 PriceOfferRequestSchema.plugin(require('mongoose-autopopulate'));

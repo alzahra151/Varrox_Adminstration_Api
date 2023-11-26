@@ -4,6 +4,7 @@ const {
   deleteOffer,
   updateOffer,
   getOfferByID,
+  getPriceOfferService
 } = require("../Controlers/PriceOffer");
 const express = require("express");
 const router = express.Router();
@@ -71,5 +72,15 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(error.message);
   }
 });
+router.patch("/:id/service", async (req, res) => {
+  const id = req.params.id
+  const data = req.body
+  try {
+    const { status, result } = await getPriceOfferService(id, data)
+    res.status(status).json(result)
+  } catch (error) {
+    res.status(401).json(error.message)
 
+  }
+})
 module.exports = router;

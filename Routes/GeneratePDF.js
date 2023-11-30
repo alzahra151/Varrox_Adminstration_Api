@@ -30,10 +30,8 @@ router.post("/SendEmail", async (req, res, next) => {
 
 router.post('/down-pdf', async (req, res) => {
   let OfferData = req.body;
-  // console.log(OfferData)
   const qrCode = OfferData.QrCode
   const strCode = JSON.stringify(qrCode)
-  // console.log(qrCode, strCode)
   QRCode.toDataURL(strCode, async (err, qrCodeDataURL) => {
     if (err) {
       console.error(err);
@@ -48,9 +46,7 @@ router.post('/down-pdf', async (req, res) => {
         `attachment; filename=${OfferData.QrCode}.pdf`
       );
       res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, content-type");
-      // console.log(pdf)
       res.send(pdf)
-      // res.status(200).json(newBlob)
     } catch (err) {
       res.json(err)
     }

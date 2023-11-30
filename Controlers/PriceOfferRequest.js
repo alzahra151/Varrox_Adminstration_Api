@@ -6,11 +6,18 @@ async function AddPriceOfferReq(data) {
   console.log(NewClient);
   return NewClient.save();
 }
-async function GetAllRequests() {
+async function GetAllRequests(query) {
+  const { limit = 5, page = 1 } = query
   const requests = await PriceOfferRequest.find()
-    .populate("ReprsentativeID")
+    .limit(limit * 1)
+    .skip((page - 1) * limit)
     .sort({ createdAt: -1 });
-  return requests;
+  const count = await PriceOfferRequest.countDocuments();
+  return {
+    requests,
+    totalPages: Math.ceil(count / limit),
+    currentPage: +page,
+  }
 }
 async function GetAllSendRequests() {
   const requests = await PriceOfferRequest.find({ SendToAdmin: true })
@@ -18,28 +25,52 @@ async function GetAllSendRequests() {
     .sort({ createdAt: -1 });
   return requests;
 }
-async function GetAllRequestsForSalesManger() { ////done
+async function GetAllRequestsForSalesManger(query) { ////done
+  const { limit = 5, page = 0 } = query
   const requests = await PriceOfferRequest.find({
     SendToAdmin: false,
     Complete: true,
   })
-    .populate("ReprsentativeID")
+    .limit(limit * 1)
+    .skip((page) * limit)
     .sort({ createdAt: -1 });
-  return requests;
+  const count = await PriceOfferRequest.countDocuments({
+    SendToAdmin: false,
+    Complete: true,
+  });
+  return {
+    requests,
+    totalPages: Math.ceil(count / limit),
+    currentPage: +page,
+    count,
+    limit
+  }
 }
 async function getReqByID(id) { ///done
   const request = await PriceOfferRequest.findById(id)
     .populate("ReprsentativeID")
   return request;
 }
-async function getRepresentativeRequests(id) { ///done
+async function getRepresentativeRequests(id, query) { ///done
+  const { limit = 5, page = 0 } = query
   const requests = await PriceOfferRequest.find({
     ReprsentativeID: id,
     Complete: false,
   })
-    .populate("ReprsentativeID")
+    .limit(limit * 1)
+    .skip((page) * limit)
     .sort({ createdAt: -1 });
-  return requests;
+  const count = await PriceOfferRequest.countDocuments({
+    ReprsentativeID: id,
+    Complete: false,
+  });
+  return {
+    requests,
+    totalPages: Math.ceil(count / limit),
+    currentPage: +page,
+    count,
+    limit
+  }
 }
 async function getRerpresentCommentedReq(id) {  ///// done
   const requests = await PriceOfferRequest.find({
@@ -59,16 +90,29 @@ async function getCompletedReqs() { //// done
     .sort({ createdAt: -1 });
   return requests;
 }
-async function getRepresentCompletedReqs(id) { //// done
+async function getRepresentCompletedReqs(id, query) { //// done
+  const { limit = 5, page = 0 } = query
+
   const requests = await PriceOfferRequest.find({
     ReprsentativeID: id,
-    SendToAdmin: true,
+    // SendToAdmin: true,
     Complete: true,
-    InitialAmountOfMoney: { $ne: null },
+    // InitialAmountOfMoney: { $ne: null },
   })
-    .populate("ReprsentativeID")
+    .limit(limit * 1)
+    .skip((page) * limit)
     .sort({ createdAt: -1 });
-  return requests;
+  const count = await PriceOfferRequest.countDocuments({
+    ReprsentativeID: id,
+    Complete: true,
+  });
+  return {
+    requests,
+    totalPages: Math.ceil(count / limit),
+    currentPage: +page,
+    count,
+    limit
+  }
 }
 async function updateReq(id, updatedData) { /// done
   const updatedReq = await PriceOfferRequest.findByIdAndUpdate(

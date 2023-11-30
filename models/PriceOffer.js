@@ -24,6 +24,7 @@ const ServiceSchema = new mongoose.Schema({
 const PriceOfferSchema = mongoose.Schema({
   Services: [ServiceSchema],
   TotalPrice: { type: Number },
+  TotalCopies: { type: Number }
 }, { timestamps: true })
 
 PriceOfferSchema.plugin(require('mongoose-autopopulate'));

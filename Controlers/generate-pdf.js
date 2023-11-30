@@ -6,6 +6,7 @@ async function generatePdf(data) {
     // console.log(data)
     let browser;
     try {
+        console.time()
         browser = await puppeteer.launch({
             headless: true,
             args: [
@@ -20,29 +21,17 @@ async function generatePdf(data) {
                     : puppeteer.executablePath(),
         });
         const [page] = await browser.pages();
-
         const html = await ejs.renderFile("./views/OfferMail.ejs", { data: data })
-        // console.log(html)
-
         await page.setContent(html, { waitUntil: 'networkidle0' });
-        // await page.waitForNavigation({ timeout: 60000 });
-        // await page.waitForEvent('domcontentloaded', { timeout: 60000 });
         await page.emulateMediaType('screen');
-        // await page.waitForNavigation({
-        //     waitUntil: 'networkidle0',
-        //     timeout: 9000,
-        // });
-
-        // await page.addStyleTag({
-        //     // content: `.content{  background-color: red;heigt:12in}`,
-        // })
         const pdf = await page.pdf({
-
             format: 'A4',
             printBackground: true
         });
 
         browser.close();
+        console.time()
+        console.timeEnd()
         return pdf
 
     } catch (err) {

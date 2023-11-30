@@ -55,14 +55,11 @@ async function getPriceOfferService(id, allmentenanceData) {
 
       } else {
         service.Maintenance = maintainanceData
-
-        await priceOffer.save();
         return { status: 200, result: priceOffer }
       }
     })
+    await priceOffer.save();
     return { status: 200, result: priceOffer }
-
-
   } else {
     return { status: 401, result: "price offer not found" }
   }

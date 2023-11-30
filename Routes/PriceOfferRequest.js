@@ -25,9 +25,21 @@ const {
   AllCommentedRequsetsCount,
   getRepresentCompletedReqs
 } = require("../Controlers/PriceOfferRequest");
+const PriceOfferRequest = require("../models/PriceOfferRequest");
+
 const { VerfiyToken, AuthorizeRoles } = require("../MiddleWare/Auth");
 const { VerfiyAdminToken } = require("../MiddleWare/AdminAuth");
+router.get("/test", async (req, res, next) => {
+  try {
+    const highestQrCode = await PriceOfferRequest.findOne({}).sort({ QrCode: -1 });
+    // const highestQrCode = await PriceOfferRequest.findOne().sort('QrCode').exec();
 
+
+    res.status(200).json(highestQrCode);
+  } catch (err) {
+    res.status(401).json(err.message);
+  }
+});
 router.post("/AddRequest", VerfiyToken, async (req, res, next) => {
   const data = req.body;
   req.body.ReprsentativeID = req.Representative.id;
@@ -36,16 +48,19 @@ router.post("/AddRequest", VerfiyToken, async (req, res, next) => {
   res.status(200).json(NewClient);
 });
 router.get("/", async (req, res, next) => {
+  const query = req.query
   try {
-    const requestes = await GetAllRequests();
+    const requestes = await GetAllRequests(query);
     res.status(200).json(requestes);
   } catch (err) {
     res.status(401).json(err.message);
   }
 });
 router.get("/SalesMangerRequests", VerfiyToken, async (req, res, next) => { ///done
+  const query = req.query
+  console.log(query)
   try {
-    const requestes = await GetAllRequestsForSalesManger();
+    const requestes = await GetAllRequestsForSalesManger(query);
     res.status(200).json(requestes);
   } catch (err) {
     res.status(401).json(err.message);
@@ -62,8 +77,9 @@ router.get("/completed-requests", VerfiyToken, async (req, res, next) => { ///do
 });
 router.get("/representative-complete-reqs", VerfiyToken, async (req, res, next) => {
   const RepresentativeId = req.Representative.id;
+  const query = req.query
   try {
-    const reqs = await getRepresentCompletedReqs(RepresentativeId)
+    const reqs = await getRepresentCompletedReqs(RepresentativeId, query)
     res.status(200).json(reqs);
 
   } catch (err) {
@@ -176,10 +192,13 @@ router.get("/new-reqs", async (req, res) => {
   }
 });
 router.get("/RepresenetitaveRequests", [VerfiyToken, AuthorizeRoles(["Representative"])], ///done (archieve)
+
   async (req, res, next) => {
+    const query = req.query
+
     try {
       const RepresentativeId = req.Representative.id;
-      const requestes = await getRepresentativeRequests(RepresentativeId);
+      const requestes = await getRepresentativeRequests(RepresentativeId, query);
       res.status(200).json(requestes);
     } catch (err) {
       res.status(401).json(err.message);

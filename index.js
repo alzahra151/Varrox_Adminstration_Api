@@ -137,6 +137,7 @@ data = {
       }
     ],
     "TotalPrice": 15000,
+    "TotalCopies": 4,
     "createdAt": "2023-11-09T14:08:00.034Z",
     "updatedAt": "2023-11-26T05:52:55.051Z",
     "__v": 0

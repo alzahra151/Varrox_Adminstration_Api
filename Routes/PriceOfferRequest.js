@@ -23,19 +23,19 @@ const {
   AllAcceptedRequsetsCount,
   AllRejectedRequsetsCount,
   AllCommentedRequsetsCount,
-  getRepresentCompletedReqs
+  getRepresentCompletedReqs,
+  searchData
 } = require("../Controlers/PriceOfferRequest");
 const PriceOfferRequest = require("../models/PriceOfferRequest");
 
 const { VerfiyToken, AuthorizeRoles } = require("../MiddleWare/Auth");
 const { VerfiyAdminToken } = require("../MiddleWare/AdminAuth");
-router.get("/test", async (req, res, next) => {
+router.get("/search", async (req, res, next) => {
+  const query = req.query
   try {
-    const highestQrCode = await PriceOfferRequest.findOne({}).sort({ QrCode: -1 });
-    // const highestQrCode = await PriceOfferRequest.findOne().sort('QrCode').exec();
+    const data = await searchData(query)
 
-
-    res.status(200).json(highestQrCode);
+    res.status(200).json(data);
   } catch (err) {
     res.status(401).json(err.message);
   }
@@ -47,15 +47,8 @@ router.post("/AddRequest", VerfiyToken, async (req, res, next) => {
   console.log(NewClient);
   res.status(200).json(NewClient);
 });
-router.get("/", async (req, res, next) => {
-  const query = req.query
-  try {
-    const requestes = await GetAllRequests(query);
-    res.status(200).json(requestes);
-  } catch (err) {
-    res.status(401).json(err.message);
-  }
-});
+
+
 router.get("/SalesMangerRequests", VerfiyToken, async (req, res, next) => { ///done
   const query = req.query
   console.log(query)
@@ -68,8 +61,9 @@ router.get("/SalesMangerRequests", VerfiyToken, async (req, res, next) => { ///d
 });
 
 router.get("/completed-requests", VerfiyToken, async (req, res, next) => { ///done
+  const query = req.query
   try {
-    const requestes = await getCompletedReqs();
+    const requestes = await getCompletedReqs(query);
     res.status(200).json(requestes);
   } catch (err) {
     res.status(401).json(err.message);
@@ -241,6 +235,15 @@ router.delete("/DeleteReq", async (req, res, next) => {
   try {
     const deletedReq = await DeleteReq(id);
     res.status(200).json("Deleted");
+  } catch (err) {
+    res.status(401).json(err.message);
+  }
+});
+router.get("/", async (req, res, next) => {
+  const query = req.query
+  try {
+    const requestes = await GetAllRequests(query);
+    res.status(200).json(requestes);
   } catch (err) {
     res.status(401).json(err.message);
   }

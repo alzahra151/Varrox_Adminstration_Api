@@ -1,4 +1,4 @@
-const { SignUp, Login } = require("../Controlers/Representative");
+const { SignUp, Login, getAllrepresentatives } = require("../Controlers/Representative");
 const cloudinary = require("../Controlers/cloud");
 const uploader = require("../Controlers/multer");
 const express = require("express");
@@ -37,5 +37,12 @@ router.post("/Login", async (req, res, next) => {
     res.status(401).json(err.message);
   }
 });
-
+router.get("/get-represntative", async (req, res) => {
+  try {
+    const data = await getAllrepresentatives()
+    res.status(200).json(data)
+  } catch (err) {
+    res.status(401).json(err.message)
+  }
+})
 module.exports = router;

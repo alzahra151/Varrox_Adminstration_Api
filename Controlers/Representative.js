@@ -33,5 +33,9 @@ async function Login(data) {
         }
     }
 }
+async function getAllrepresentatives() {
+    const representatives = await Representative.find()
+    return representatives
+}
 
-module.exports = { SignUp, Login }
+module.exports = { SignUp, Login, getAllrepresentatives }

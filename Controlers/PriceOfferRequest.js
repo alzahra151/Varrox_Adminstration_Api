@@ -1,6 +1,6 @@
 const { response } = require("express");
 const PriceOfferRequest = require("../models/PriceOfferRequest");
-
+const Representative = require('../models/Representative')
 async function AddPriceOfferReq(data) {
   const NewClient = new PriceOfferRequest(data);
   console.log(NewClient);
@@ -80,15 +80,30 @@ async function getRerpresentCommentedReq(id) {  ///// done
   });
   return requests;
 }
-async function getCompletedReqs() { //// done
+async function getCompletedReqs(query) { //// done
+  const { limit = 5, page = 0 } = query
+
   const requests = await PriceOfferRequest.find({
     SendToAdmin: true,
     Complete: true,
     InitialAmountOfMoney: { $ne: null },
   })
-    .populate("ReprsentativeID")
+    .limit(limit * 1)
+    .skip((page) * limit)
     .sort({ createdAt: -1 });
-  return requests;
+  const count = await PriceOfferRequest.countDocuments({
+    SendToAdmin: true,
+    Complete: true,
+    InitialAmountOfMoney: { $ne: null },
+  });
+  return {
+    requests,
+    totalPages: Math.ceil(count / limit),
+    currentPage: +page,
+    count,
+    limit
+  }
+
 }
 async function getRepresentCompletedReqs(id, query) { //// done
   const { limit = 5, page = 0 } = query
@@ -233,20 +248,35 @@ async function AllCommentedRequsetsCount() {
   });
   return count;
 }
-async function generateRandomNumber() {
-  const min = 100000; // Minimum 6-digit number
-  const max = 999999; // Maximum 6-digit number
+async function searchData(query) {
 
-  // Generate a random number
-  const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+  const { column, q } = query;
+  const searchQuery = q ? { [column]: q } : {};
+  if (column == 'Reprsentative') {
+    // const represent = await Representative.find({ FullName: q })
+    const data = await PriceOfferRequest.find({ ReprsentativeID: q })
+    // .limit(limit * 1)
+    // .skip((page) * limit)
+    // .sort({ createdAt: -1 });
+    return { requests: data }
 
-  // Check if the generated number is unique
-  // You can implement your own logic to ensure uniqueness,
-  // such as checking against a database or an existing list of numbers.
-
-  return randomNumber;
+  } else if (column == 'createdAt') {
+    const startDate = new Date(q);
+    const endDate = new Date(q);
+    startDate.setUTCHours(0, 0, 0, 0);
+    endDate.setUTCHours(23, 59, 59, 999);
+    console.log(startDate, endDate)
+    const data = await PriceOfferRequest.find({ createdAt: { $gte: startDate, $lt: endDate } })
+    return { requests: data }
+  } else {
+    console.log(searchQuery)
+    const data = await PriceOfferRequest.find(searchQuery);
+    return { requests: data }
+  }
+  // Create a Mongoose query based on the search term and selected column
 }
 module.exports = {
+  searchData,
   AddPriceOfferReq,
   GetAllRequestsForSalesManger,
   getRepresentativeRequests,

@@ -396,7 +396,8 @@
                         </p>
                     </div>
                     <div style="width:30%;float:left;padding:2px">
-                        <h5>Sub Total:</h5>
+                        <h5>Sub Total: <%=data.PriceOffer.TotalPrice%>
+                        </h5>
                         <h5>Vat:</h5>
                         <hr>
                         <h4>Last value:<%=data.PriceOffer.TotalPrice%>
@@ -890,9 +891,15 @@
             <div style="margin-top: 30px;padding-top: 50px;position: absolute;bottom: 20%;left: 0%;right: 0%;">
                 <div style="display: flex;justify-content: space-between;width: 100%;">
                     <img src="https://i.imgur.com/Qo6ZVqE.png" style="width:230px;height: 230px;">
-                    <img style="width: 270px;height: 270px;" src="<%= data.qrCodeImage %>" />
+                    <img id="qrCode" style="width: 270px;height: 270px;" src="<%= data.qrCodeImage %>" />
                 </div>
+                <script>
+                    const qrCodeImage = document.getElementById('qrCode');
 
+                    qrCodeImage.addEventListener('click', () => {
+                        alert('QR Code scanned on mobile!');
+                    });
+                </script>
                 <div style="display: flex;justify-content: end; margin-left: 30px;" dir="rtl">
                     <h4 style="margin-top: 5px;">VARROX SYSTEMS FOR BUSINESS SOLUTIONS
                     </h4>

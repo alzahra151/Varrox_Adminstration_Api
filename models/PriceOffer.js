@@ -9,7 +9,7 @@ const DeviceSchema = new mongoose.Schema({
   SubTotalPrice: { type: Number, required: true }
 })
 const mentenanceSchema = mongoose.Schema({
-  description: { type: String },
+  description: [{ type: String }],
   price: { type: Number }
 })
 const ServiceSchema = new mongoose.Schema({

@@ -130,7 +130,7 @@ data = {
         "serviceTotalPrice": 15000,
         "_id": "654ce7c0be93ab4e2e9564db",
         "Maintenance": {
-          "description": "test maintainace",
+          "description": ["test maintainace", "test maintainace", "test maintainace"],
           "price": 2000,
           "_id": "6562dd3777ae0b15899813f7"
         }

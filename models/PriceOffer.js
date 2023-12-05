@@ -9,9 +9,9 @@ const DeviceSchema = new mongoose.Schema({
   SubTotalPrice: { type: Number, required: true }
 })
 const mentenanceSchema = mongoose.Schema({
-  description: {
-    type: Array, default: ["تدريب ومتابعة", "صيانة ودعم فنى", "تحديث وتطوير", "تدفع سنويا للفروع المذكورة وف حالةزيادة الفروع يتم االتفاق على مبلغ مقابل اشتراك سنوي يدفع بعد اول سنة"]
-  },
+  description: [{
+    type: String
+  }],
   price: { type: Number }
 })
 const ServiceSchema = new mongoose.Schema({

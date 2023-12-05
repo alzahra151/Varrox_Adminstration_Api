@@ -54,7 +54,8 @@ async function getPriceOfferService(id, allmentenanceData) {
         return { status: 401, result: "service not found" }
 
       } else {
-        service.Maintenance = maintainanceData
+        service.Maintenance.price = maintainanceData.price
+        console.log(service.Maintenance.price, maintainanceData.price)
         return { status: 200, result: priceOffer }
       }
     })

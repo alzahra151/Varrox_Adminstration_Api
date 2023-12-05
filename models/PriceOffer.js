@@ -9,7 +9,9 @@ const DeviceSchema = new mongoose.Schema({
   SubTotalPrice: { type: Number, required: true }
 })
 const mentenanceSchema = mongoose.Schema({
-  description: [{ type: String }],
+  description: {
+    type: Array, default: ["تدريب ومتابعة", "صيانة ودعم فنى", "تحديث وتطوير", "تدفع سنويا للفروع المذكورة وف حالةزيادة الفروع يتم االتفاق على مبلغ مقابل اشتراك سنوي يدفع بعد اول سنة"]
+  },
   price: { type: Number }
 })
 const ServiceSchema = new mongoose.Schema({
@@ -26,7 +28,9 @@ const PriceOfferSchema = mongoose.Schema({
   TotalPrice: { type: Number },
   TotalCopies: { type: Number }
 }, { timestamps: true })
-
+// description: {
+//   type: Array, default: ["تدريب ومتابعة", "صيانة ودعم فنى", "تحديث وتطوير", "تدفع سنويا للفروع المذكورة وف حالةزيادة الفروع يتم االتفاق على مبلغ مقابل اشتراك سنوي يدفع بعد اول سنة"]
+// },
 PriceOfferSchema.plugin(require('mongoose-autopopulate'));
 const PriceOffer = mongoose.model('PriceOffer', PriceOfferSchema)
 module.exports = PriceOffer

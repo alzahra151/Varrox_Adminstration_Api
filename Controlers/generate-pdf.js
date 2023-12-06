@@ -6,7 +6,7 @@ async function generatePdf(data) {
     // console.log(data)
     let browser;
     try {
-        console.time()
+        console.time('launch')
         browser = await puppeteer.launch({
             headless: true,
             args: [
@@ -20,15 +20,34 @@ async function generatePdf(data) {
                     ? process.env.PUPPETEER_EXECUTABLE_PATH
                     : puppeteer.executablePath(),
         });
-        const [page] = await browser.pages();
+        console.timeEnd('launch');
+        console.time('page')
+        const page = await browser.newPage();
+        console.timeEnd('page')
+        console.time('html')
         const html = await ejs.renderFile("./views/OfferMail.ejs", { data: data })
-        await page.setContent(html, { waitUntil: 'networkidle0' });
+        console.timeEnd('html')
+        console.time('setContent')
+        await page.setContent(html);
+        // await page.waitForSelector('#backgroundContainer');
+        await page.waitForSelector('.content1');
+        await page.waitForFunction(() => {
+            const element = document.querySelector('.content1');
+            const computedStyle = window.getComputedStyle(element);
+            const backgroundImage = computedStyle.getPropertyValue('background-image');
+            return backgroundImage && backgroundImage !== 'none';
+        });
+        console.timeEnd('setContent')
+        console.time('emulateMediaType')
         await page.emulateMediaType('screen');
+        console.timeEnd('emulateMediaType')
+
+        console.time('pdf')
         const pdf = await page.pdf({
             format: 'A4',
             printBackground: true
         });
-
+        console.timeEnd('pdf')
         browser.close();
         console.time()
         console.timeEnd()

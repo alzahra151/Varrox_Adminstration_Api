@@ -174,7 +174,7 @@ async function GetSalesMangersApprovedReq(query) {  /// done
     totalPages: Math.ceil(count / limit),
     currentPage: +page,
     count,
-    limit
+    limit: +limit
   }
 }
 async function GetAllRejectedReq() {

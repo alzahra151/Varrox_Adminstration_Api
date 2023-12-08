@@ -30,13 +30,13 @@ async function generatePdf(data) {
         console.time('setContent')
         await page.setContent(html);
         // await page.waitForSelector('#backgroundContainer');
-        await page.waitForSelector('.content1');
-        await page.waitForFunction(() => {
-            const element = document.querySelector('.content1');
-            const computedStyle = window.getComputedStyle(element);
-            const backgroundImage = computedStyle.getPropertyValue('background-image');
-            return backgroundImage && backgroundImage !== 'none';
-        });
+        // await page.waitForSelector('.content1');
+        // await page.waitForFunction(() => {
+        //     const element = document.querySelector('.content1');
+        //     const computedStyle = window.getComputedStyle(element);
+        //     const backgroundImage = computedStyle.getPropertyValue('background-image');
+        //     return backgroundImage && backgroundImage !== 'none';
+        // });
         console.timeEnd('setContent')
         console.time('emulateMediaType')
         await page.emulateMediaType('screen');

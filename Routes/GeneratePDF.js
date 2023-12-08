@@ -50,6 +50,7 @@ router.post('/down-pdf', async (req, res) => {
           `attachment; filename=${OfferData.QrCode}.pdf`
         );
         res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, content-type");
+        console.log(pdf)
         res.send(pdf)
       } catch (err) {
         res.json(err)

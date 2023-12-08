@@ -31,26 +31,33 @@ router.post("/SendEmail", async (req, res, next) => {
 router.post('/down-pdf', async (req, res) => {
   let OfferData = req.body;
   const qrCode = OfferData.QrCode
-  const strCode = JSON.stringify(qrCode)
-  QRCode.toDataURL(strCode, async (err, qrCodeDataURL) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    OfferData.qrCodeImage = qrCodeDataURL
-    try {
-      const pdf = await generatePdf(OfferData)
-      res.contentType("application/pdf");
-      res.setHeader(
-        "Content-Disposition",
-        `attachment; filename=${OfferData.QrCode}.pdf`
-      );
-      res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, content-type");
-      res.send(pdf)
-    } catch (err) {
-      res.json(err)
-    }
-  })
+  if (OfferData.Approve) {
+    const strCode = `https://varroxsystems.com/varroxapproveddocs/02-${qrCode}.pdf`
+    QRCode.toDataURL(strCode, async (err, qrCodeDataURL) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      OfferData.qrCodeImage = qrCodeDataURL
+      try {
+        // console.time(pdf)
+        const pdf = await generatePdf(OfferData)
+        // console.timeEnd(pdf)
+
+        res.contentType("application/pdf");
+        res.setHeader(
+          "Content-Disposition",
+          `attachment; filename=${OfferData.QrCode}.pdf`
+        );
+        res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, content-type");
+        res.send(pdf)
+      } catch (err) {
+        res.json(err)
+      }
+    })
+  } else {
+    res.json({ message: "not approve document" })
+  }
 })
 
 

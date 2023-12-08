@@ -146,7 +146,7 @@ async function DeleteReq(id) { ///done
 async function GetReprsentativeApprovedReq(id) { //done
   const requests = await PriceOfferRequest.find({
     ReprsentativeID: id,
-    ApproveToReprsentative: true,
+    Approve: true,
     Complete: true,
     SendToAdmin: true,
   })
@@ -154,14 +154,28 @@ async function GetReprsentativeApprovedReq(id) { //done
     .sort({ createdAt: -1 });
   return requests;
 }
-async function GetSalesMangersApprovedReq() {  /// done
+async function GetSalesMangersApprovedReq(query) {  /// done
+  const { limit = 5, page = 0 } = query
   const requests = await PriceOfferRequest.find({
-    ApproveToSalesManger: true, Complete: true,
+    Approve: true,
+    Complete: true,
     SendToAdmin: true,
   })
-    .populate("ReprsentativeID")
+    .limit(limit * 1)
+    .skip((page) * limit)
     .sort({ createdAt: -1 });
-  return requests;
+  const count = await PriceOfferRequest.countDocuments({
+    Approve: true,
+    Complete: true,
+    SendToAdmin: true,
+  });
+  return {
+    requests,
+    totalPages: Math.ceil(count / limit),
+    currentPage: +page,
+    count,
+    limit
+  }
 }
 async function GetAllRejectedReq() {
   const requests = await PriceOfferRequest.find({
@@ -227,8 +241,7 @@ async function AllAcceptedRequsetsCount() {
   const count = await PriceOfferRequest.countDocuments({
     SendToAdmin: true,
     Complete: true,
-    ApproveToSalesManger: true,
-    ApproveToReprsentative: true
+    Approve: true,
   });
   return count;
 }
@@ -248,13 +261,20 @@ async function AllCommentedRequsetsCount() {
   });
   return count;
 }
+async function acceptReq() {
+
+}
 async function searchData(query) {
 
   const { column, q } = query;
   const searchQuery = q ? { [column]: q } : {};
   if (column == 'Reprsentative') {
     // const represent = await Representative.find({ FullName: q })
-    const data = await PriceOfferRequest.find({ ReprsentativeID: q })
+    const data = await PriceOfferRequest.find({
+      ReprsentativeID: q,
+      SendToAdmin: false,
+      Complete: true
+    })
     // .limit(limit * 1)
     // .skip((page) * limit)
     // .sort({ createdAt: -1 });
@@ -266,7 +286,11 @@ async function searchData(query) {
     startDate.setUTCHours(0, 0, 0, 0);
     endDate.setUTCHours(23, 59, 59, 999);
     console.log(startDate, endDate)
-    const data = await PriceOfferRequest.find({ createdAt: { $gte: startDate, $lt: endDate } })
+    const data = await PriceOfferRequest.find({
+      createdAt: { $gte: startDate, $lt: endDate },
+      SendToAdmin: false,
+      Complete: true
+    })
     return { requests: data }
   } else {
     console.log(searchQuery)

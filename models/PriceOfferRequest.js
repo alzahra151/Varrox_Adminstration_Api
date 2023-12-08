@@ -23,11 +23,11 @@ const PriceOfferRequestSchema = mongoose.Schema({
   Comment: { type: String },
   InitialAmountOfMoney: { type: String },
   IsOpen: { type: Boolean, default: false }, //where admin open offer
-  ApproveToSalesManger: { type: Boolean, default: false }, //when admin sent offer to accountant and sales mangers
-  ApproveToReprsentative: { type: Boolean, default: false },
+  Approve: { type: Boolean, default: false }, //when admin sent offer to accountant and sales mangers
   Rejected: { type: Boolean, default: false },
   // SecretarialComment: { type: String },
   Code: { type: Number, unique: true },
+  // AcceptedCode: { type: String, default: 0, unique: true },
   QrCode: { type: Number, unique: true },
   BranchesNumber: { type: Number, required: true },
   PaymentPlan: { type: mongoose.Schema.Types.ObjectId, ref: PaymentPlan, autopopulate: true },
@@ -41,10 +41,10 @@ PriceOfferRequestSchema.pre('save', async function (next) {
   const doc = this;
   const highestCode = await PriceOfferRequest.findOne().sort('-Code');
   doc.Code = highestCode ? highestCode.Code + 1 : 1;
-  const highestQrCode = await PriceOfferRequest.findOne().sort('-QrCode').exec();
-  console.log(highestQrCode)
-  doc.QrCode = highestQrCode ? highestQrCode.QrCode + 1 : 192;
-  console.log(doc.QrCode)
+  // const highestQrCode = await PriceOfferRequest.findOne().sort('-QrCode').exec();
+  // console.log(highestQrCode)
+  // doc.QrCode = highestQrCode ? highestQrCode.QrCode + 1 : 192;
+  // console.log(doc.QrCode)
   next();
 });
 // PriceOfferRequestSchema.plugin(AutoIncrement, { inc_field: 'test', disable_hooks: false });

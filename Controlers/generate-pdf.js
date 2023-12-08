@@ -49,8 +49,6 @@ async function generatePdf(data) {
         });
         console.timeEnd('pdf')
         browser.close();
-        console.time()
-        console.timeEnd()
         return pdf
 
     } catch (err) {

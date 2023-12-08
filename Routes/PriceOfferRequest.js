@@ -30,6 +30,7 @@ const PriceOfferRequest = require("../models/PriceOfferRequest");
 
 const { VerfiyToken, AuthorizeRoles } = require("../MiddleWare/Auth");
 const { VerfiyAdminToken } = require("../MiddleWare/AdminAuth");
+const { json } = require("body-parser");
 router.get("/search", async (req, res, next) => {
   const query = req.query
   try {
@@ -40,6 +41,16 @@ router.get("/search", async (req, res, next) => {
     res.status(401).json(err.message);
   }
 });
+router.get("/searchtest", async (req, res, next) => {
+  // const query = req.query
+  try {
+    const r = await PriceOfferRequest.find({ Approve: true })
+    res.json(r)
+  } catch (err) {
+    res.status(401).json(err.message);
+  }
+});
+
 router.post("/AddRequest", VerfiyToken, async (req, res, next) => {
   const data = req.body;
   req.body.ReprsentativeID = req.Representative.id;
@@ -124,8 +135,10 @@ router.get("/commented-reqs", VerfiyToken, async (req, res, next) => { /// done
   }
 });
 router.get("/salesMangersApprovedReq", async (req, res, next) => { //done
+  const query = req.query
+
   try {
-    const requestes = await GetSalesMangersApprovedReq();
+    const requestes = await GetSalesMangersApprovedReq(query);
     res.status(200).json(requestes);
   } catch (err) {
     res.status(401).json(err.message);
@@ -248,6 +261,41 @@ router.get("/", async (req, res, next) => {
     res.status(401).json(err.message);
   }
 });
+router.patch("/approve-req/:id", async (req, res, next) => {
+  const id = req.params.id;
+  const acceptedReq = await PriceOfferRequest.findById(id)
+  console.log(acceptedReq)
+  if (!acceptedReq.QrCode || !acceptedReq.Approve) {
+    // await PriceOfferRequest.updateMany({}, { $unset: { ApproveToSalesManger: 1 } }, { multi: true })
+    const maxCounterValue = await PriceOfferRequest.findOne().sort({ QrCode: -1 });
+    const largestCounter = maxCounterValue.QrCode
+    const updatedQrcode = largestCounter ? largestCounter + 1 : 20765;
+    console.log(updatedQrcode)
+    const update = {
+      Approve: true,
+      Rejected: false,// Set accepted to true
+      QrCode: updatedQrcode       // Increment the counter field by 1
+    };
 
+    try {
+      const updatedReq = await PriceOfferRequest.findByIdAndUpdate(
+        id,
+        update,
+        {
+          new: true,
+        }
+      );
+      res.status(200).json(updatedReq)
+    } catch (err) {
+      res.status(401).json(err.message);
+    }
+  } else {
+    console.log("req updated")
+    res.status(200).json({ message: "req accepted before", req: acceptedReq })
+  }
+});
+router.get('/hhh', async (req, res) => {
+
+})
 
 module.exports = router;

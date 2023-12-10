@@ -105,6 +105,11 @@
             margin-bottom: 2px;
         }
 
+        .lastElem {
+            /* color: red; */
+            font-weight: bold;
+        }
+
         h5,
         h4 {
             margin-top: 2px;
@@ -234,13 +239,13 @@
 
                         <div style="width: 100%; " class="detailsContainer">
                             <div style=" font-size: .75rem;" class="detailsKeys">Quotation No. </div>
-                            <div style=" font-size: .75rem;" class="details"> : <%=data.Code%>
+                            <div style=" font-size: .75rem;" class="details"> : 02-<%=data.QrCode%>
                             </div>
                         </div>
                         <div style="width: 100%; " class="detailsContainer">
                             <div style=" font-size: .75rem;" class="detailsKeys">Quotation Date </div>
                             <div style=" font-size: .75rem;" class="details"> : <%= new
-                                    Date(data.createdAt).toLocaleDateString('en-US')%>
+                                    Date(data.createdAt).toLocaleDateString('en-GB')%>
                             </div>
                             <div style="width: 100%; " class="detailsContainer">
                                 <div style=" font-size: .75rem;" class="detailsKeys">Branch Name </div>
@@ -340,13 +345,24 @@
                                         <!-- <%=item.Maintenance?.description%> -->
                                         <ul style="list-style-type: none; padding-left: 1px;">
 
-                                            <% item.Maintenance?.description.forEach(description=>{%>
+                                            <% item.Maintenance?.description.forEach((description,index)=>{%>
 
-                                                <li style="margin-top: 0px;font-size: small;padding-right: 5px;">
 
-                                                    <%=description%>
-                                                </li>
-                                                <% })%>
+                                                <% if (index==item.Maintenance?.description.length-1) { %>
+                                                    <li style="margin-top: 0px;font-size: small;padding-right: 5px;"
+                                                        class="lastElem">
+
+                                                        <%=description%>
+                                                    </li>
+                                                    <% } else { %>
+                                                        <li
+                                                            style="margin-top: 0px;font-size: small;padding-right: 5px;">
+
+                                                            <%=description%>
+                                                        </li>
+                                                        <% } %>
+
+                                                            <% })%>
                                         </ul>
                                     </div>
 

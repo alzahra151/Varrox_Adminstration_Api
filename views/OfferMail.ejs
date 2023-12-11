@@ -348,8 +348,8 @@
                                             <% item.Maintenance?.description.forEach((description,index)=>{%>
 
 
-                                                <% if (index==item.Maintenance?.description.length-1) { %>
-                                                    <li style="margin-top: 0px;font-size: small;padding-right: 5px;"
+                                                <% if (index>=item.Maintenance?.description.length-2) { %>
+                                                    <li style="margin-top: 0px;font-size: small;padding-right: 5px; "
                                                         class="lastElem">
 
                                                         <%=description%>

@@ -38,4 +38,14 @@ async function getAllrepresentatives() {
     return representatives
 }
 
-module.exports = { SignUp, Login, getAllrepresentatives }
+async function getUserById(userId) {
+    const user = await Representative.findById(userId)
+    return user
+}
+async function updateUser(id, data) {
+    const user = await Representative.findByIdAndUpdate(id, data, { new: true })
+    return user
+
+}
+
+module.exports = { SignUp, Login, getAllrepresentatives, getUserById, updateUser }

@@ -294,8 +294,9 @@ router.patch("/approve-req/:id", async (req, res, next) => {
     res.status(200).json({ message: "req accepted before", req: acceptedReq })
   }
 });
-router.get('/hhh', async (req, res) => {
-
-})
+// router.delete('/all', async (req, res) => {
+//   await PriceOfferRequest.deleteMany({})
+//   res.json("deleted")
+// })
 
 module.exports = router;

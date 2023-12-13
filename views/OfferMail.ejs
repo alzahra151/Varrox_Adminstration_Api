@@ -309,6 +309,15 @@
 
                                     </div>
                                     <h4>
+                                        <%=data.BranchesNumber%> :Branches Number
+                                    </h4>
+                                </div>
+                                <div style="display: flex;">
+                                    <div
+                                        style="width:15px;height: 15px; background-color: rgb(8, 8, 8);margin-right: 2px;">
+
+                                    </div>
+                                    <h4>
                                         <%=data.PriceOffer.TotalCopies%> Copies as mentioned:
                                     </h4>
                                 </div>
@@ -368,19 +377,19 @@
 
                                 </div>
                             </div>
-                            <div style="width: 20%; margin-top: 20px;">
+                            <div style="width: 20%; margin-top: 40px;">
 
                                 <ul style="list-style-type: none;">
                                     <% item?.Devices?.forEach(device=> { %>
 
-                                        <li style="padding: 6px;margin: 0px;">
+                                        <li style="padding: 4px;margin: 0px;">
 
                                             EGP <%=device.SubTotalPrice%>
 
                                         </li>
 
                                         <% } )%>
-                                            <li style="padding: 6px ;margin-top: 25px;">
+                                            <li style="padding: 4px ;margin-top: 25px;">
                                                 EGP <%=item.Maintenance?.price%>
                                             </li>
                                 </ul>

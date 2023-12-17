@@ -31,6 +31,7 @@ const PriceOfferRequest = require("../models/PriceOfferRequest");
 const { VerfiyToken, AuthorizeRoles } = require("../MiddleWare/Auth");
 const { VerfiyAdminToken } = require("../MiddleWare/AdminAuth");
 const { json } = require("body-parser");
+const PriceOffer = require("../models/PriceOffer");
 router.get("/search", async (req, res, next) => {
   const query = req.query
   try {
@@ -269,7 +270,7 @@ router.patch("/approve-req/:id", async (req, res, next) => {
     // await PriceOfferRequest.updateMany({}, { $unset: { ApproveToSalesManger: 1 } }, { multi: true })
     const maxCounterValue = await PriceOfferRequest.findOne().sort({ QrCode: -1 });
     const largestCounter = maxCounterValue.QrCode
-    const updatedQrcode = largestCounter ? largestCounter + 1 : 20765;
+    const updatedQrcode = largestCounter ? largestCounter + 1 : 20774;
     console.log(updatedQrcode)
     const update = {
       Approve: true,
@@ -294,9 +295,10 @@ router.patch("/approve-req/:id", async (req, res, next) => {
     res.status(200).json({ message: "req accepted before", req: acceptedReq })
   }
 });
-// router.delete('/all', async (req, res) => {
-//   await PriceOfferRequest.deleteMany({})
-//   res.json("deleted")
-// })
+router.delete('/all', async (req, res) => {
+  await PriceOfferRequest.deleteMany({})
+  await PriceOffer.deleteMany({})
+  res.json("deleted")
+})
 
 module.exports = router;

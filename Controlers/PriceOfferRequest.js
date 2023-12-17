@@ -1,9 +1,12 @@
 const { response } = require("express");
 const PriceOfferRequest = require("../models/PriceOfferRequest");
-const Representative = require('../models/Representative')
+const Representative = require('../models/Representative');
+const PriceOffer = require("../models/PriceOffer");
 async function AddPriceOfferReq(data) {
   const NewClient = new PriceOfferRequest(data);
-  console.log(NewClient);
+  const num = await PriceOfferRequest.collection.getIndexes()
+  console.log(num);
+
   return NewClient.save();
 }
 async function GetAllRequests(query) {

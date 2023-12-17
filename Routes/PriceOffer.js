@@ -9,6 +9,7 @@ const {
 const express = require("express");
 const router = express.Router();
 const { VerfiyToken } = require("../MiddleWare/Auth");
+const PriceOffer = require("../models/PriceOffer");
 
 router.post("/AddPriceOffer", async (req, res, next) => {
   try {
@@ -19,11 +20,12 @@ router.post("/AddPriceOffer", async (req, res, next) => {
     res.status(500).json(err);
   }
 });
-router.get("/GetAllPriceOffer", async (req, res, next) => {
+router.delete("/GetAllPriceOffer", async (req, res, next) => {
   try {
     const PriceOffers = await getAllPriceOffers();
     console.log(PriceOffers);
     res.status(200).json(PriceOffers);
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -83,4 +85,10 @@ router.patch("/:id/service", async (req, res) => {
 
   }
 })
+// router.delete("/delete", async (req, res) => {
+//   await PriceOffer.deleteMany({})
+//   res.json("deleted")
+
+// })
+
 module.exports = router;

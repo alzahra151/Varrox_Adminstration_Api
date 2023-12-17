@@ -28,7 +28,7 @@ const PriceOfferRequestSchema = mongoose.Schema({
   // SecretarialComment: { type: String },
   Code: { type: Number, unique: true },
   // AcceptedCode: { type: String, default: 0, unique: true },
-  QrCode: { type: Number, unique: true },
+  QrCode: { type: Number },
   BranchesNumber: { type: Number, required: true },
   PaymentPlan: { type: mongoose.Schema.Types.ObjectId, ref: PaymentPlan, autopopulate: true },
   Notes: { type: String },

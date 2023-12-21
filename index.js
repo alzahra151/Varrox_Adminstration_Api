@@ -10,6 +10,7 @@ const ServiceRoute = require("./Routes/Service");
 const PriceOfferRoute = require("./Routes/PriceOffer");
 const PDFRoute = require("./Routes/GeneratePDF");
 const AdminRoute = require("./Routes/Admin");
+const CounteryRoute = require('./Routes/Country')
 const DeviceRout = require("./Routes/Device");
 const PriceOfferReq = require("./models/PriceOfferRequest");
 const PriceOffer = require("./models/PriceOffer");
@@ -35,14 +36,19 @@ data = {
   "ActivityName": "مطعم جديد جدا ",
   "ActivityNature": "مطاعم ",
   "activityLocation": "طهطا ",
-  "Country": "مصر ",
+  "Country": {
+    "_id": "65839143dc4e37385f4c8bf3",
+    "name": "مصر",
+    "currency": "EGP",
+    "__v": 0
+  },
   "Governorate": "سوهاج ",
   "City": "طهطا ",
   "ReprsentativeID": {
     "_id": "64d4162d837d435ace272301",
     "FullName": "hossam Mohamed",
     "Email": "hossam@gmail.com",
-    "Country": "مصر",
+
     "Mobile": "012456879",
     "Password": "$2b$10$0Sno0GtlRYX3Od3NKo70merZVL.HjJnkEqPT1/yJI4W7YUInPL2Hq",
     "Role": "Representative",
@@ -125,6 +131,18 @@ data = {
             "Quantity": 1,
             "SubTotalPrice": 15000,
             "_id": "654ce7c0be93ab4e2e9564dc"
+          }, {
+            "Device": {
+              "_id": "6547a23f2c74706a7f40d675",
+              "Title": " جهاز ادارة 1 ",
+              "Price": 15000,
+              "createdAt": "2023-11-05T14:10:07.421Z",
+              "updatedAt": "2023-11-05T14:10:07.421Z",
+              "__v": 0
+            },
+            "Quantity": 1,
+            "SubTotalPrice": 15000,
+            "_id": "654ce7c0be93ab4e2e9564dc"
           }
         ],
         "serviceTotalPrice": 15000,
@@ -163,6 +181,11 @@ data = {
   "__v": 0,
   "InitialAmountOfMoney": "5000"
 }
+// app.locals({
+
+// }
+
+// );
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -200,6 +223,8 @@ app.use("/PriceOfferReq", PriceOfferReqRoute);
 app.use("/PriceOffer", PriceOfferRoute);
 app.use("/Service", ServiceRoute);
 app.use("/Device", DeviceRout);
+app.use("/Country", CounteryRoute);
+
 app.use('/PaymentPlan', PaymentPlanRoute)
 app.use("/PDF", PDFRoute);
 app.get("/", (req, res) => {

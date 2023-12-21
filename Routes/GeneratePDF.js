@@ -31,9 +31,14 @@ router.post("/SendEmail", async (req, res, next) => {
 router.post('/down-pdf', async (req, res) => {
   let OfferData = req.body;
   const qrCode = OfferData.QrCode
+  const options = {
+    errorCorrectionLevel: 'H', // Adjust the error correction level (L, M, Q, H)
+    width: 300, // Adjust the size of the QR code
+
+  };
   if (OfferData.Approve) {
     const strCode = `https://varroxsystems.com/varroxapproveddocs/02-${qrCode}.pdf`
-    QRCode.toDataURL(strCode, async (err, qrCodeDataURL) => {
+    QRCode.toDataURL(strCode, options, async (err, qrCodeDataURL) => {
       if (err) {
         console.error(err);
         return;

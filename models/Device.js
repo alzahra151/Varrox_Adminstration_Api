@@ -1,10 +1,14 @@
 const mongoose = require("mongoose");
+const Country = require('./Country')
 
+const PriceSchema = new mongoose.Schema({
+  country: { type: mongoose.Schema.Types.ObjectId, ref: Country, required: true, autopopulate: true },
+  price: { type: Number, required: true },
+});
 const DeviceSchema = new mongoose.Schema(
   {
     Title: { type: String },
-    Price: { type: Number },
-    // ServiceID: { type: mongoose.Schema.Types.ObjectId, ref: "Service" },
+    Price: [PriceSchema],
   },
   { timestamps: true }
 );

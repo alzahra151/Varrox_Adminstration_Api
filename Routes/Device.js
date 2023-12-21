@@ -1,6 +1,7 @@
 const { AddDevice, GetAllDevices, UpdateDevice, DeleteDevice, GetDeviceByID } = require('../Controlers/Device')
 const express = require('express')
 const router = express.Router()
+const country = require('../models/Country')
 
 router.post('/', async (req, res, next) => {
     const data = req.body
@@ -47,5 +48,9 @@ router.delete('/:id', async (req, res, next) => {
     } catch (error) {
         res.status(401).json(error.message)
     }
+})
+router.post('/country', async (req, res) => {
+    const data = await country.create(req.body)
+    res.json(data)
 })
 module.exports = router

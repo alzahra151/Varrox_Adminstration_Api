@@ -128,6 +128,7 @@
 
         }
     </style>
+
 </head>
 
 <body>
@@ -233,6 +234,11 @@
                             <div class="details">: <%=data.ActivityNature%>
                             </div>
                         </div>
+                        <div style="width: 100%;" class="detailsContainer">
+                            <div class="detailsKeys">Salesperson's name</div>
+                            <div class="details">: <%=data.ReprsentativeID?.FullName%>
+                            </div>
+                        </div>
 
                     </div>
                     <div style="width:40%;">
@@ -255,14 +261,17 @@
                                 <div style=" font-size: .75rem;" class="detailsKeys">Branch ID </div>
                                 <div style=" font-size: .75rem;" class="details"> :1001</div>
                             </div>
-                            <div class="lastQout">
-                                <p>Quotation Last Value :
-                                <h2>
-                                    <%=data.PriceOffer.TotalPrice%>
-                                </h2>
-                                </p>
+                            <%= %>
+                                <div class="lastQout">
+                                    <p>Quotation Last Value :
+                                    <h2>
+                                        <%= Intl.NumberFormat('en-US', { style: 'currency' ,currency:
+                                            data.Country.currency }).format(data.PriceOffer.TotalPrice)%>
 
-                            </div>
+                                    </h2>
+                                    </p>
+
+                                </div>
                         </div>
                     </div>
                     <!-- <div style="clear: both;"></div> -->
@@ -305,54 +314,62 @@
                                 style="width: 30%; border-left: .5px solid gainsboro;border-right: .5px solid gainsboro ;padding: 6px;margin :5px">
                                 <div style="display: flex;">
                                     <div
-                                        style="width:15px;height: 15px; background-color: rgb(8, 8, 8);margin-right: 2px;">
+                                        style="width:11px;height: 11px; background-color: rgb(8, 8, 8);margin-right: 2px;">
 
                                     </div>
-                                    <h4>
-                                        <%=data.BranchesNumber%> :Branches Number
+                                    <h4 style="margin-top:-1px;">
+                                        <%=data.BranchesNumber%> :عدد الفروع
                                     </h4>
                                 </div>
-                                <div style="display: flex;">
-                                    <div
-                                        style="width:15px;height: 15px; background-color: rgb(8, 8, 8);margin-right: 2px;">
+                                <div>
+                                    <div style="display: flex;">
+                                        <div
+                                            style="width:11px;height: 11px; background-color: rgb(8, 8, 8);margin-right: 2px;">
 
+                                        </div>
+                                        <h4 style="margin-top:-1px;">
+                                            <%=data.PriceOffer.TotalCopies%> :عدد الاجهزة
+                                        </h4>
                                     </div>
-                                    <h4>
-                                        <%=data.PriceOffer.TotalCopies%> Copies as mentioned:
-                                    </h4>
-                                </div>
+                                    <ul style="list-style-type: none;padding-left: 0px;margin-top: 0px;margin: 0px;">
+                                        <% item?.Devices?.forEach(device=> { %>
 
-                                <ul style="list-style-type: none;padding-left: 1px;;">
-                                    <% item?.Devices?.forEach(device=> { %>
+                                            <li class=""
+                                                style="width: 100%;margin-top: 0px;padding-top: 0px;margin: 0px;">
 
-                                        <li class="" style="width: 100%;margin-top: 0px">
+                                                <div style="display: flex;font-weight: lighter">
+                                                    <div
+                                                        style="margin: 2px; width:8px;height: 8px; background-color: rgb(248, 209, 35);">
+                                                    </div>
 
-                                            <div style="display: flex;">
-                                                <div
-                                                    style="margin: 2px; width:9px;height: 9px; background-color: rgb(248, 209, 35);">
+                                                    <span>
+                                                        <%=device.Device?.Title%>
+                                                    </span>
+                                                    <span style="font-size:small ;margin: 1px;">
+                                                        <%=device.Quantity%>
+                                                    </span>
+
+
                                                 </div>
-                                                <%=device.Quantity%>
-                                                    <%=device.Device?.Title%>
+                                            </li>
 
-                                            </div>
-                                        </li>
-
-                                        <% } )%>
-                                </ul>
+                                            <% } )%>
+                                    </ul>
+                                </div>
                                 <div style="clear: both;"></div>
 
-                                <div class="" style="margin-top: 25px;">
+                                <div class="" style="margin-top: 22px;">
 
                                     <div
-                                        style="width:15px;height: 15px; background-color: rgb(8, 8, 8);float: left;margin-right: 2px;">
+                                        style="width:11px;height: 11px; background-color: rgb(8, 8, 8);float: left;margin-right: 2px;">
 
                                     </div>
-                                    <h4> Maintenance and Updates :</h4>
+                                    <h4> :الصيانة والتحديثات</h4>
                                     <div style="">
-                                        <div style="margin: 2px; width:9px;height: 9px; background-color: rgb(248, 209, 35);float:
+                                        <div style="margin: 2px; width:8px;height: 8px; background-color: rgb(248, 209, 35);float:
                                                                         left;"></div>
                                         <!-- <%=item.Maintenance?.description%> -->
-                                        <ul style="list-style-type: none; padding-left: 1px;">
+                                        <ul style="list-style-type: none; padding-left: 1px;margin-top: 1px;">
 
                                             <% item.Maintenance?.description.forEach((description,index)=>{%>
 
@@ -377,20 +394,25 @@
 
                                 </div>
                             </div>
-                            <div style="width: 20%; margin-top: 40px;">
+                            <div style="width: 20%; margin-top: 38px;">
 
-                                <ul style="list-style-type: none;">
+                                <ul style="list-style-type: none;margin: 0px;">
                                     <% item?.Devices?.forEach(device=> { %>
 
-                                        <li style="padding: 4px;margin: 0px;">
+                                        <li style="padding: 4px;margin: 0px;font-weight: lighter;padding-top: 0px;">
 
-                                            EGP <%=device.SubTotalPrice%>
+                                            <%= Intl.NumberFormat('en-US', { style: 'currency' ,currency:
+                                                data.Country.currency }).format(device.SubTotalPrice)%>
+
 
                                         </li>
 
                                         <% } )%>
-                                            <li style="padding: 4px ;margin-top: 25px;">
-                                                EGP <%=item.Maintenance?.price%>
+                                            <li
+                                                style="padding: 4px ;margin-top: 25px;font-weight: lighter;color: black;">
+
+                                                <%= Intl.NumberFormat('en-US', { style: 'currency' ,currency:
+                                                    data.Country.currency }).format(item.Maintenance?.price)%>
                                             </li>
                                 </ul>
 
@@ -408,6 +430,7 @@
                                 </span>
                                 <div style="width: 30%;display: flex;text-align: right;">
                                     <h6> EGP <%=item.serviceTotalPrice%>
+
                                     </h6>
                                 </div>
                             </div>
@@ -425,17 +448,22 @@
                         <div
                             style="width:14px;height: 14px; background-color: rgb(219, 217, 217);float: left;margin-right: 2px;float:left">
                         </div>
-                        <h4>Payment:
+                        <h4>:الدفع
                         </h4>
                         <p>- <%=data.PaymentPlan?.Plan %>
                         </p>
                     </div>
                     <div style="width:30%;float:left;padding:2px">
-                        <h5>Sub Total: <%=data.PriceOffer.TotalPrice%>
+                        <h5>Sub Total:
+                            <%= Intl.NumberFormat('en-US', { style: 'currency' ,currency: data.Country.currency
+                                }).format(data.PriceOffer.TotalPrice)%>
                         </h5>
-                        <h5>Vat:</h5>
+                        <h5>Vat:000,000.00</h5>
                         <hr>
-                        <h4>Last value:<%=data.PriceOffer.TotalPrice%>
+                        <h4>Last value:
+                            <%= Intl.NumberFormat('en-US', { style: 'currency' ,currency: data.Country.currency
+                                }).format(data.PriceOffer.TotalPrice)%>
+
                         </h4>
                     </div>
                 </div>
@@ -630,7 +658,7 @@
                 </ul>
                 <div>
                     <span>المهمة والموظفون والرؤية<span> (ملتزمون بالتميز)</span></span>
-                    <p style="font-size:.96;line-height:1.4; color: rgb(71, 68, 68);">نحن ملتزمون بتقديم
+                    <p style="font-size:.96rem;line-height:1.4; color: rgb(71, 68, 68);">نحن ملتزمون بتقديم
                         استشارات
                         إدارة
                         الأعمال والحلول المتكاملة لكافة الأنشطة التجارية بالأضافة إلى دعم فني فريد لعملائنا
@@ -842,7 +870,7 @@
 
     </div>
     <div class="content" style="padding-top: 20px;margin: 10px 30px">
-        <div class="" dir="rtl">
+        <div class="" dir="rtl" style="font-size:.94rem">
             <h4 style="text-decoration: underline;margin-bottom: 4px;">5. مسؤوليات الشركة</h4>
             <div style="display: flex;">
                 <div style="margin-left: 10px;">5.1.</div>
@@ -891,7 +919,7 @@
                 <div>
                     تلتزم VARROX بتحديث النظام بشكل دوري ومستمر خلال فترة عمله وتزويدة بكافة التقنيات والتحديثات
                     ما
-                    يضمن مالئمته للتطور
+                    يضمن ملائمته للتطور
                     التقني المتسارع
                 </div>
             </div>
@@ -923,30 +951,35 @@
                 </div>
             </div>
             </li>
-            <div style="margin-top: 30px;padding-top: 50px;position: absolute;bottom: 20%;left: 0%;right: 0%;">
-                <div style="display: flex;justify-content: space-between;width: 100%;">
-                    <img src="https://i.imgur.com/Qo6ZVqE.png" style="width:230px;height: 230px;">
-                    <img id="qrCode" style="width: 270px;height: 270px;" src="<%= data.qrCodeImage %>" />
-                </div>
-                <script>
-                    const qrCodeImage = document.getElementById('qrCode');
+            <div style="margin-top: 30px;padding-top: 50px;position: absolute;bottom: 5%;left: 0%;right: 0%;" dir="ltr">
+                <div dir="ltr" style="width: 28%;text-align: center;">ادارة الحسابات</div>
+                <div style="display: flex;justify-content: space-between;align-items: center;width: 100%;">
 
-                    qrCodeImage.addEventListener('click', () => {
-                        alert('QR Code scanned on mobile!');
-                    });
-                </script>
+                    <img src="https://i.imgur.com/Qo6ZVqE.png" style="width:230px;height: 230px;">
+
+                    <img id="qrCode" style="width: 250px;height: 250px;" src="<%= data.qrCodeImage %>" />
+
+                </div>
+                <div style="display: flex;justify-content: start;" dir="rtl">
+                    <ul style="margin-right:0px ;padding-right: 0px;">
+                        <li><a>تتبع رابط رمز الاستجابة السريع Code QR للتأكد من صحة المستند</a></li>
+                        <li> لا ينظر الي أي مستند لا يحمل رمز الاستجابة السريع Code QR الخاص بـ VARROX
+                        </li>
+                        <li> لمزيد من الاستفسارات أو الاقتراحات تواصل معنا علي البريد الالكتروني:
+                        </li>
+                        <li style="list-style-type: none;">office@varroxsystems.com</li>
+                    </ul>
+                </div>
                 <div style="display: flex;justify-content: end; margin-left: 30px;" dir="rtl">
                     <h4 style="margin-top: 5px;">VARROX SYSTEMS FOR BUSINESS SOLUTIONS
                     </h4>
                     <img style="width:20px ;height:20px ;margin-right: 2px; "
                         src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAiCAIAAAAoKJUdAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACAUlEQVRIiWP8//8/A80AE+2MpoLp319teXXcgiam//pw8v2VtD/fH709F4xVASMk3J89e4bfICEhIQ4ODjTBZ/uk4Gw2flMR441YTP/x4wcXFxd+09esWRMUFITg///7bL8smhoe+Rw+5SpkESYGBgYmJtLC5/+/n5hGMzAwfHk45evzFZSa/vyAIi6pj9eLfrzZg2I6IyMj8Ua/PGqEX8G7S3G/v95EmE68218eNfr78wVBZa9POiJMJ9LtL49bEmM0BDzbJ8Xw/y8TAwPDv3//iNEgYrSJSKMZGBhY+YwYGJlJMJ2ZXVTECD1FYzeaV0fUZAsDJGSIL8jYBEwFdeYRcASHDNwRJLgdAjjFPAS0puFRIGZxiJGZE2E6qYBLIoBbJhlTnJGJTdL+HiMTosAgOb1DAL9aM7ugFarZzKJm+xmZUcoixv/////58+fIkSP4jdPR0REREUETfHsu6OeHExC2qNleVh5NNAWMlNRN///9enXc8u/P58JGa9gFrLCpoBD8+/399R5ckowQ6vHjx/idKSIiAimlX79+/f37d/yK5eTkEG7/8+cPIyGwdu1aiDu8vb0JKoa7nbTcRCogOTeRbDpt3U47QE7NR5rpZJQEJJhOW7fT1vShnN5pZzq0BD59+jR+dSoqKoKCggwMDLdv3/7w4QN+xaamphAGABrwI5Is1qdGAAAAAElFTkSuQmCC' />
 
-
-
                 </div>
                 <div style="display: flex;justify-content: start;" dir="ltr">
                     <ul style="list-style-type: none;">
-                        <li><a>varroxsystems.com</a></li>
+                        <li><a>www.varroxsystems.com</a></li>
                         <li>customers@varroxsystems.com
                         </li>
                         <li>01050526660
@@ -958,7 +991,6 @@
         </div>
 
     </div>
-
 
 
 </body>

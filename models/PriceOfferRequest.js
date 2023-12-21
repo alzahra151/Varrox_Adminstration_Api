@@ -3,13 +3,14 @@ const Representative = require('./Representative')
 const Service = require('../models/Service')
 const PriceOffer = require('../models/PriceOffer')
 const PaymentPlan = require('./PaymentPlan')
+const Country = require('./Country')
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const PriceOfferRequestSchema = mongoose.Schema({
   ActivityName: { type: String, required: true },
   ActivityNature: { type: String, required: true },
   activityLocation: { type: String, required: true },
-  Country: { type: String, require: true },
+  Country: { type: mongoose.Schema.Types.ObjectId, ref: Country, autopopulate: true, require: true },
   Governorate: { type: String },
   City: { type: String },
   ReprsentativeID: { type: mongoose.Schema.Types.ObjectId, ref: Representative, autopopulate: true },
@@ -41,10 +42,6 @@ PriceOfferRequestSchema.pre('save', async function (next) {
   const doc = this;
   const highestCode = await PriceOfferRequest.findOne().sort('-Code');
   doc.Code = highestCode ? highestCode.Code + 1 : 1;
-  // const highestQrCode = await PriceOfferRequest.findOne().sort('-QrCode').exec();
-  // console.log(highestQrCode)
-  // doc.QrCode = highestQrCode ? highestQrCode.QrCode + 1 : 192;
-  // console.log(doc.QrCode)
   next();
 });
 // PriceOfferRequestSchema.plugin(AutoIncrement, { inc_field: 'test', disable_hooks: false });

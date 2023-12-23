@@ -49,8 +49,5 @@ router.delete('/:id', async (req, res, next) => {
         res.status(401).json(error.message)
     }
 })
-router.post('/country', async (req, res) => {
-    const data = await country.create(req.body)
-    res.json(data)
-})
+
 module.exports = router

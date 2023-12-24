@@ -230,7 +230,9 @@ app.use("/PDF", PDFRoute);
 app.get("/", (req, res) => {
   res.render("OfferMail", { data: data });
 });
-
+app.get('/wakeup', (req, res) => {
+  res.json('wake up')
+})
 httpServer.listen(3000, () => {
   console.log("server listening at port 3000");
 });

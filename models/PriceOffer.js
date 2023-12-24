@@ -20,13 +20,14 @@ const ServiceSchema = new mongoose.Schema({
   },
   Devices: [DeviceSchema],
   Maintenance: mentenanceSchema,
-  serviceTotalPrice: { type: Number, required: true }
+  serviceTotalPrice: { type: Number, required: true },
+  TotalCopies: { type: Number }
 });
 
 const PriceOfferSchema = mongoose.Schema({
   Services: [ServiceSchema],
   TotalPrice: { type: Number },
-  TotalCopies: { type: Number }
+
 }, { timestamps: true })
 // description: {
 //   type: Array, default: ["تدريب ومتابعة", "صيانة ودعم فنى", "تحديث وتطوير", "تدفع سنويا للفروع المذكورة وف حالةزيادة الفروع يتم االتفاق على مبلغ مقابل اشتراك سنوي يدفع بعد اول سنة"]

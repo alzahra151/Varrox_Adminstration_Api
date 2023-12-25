@@ -430,7 +430,9 @@
                                     <h6 style=" ">Sub Total</h6>
                                 </span>
                                 <div style="width: 30%;display: flex;text-align: right;">
-                                    <h6> EGP <%=item.serviceTotalPrice%>
+                                    <h6>
+                                        <%= Intl.NumberFormat('en-US', { style: 'currency' ,currency:
+                                            data.Country.currency }).format(item.serviceTotalPrice)%>
 
                                     </h6>
                                 </div>

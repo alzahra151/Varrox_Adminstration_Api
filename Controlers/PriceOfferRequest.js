@@ -163,6 +163,31 @@ async function GetSalesMangersApprovedReq(query) {  /// done
     Approve: true,
     Complete: true,
     SendToAdmin: true,
+    SlaesDownloaded: false
+  })
+    .limit(limit * 1)
+    .skip((page) * limit)
+    .sort({ createdAt: -1 });
+  const count = await PriceOfferRequest.countDocuments({
+    Approve: true,
+    Complete: true,
+    SendToAdmin: true,
+  });
+  return {
+    requests,
+    totalPages: Math.ceil(count / limit),
+    currentPage: +page,
+    count,
+    limit: +limit
+  }
+}
+async function GetSalesMangersApproved_DownloadedReq(query) {  /// done
+  const { limit = 5, page = 0 } = query
+  const requests = await PriceOfferRequest.find({
+    Approve: true,
+    Complete: true,
+    SendToAdmin: true,
+    SlaesDownloaded: true
   })
     .limit(limit * 1)
     .skip((page) * limit)
@@ -326,5 +351,6 @@ module.exports = {
   AllAcceptedRequsetsCount,
   AllRejectedRequsetsCount,
   AllCommentedRequsetsCount,
-  getRepresentCompletedReqs
+  getRepresentCompletedReqs,
+  GetSalesMangersApproved_DownloadedReq
 };

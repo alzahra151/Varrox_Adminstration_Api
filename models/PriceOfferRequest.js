@@ -33,7 +33,10 @@ const PriceOfferRequestSchema = mongoose.Schema({
   BranchesNumber: { type: Number, required: true },
   PaymentPlan: { type: mongoose.Schema.Types.ObjectId, ref: PaymentPlan, autopopulate: true },
   Notes: { type: String },
-  TotalCopies: { type: Number },
+  // TotalCopies: { type: Number },
+  SlaesDownloaded: { type: Boolean, default: false },
+  AdminDownloaded: { type: Boolean, default: false },
+  CustomerServiceDownload: { type: Boolean, default: false },
   // test: { type: Number, unique: true, required: true },
 }, { timestamps: true })
 

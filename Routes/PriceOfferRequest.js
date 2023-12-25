@@ -24,7 +24,8 @@ const {
   AllRejectedRequsetsCount,
   AllCommentedRequsetsCount,
   getRepresentCompletedReqs,
-  searchData
+  searchData,
+  GetSalesMangersApproved_DownloadedReq
 } = require("../Controlers/PriceOfferRequest");
 const PriceOfferRequest = require("../models/PriceOfferRequest");
 
@@ -32,6 +33,7 @@ const { VerfiyToken, AuthorizeRoles } = require("../MiddleWare/Auth");
 const { VerfiyAdminToken } = require("../MiddleWare/AdminAuth");
 const { json } = require("body-parser");
 const PriceOffer = require("../models/PriceOffer");
+const { route } = require("./Country");
 router.get("/search", async (req, res, next) => {
   const query = req.query
   try {
@@ -140,6 +142,16 @@ router.get("/salesMangersApprovedReq", async (req, res, next) => { //done
 
   try {
     const requestes = await GetSalesMangersApprovedReq(query);
+    res.status(200).json(requestes);
+  } catch (err) {
+    res.status(401).json(err.message);
+  }
+});
+router.get("/salesApproved-downloadedReq", async (req, res, next) => { //done
+  const query = req.query
+
+  try {
+    const requestes = await GetSalesMangersApproved_DownloadedReq(query);
     res.status(200).json(requestes);
   } catch (err) {
     res.status(401).json(err.message);
@@ -295,10 +307,16 @@ router.patch("/approve-req/:id", async (req, res, next) => {
     res.status(200).json({ message: "req accepted before", req: acceptedReq })
   }
 });
-router.delete('/all', async (req, res) => {
-  await PriceOfferRequest.deleteMany({})
-  await PriceOffer.deleteMany({})
-  res.json("deleted")
+router.patch('/all', async (req, res) => {
+  await PriceOfferRequest.updateMany({
+    SlaesDownloaded: false,
+    AdminDownloaded: false,
+    CustomerServiceDownload: false,
+  })
+
+  res.json("done")
 })
+
+
 
 module.exports = router;

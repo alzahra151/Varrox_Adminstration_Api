@@ -25,7 +25,8 @@ const {
   AllCommentedRequsetsCount,
   getRepresentCompletedReqs,
   searchData,
-  GetSalesMangersApproved_DownloadedReq
+  GetSalesMangersApproved_DownloadedReq,
+  GetallSalesMangersApprovedReq
 } = require("../Controlers/PriceOfferRequest");
 const PriceOfferRequest = require("../models/PriceOfferRequest");
 
@@ -142,6 +143,16 @@ router.get("/salesMangersApprovedReq", async (req, res, next) => { //done
 
   try {
     const requestes = await GetSalesMangersApprovedReq(query);
+    res.status(200).json(requestes);
+  } catch (err) {
+    res.status(401).json(err.message);
+  }
+});
+router.get("/salesAllMangersApprovedReq", async (req, res, next) => { //done
+  const query = req.query
+
+  try {
+    const requestes = await GetallSalesMangersApprovedReq(query);
     res.status(200).json(requestes);
   } catch (err) {
     res.status(401).json(err.message);

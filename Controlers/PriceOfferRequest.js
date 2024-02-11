@@ -2,11 +2,11 @@ const { response } = require("express");
 const PriceOfferRequest = require("../models/PriceOfferRequest");
 const Representative = require('../models/Representative');
 const PriceOffer = require("../models/PriceOffer");
+
 async function AddPriceOfferReq(data) {
   const NewClient = new PriceOfferRequest(data);
   const num = await PriceOfferRequest.collection.getIndexes()
   console.log(num);
-
   return NewClient.save();
 }
 async function GetAllRequests(query) {
@@ -172,6 +172,7 @@ async function GetSalesMangersApprovedReq(query) {  /// done
     Approve: true,
     Complete: true,
     SendToAdmin: true,
+    SlaesDownloaded: false
   });
   return {
     requests,
@@ -181,30 +182,7 @@ async function GetSalesMangersApprovedReq(query) {  /// done
     limit: +limit
   }
 }
-async function GetallSalesMangersApprovedReq(query) {  /// done
-  const { limit = 5, page = 0 } = query
-  const requests = await PriceOfferRequest.find({
-    Approve: true,
-    Complete: true,
-    SendToAdmin: true,
 
-  })
-    .limit(limit * 1)
-    .skip((page) * limit)
-    .sort({ createdAt: -1 });
-  const count = await PriceOfferRequest.countDocuments({
-    Approve: true,
-    Complete: true,
-    SendToAdmin: true,
-  });
-  return {
-    requests,
-    totalPages: Math.ceil(count / limit),
-    currentPage: +page,
-    count,
-    limit: +limit
-  }
-}
 async function GetSalesMangersApproved_DownloadedReq(query) {  /// done
   const { limit = 5, page = 0 } = query
   const requests = await PriceOfferRequest.find({
@@ -220,6 +198,107 @@ async function GetSalesMangersApproved_DownloadedReq(query) {  /// done
     Approve: true,
     Complete: true,
     SendToAdmin: true,
+    SlaesDownloaded: true
+  });
+  return {
+    requests,
+    totalPages: Math.ceil(count / limit),
+    currentPage: +page,
+    count,
+    limit: +limit
+  }
+}
+async function GetManagerApprovedReq(query) {  /// done
+  const { limit = 5, page = 0 } = query
+  const requests = await PriceOfferRequest.find({
+    Approve: true,
+    Complete: true,
+    SendToAdmin: true,
+    AdminDownloaded: false
+  })
+    .limit(limit * 1)
+    .skip((page) * limit)
+    .sort({ createdAt: -1 });
+  const count = await PriceOfferRequest.countDocuments({
+    Approve: true,
+    Complete: true,
+    SendToAdmin: true,
+    AdminDownloaded: false
+  });
+  return {
+    requests,
+    totalPages: Math.ceil(count / limit),
+    currentPage: +page,
+    count,
+    limit: +limit
+  }
+}
+async function GetManagerApproved_DownloadedReq(query) {  /// done
+  const { limit = 5, page = 0 } = query
+  const requests = await PriceOfferRequest.find({
+    Approve: true,
+    Complete: true,
+    SendToAdmin: true,
+    AdminDownloaded: true
+  })
+    .limit(limit * 1)
+    .skip((page) * limit)
+    .sort({ createdAt: -1 });
+  const count = await PriceOfferRequest.countDocuments({
+    Approve: true,
+    Complete: true,
+    SendToAdmin: true,
+    AdminDownloaded: true
+  });
+  return {
+    requests,
+    totalPages: Math.ceil(count / limit),
+    currentPage: +page,
+    count,
+    limit: +limit
+  }
+}
+async function GetcustomerserviceApprovedReq(query) {  /// done
+  const { limit = 5, page = 0 } = query
+  const requests = await PriceOfferRequest.find({
+    Approve: true,
+    Complete: true,
+    SendToAdmin: true,
+    CustomerServiceDownload: false
+  })
+    .limit(limit * 1)
+    .skip((page) * limit)
+    .sort({ createdAt: -1 });
+  const count = await PriceOfferRequest.countDocuments({
+    Approve: true,
+    Complete: true,
+    SendToAdmin: true,
+    CustomerServiceDownload: false
+  });
+  return {
+    requests,
+    totalPages: Math.ceil(count / limit),
+    currentPage: +page,
+    count,
+    limit: +limit
+  }
+}
+async function GetcustomerserviceApproved_DownloadedReq(query) {  /// done
+  const { limit = 5, page = 0 } = query
+  const requests = await PriceOfferRequest.find({
+    Approve: true,
+    Complete: true,
+    SendToAdmin: true,
+    CustomerServiceDownload: true
+  })
+    .limit(limit * 1)
+    .skip((page) * limit)
+    .sort({ createdAt: -1 });
+  const count = await PriceOfferRequest.countDocuments({
+    Approve: true,
+    Complete: true,
+    SendToAdmin: true,
+    CustomerServiceDownload: true
   });
   return {
     requests,
@@ -377,5 +456,9 @@ module.exports = {
   AllCommentedRequsetsCount,
   getRepresentCompletedReqs,
   GetSalesMangersApproved_DownloadedReq,
-  GetallSalesMangersApprovedReq
+  // GetallSalesMangersApprovedReq,
+  GetManagerApprovedReq,
+  GetManagerApproved_DownloadedReq,
+  GetcustomerserviceApprovedReq,
+  GetcustomerserviceApproved_DownloadedReq
 };

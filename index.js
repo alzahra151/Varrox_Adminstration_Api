@@ -13,6 +13,8 @@ const AdminRoute = require("./Routes/Admin");
 const CounteryRoute = require('./Routes/Country')
 const DeviceRout = require("./Routes/Device");
 const PriceOfferReq = require("./models/PriceOfferRequest");
+const SpecialRequestRoute = require("./Routes/Special-Request")
+
 const PriceOffer = require("./models/PriceOffer");
 const PaymentPlanRoute = require('./Routes/PaymentPlan')
 const compression = require('compression')
@@ -194,7 +196,7 @@ app.use(express());
 app.use(compression());
 dotenv.config();
 mongoose.connect(
-  "mongodb+srv://alzahradesoky15:alzahradesoky15@cluster0.end0ljd.mongodb.net/VARROXSYSTEM"
+  "mongodb+srv://alzahradesoky15:alzahradesoky15@cluster0.odxzqs1.mongodb.net/test"
 );
 mongoose.connection.on("open", function (ref) {
   console.log("Connected to mongo server.");
@@ -224,8 +226,8 @@ app.use("/PriceOffer", PriceOfferRoute);
 app.use("/Service", ServiceRoute);
 app.use("/Device", DeviceRout);
 app.use("/Country", CounteryRoute);
-
 app.use('/PaymentPlan', PaymentPlanRoute)
+app.use('/SpcialRequest', SpecialRequestRoute)
 app.use("/PDF", PDFRoute);
 app.get("/", (req, res) => {
   res.render("OfferMail", { data: data });

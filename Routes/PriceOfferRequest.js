@@ -26,7 +26,11 @@ const {
   getRepresentCompletedReqs,
   searchData,
   GetSalesMangersApproved_DownloadedReq,
-  GetallSalesMangersApprovedReq
+  GetManagerApprovedReq,
+  GetManagerApproved_DownloadedReq,
+  GetcustomerserviceApprovedReq,
+  GetcustomerserviceApproved_DownloadedReq
+  // GetallSalesMangersApprovedReq
 } = require("../Controlers/PriceOfferRequest");
 const PriceOfferRequest = require("../models/PriceOfferRequest");
 
@@ -148,16 +152,6 @@ router.get("/salesMangersApprovedReq", async (req, res, next) => { //done
     res.status(401).json(err.message);
   }
 });
-router.get("/salesAllMangersApprovedReq", async (req, res, next) => { //done
-  const query = req.query
-
-  try {
-    const requestes = await GetallSalesMangersApprovedReq(query);
-    res.status(200).json(requestes);
-  } catch (err) {
-    res.status(401).json(err.message);
-  }
-});
 router.get("/salesApproved-downloadedReq", async (req, res, next) => { //done
   const query = req.query
 
@@ -168,6 +162,57 @@ router.get("/salesApproved-downloadedReq", async (req, res, next) => { //done
     res.status(401).json(err.message);
   }
 });
+router.get("/MangerApprovedReq", async (req, res, next) => { //done
+  const query = req.query
+
+  try {
+    const requestes = await GetManagerApprovedReq(query);
+    res.status(200).json(requestes);
+  } catch (err) {
+    res.status(401).json(err.message);
+  }
+});
+router.get("/managerApproved-downloadedReq", async (req, res, next) => { //done
+  const query = req.query
+
+  try {
+    const requestes = await GetManagerApproved_DownloadedReq(query);
+    res.status(200).json(requestes);
+  } catch (err) {
+    res.status(401).json(err.message);
+  }
+});
+router.get("/customerServiceApprovedReq", async (req, res, next) => { //done
+  const query = req.query
+
+  try {
+    const requestes = await GetcustomerserviceApprovedReq(query);
+    res.status(200).json(requestes);
+  } catch (err) {
+    res.status(401).json(err.message);
+  }
+});
+router.get("/customerService-downloadedReq", async (req, res, next) => { //done
+  const query = req.query
+
+  try {
+    const requestes = await GetcustomerserviceApproved_DownloadedReq(query);
+    res.status(200).json(requestes);
+  } catch (err) {
+    res.status(401).json(err.message);
+  }
+});
+// router.get("/salesAllMangersApprovedReq", async (req, res, next) => { //done
+//   const query = req.query
+
+//   try {
+//     const requestes = await GetallSalesMangersApprovedReq(query);
+//     res.status(200).json(requestes);
+//   } catch (err) {
+//     res.status(401).json(err.message);
+//   }
+// });
+
 router.get("/rejected-req", async (req, res, next) => { //done
   try {
     const requestes = await GetAllRejectedReq();

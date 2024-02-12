@@ -219,7 +219,7 @@ reqChangeStream.on("change", (change) => {
 app.set("view engine", "ejs");
 app.use(cookieParser());
 app.use(express.static(__dirname + "/public"));
-app.use("/Representative", RepresentativeRoute);
+app.use("/api/Representative", RepresentativeRoute);
 app.use("/Admin", AdminRoute);
 app.use("/PriceOfferReq", PriceOfferReqRoute);
 app.use("/PriceOffer", PriceOfferRoute);

@@ -4,19 +4,9 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const RepresentativeRoute = require("./Routes/Representative");
-const PriceOfferReqRoute = require("./Routes/PriceOfferRequest");
-const ServiceRoute = require("./Routes/Service");
-const PriceOfferRoute = require("./Routes/PriceOffer");
-const PDFRoute = require("./Routes/GeneratePDF");
-const AdminRoute = require("./Routes/Admin");
-const CounteryRoute = require('./Routes/Country')
-const DeviceRout = require("./Routes/Device");
+const Routes = require("./Routes")
 const PriceOfferReq = require("./models/PriceOfferRequest");
-const SpecialRequestRoute = require("./Routes/Special-Request")
-
-const PriceOffer = require("./models/PriceOffer");
-const PaymentPlanRoute = require('./Routes/PaymentPlan')
+const helmet = require('helmet')
 const compression = require('compression')
 const { createServer } = require("http");
 const { Server } = require("socket.io");
@@ -32,7 +22,7 @@ app.use(
     origin: "*",
   })
 );
-
+app.use(helmet())
 data = {
   "_id": "654ce7c0be93ab4e2e9564e1",
   "ActivityName": "مطعم جديد جدا ",
@@ -219,16 +209,7 @@ reqChangeStream.on("change", (change) => {
 app.set("view engine", "ejs");
 app.use(cookieParser());
 app.use(express.static(__dirname + "/public"));
-app.use("/Representative", RepresentativeRoute);
-app.use("/Admin", AdminRoute);
-app.use("/PriceOfferReq", PriceOfferReqRoute);
-app.use("/PriceOffer", PriceOfferRoute);
-app.use("/Service", ServiceRoute);
-app.use("/Device", DeviceRout);
-app.use("/Country", CounteryRoute);
-app.use('/PaymentPlan', PaymentPlanRoute)
-app.use('/SpcialRequest', SpecialRequestRoute)
-app.use("/PDF", PDFRoute);
+app.use(Routes)
 app.get("/", (req, res) => {
   res.render("OfferMail", { data: data });
 });

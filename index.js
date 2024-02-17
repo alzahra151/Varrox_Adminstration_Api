@@ -186,7 +186,7 @@ app.use(express());
 app.use(compression());
 dotenv.config();
 mongoose.connect(
-  "mongodb+srv://alzahradesoky15:alzahradesoky15@cluster0.odxzqs1.mongodb.net/test" || "mongodb://localhost:27017/varrox"
+ "mongodb://localhost:27017/varrox"
 );
 mongoose.connection.on("open", function (ref) {
   console.log("Connected to mongo server.");
@@ -216,9 +216,9 @@ app.get("/", (req, res) => {
 app.get('/wakeup', (req, res) => {
   res.json('wake up')
 })
-if (process.env.NODE_ENV === 'production') {
-  app.use(enforce.HTTPS({ trustProtoHeader: true }));
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// }
 httpServer.listen(3000, () => {
   console.log("server listening at port 3000");
 });

@@ -217,6 +217,9 @@ app.get("/", (req, res) => {
 app.get('/wakeup', (req, res) => {
   res.json('wake up')
 })
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// }
 httpServer.listen(3000, () => {
   console.log("server listening at port 3000");
 });

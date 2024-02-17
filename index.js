@@ -186,7 +186,8 @@ app.use(express());
 app.use(compression());
 dotenv.config();
 mongoose.connect(
-  "mongodb+srv://alzahradesoky15:alzahradesoky15@cluster0.odxzqs1.mongodb.net/test"
+  // "mongodb+srv://alzahradesoky15:alzahradesoky15@cluster0.odxzqs1.mongodb.net/test"
+  "mongodb://localhost:27017/varrox"
 );
 mongoose.connection.on("open", function (ref) {
   console.log("Connected to mongo server.");

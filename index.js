@@ -187,15 +187,16 @@ app.use(compression());
 dotenv.config();
 mongoose.connect(
   // "mongodb+srv://alzahradesoky15:alzahradesoky15@cluster0.odxzqs1.mongodb.net/test"
-  "mongodb://localhost:27017/varrox"
+  // "mongodb://mongo-admin:abc123@localhost:27017/varrox"
+  "mongodb://alzahra:alzahra**151@4.233.208.52:27017/varrox"
 );
-mongoose.connection.on("open", function (ref) {
-  console.log("Connected to mongo server.");
+const db = mongoose.connection;
 
-  mongoose.connection.db.listCollections().toArray(function (err, names) {
-    console.log(names);
-  });
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+  console.log('Connected to MongoDB');
 });
+
 // Create the change streams
 const reqChangeStream = PriceOfferReq.watch();
 io.on("connection", (socket) => {

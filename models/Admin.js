@@ -7,7 +7,7 @@ const AdminSchema = mongoose.Schema({
     Country: { type: String, required: true },
     Mobile: { type: String, required: true },
     Password: { type: String, required: true },
-    Role: { type: String, enum: ['secretarial', 'Manager', 'customerService'], default: 'secretarial' },
+    Role: { type: String, enum: ['secretarial', 'Manager', 'customerService', 'SalesManager', 'Representative'], default: 'secretarial' },
     Image: { type: String },
 },
     { timestamps: true })

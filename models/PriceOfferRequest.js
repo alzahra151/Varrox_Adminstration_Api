@@ -11,6 +11,7 @@ const PriceOfferRequestSchema = mongoose.Schema({
   ActivityNature: { type: String, required: true },
   activityLocation: { type: String, required: true },
   Country: { type: mongoose.Schema.Types.ObjectId, ref: Country, autopopulate: true, require: true },
+  NewCountry: { type: String, required: true },
   Governorate: { type: String },
   City: { type: String },
   ReprsentativeID: { type: mongoose.Schema.Types.ObjectId, ref: Representative, autopopulate: true },

@@ -8,8 +8,46 @@
     <title>List Page</title>
     <link rel="stylesheet" href="OfferMail.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
     </link>
     <style>
+        .noto-naskharabic {
+            font-family: "Nunito", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: myFirstFont;
+            src: url('../fonts/VARROX-FONT.ttf');
+            font-weight: bold;
+        }
+
+        @font-face {
+            font-family: ArabicFont;
+            src: url('../public/fonts/Cairo/Cairo-VariableFont_slnt\,wght.ttf');
+            /* font-weight: bold; */
+        }
+
+        @font-face {
+            font-family: boldfont;
+            src: url('../fonts/BADER_AL_GORDABIA-2.TTF');
+            /* font-weight: bold; */
+        }
+
+        .boldFont {
+            font-family: boldfont;
+        }
+
+        .arabicFont {
+            font-family: ArabicFont;
+        }
+
         @media print {
             /* @page {
                 size: A4;
@@ -29,6 +67,11 @@
 
         }
 
+        .englishFont {
+            font-family: myFirstFont;
+            /* font-family: "Nunito", sans-serif; */
+        }
+
         .content {
             page: main;
             page-break-after: always;
@@ -37,6 +80,15 @@
             position: relative;
             height: 11.7in;
             box-sizing: border-box;
+        }
+
+        * {
+            font-family: myFirstFont;
+
+            /* font-family: "Nunito", sans-serif; */
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
         }
 
         .content1 {
@@ -79,17 +131,17 @@
         }
 
         .detailsKeys {
-            width: 30%;
+            width: 35%;
 
             float: left;
 
-            font-size: .8rem;
+            font-size: .9rem;
         }
 
         .details {
             padding: 2px;
             margin: 2px;
-            font-size: .8rem;
+            font-size: .9rem;
         }
 
         .detailsContainer {
@@ -131,7 +183,7 @@
 
 </head>
 
-<body>
+<body class="">
     <!-- <div class="content">
 
     </div> -->
@@ -196,7 +248,7 @@
             <div style="width:17px;height: 17px; background-color: rgb(255, 208, 0);float: left;margin-right: 2px;">
             </div>
             <p>Quotation Details</p>
-            <div style="width: 100%; margin: 30px;">
+            <div style="width: 100%; margin: 30px;" class="arabicFont">
                 <div style="display: flex;">
                     <div style="width: 50%;margin: 2px;;">
                         <div style="width: 100%; " class="detailsContainer">
@@ -214,7 +266,7 @@
                             <div class="details">: <%=data.Mobile %>
                             </div>
                         </div>
-                        <div style="width: 100%; margin-bottom: 20px;" class="detailsContainer">
+                        <div style="width: 100%;" class="detailsContainer">
                             <div class="detailsKeys">E-Mail Address</div>
                             <div class="details"> : <%=data.Email %>
                             </div>
@@ -244,22 +296,21 @@
                     <div style="width:40%;">
 
                         <div style="width: 100%; " class="detailsContainer">
-                            <div style=" font-size: .75rem;" class="detailsKeys">Quotation No. </div>
-                            <div style=" font-size: .75rem;" class="details"> : 02-<%=data.QrCode%>
+                            <div class="detailsKeys">Quotation No. </div>
+                            <div class="details"> : 02-<%=data.QrCode%>
                             </div>
                         </div>
                         <div style="width: 100%; " class="detailsContainer">
-                            <div style=" font-size: .75rem;" class="detailsKeys">Quotation Date </div>
-                            <div style=" font-size: .75rem;" class="details"> : <%= new
-                                    Date(data.createdAt).toLocaleDateString('en-GB')%>
+                            <div class="detailsKeys">Quotation Date </div>
+                            <div class="details"> : <%= new Date(data.createdAt).toLocaleDateString('en-GB')%>
                             </div>
                             <div style="width: 100%; " class="detailsContainer">
-                                <div style=" font-size: .75rem;" class="detailsKeys">Branch Name </div>
-                                <div style=" font-size: .75rem;" class="details"> :Egypt</div>
+                                <div class="detailsKeys">Branch Name </div>
+                                <div class="details"> :Egypt</div>
                             </div>
                             <div style="width: 100%; " class="detailsContainer">
-                                <div style=" font-size: .75rem;" class="detailsKeys">Branch ID </div>
-                                <div style=" font-size: .75rem;" class="details"> :1001</div>
+                                <div class="detailsKeys">Branch ID </div>
+                                <div class="details"> :1001</div>
                             </div>
                             <%= %>
                                 <div class="lastQout">
@@ -282,7 +333,7 @@
                     <div style="width:35%;padding: 6px;background-color: black;">Databases</div>
                     <div style="width:23%;padding: 6px; background-color: rgb(255, 230, 0);">Price</div>
                 </div>
-                <div dir="ltr">
+                <div dir="ltr" class="noto-naskharabic">
 
                     <% data.PriceOffer.Services.forEach((item,index)=> { %>
                         <div style="font-size: .8rem;display: flex; margin-top:10px;margin-bottom: 0px;">
@@ -298,9 +349,9 @@
                                 </div>
                                 <ul style="list-style-type: none; padding-left: 1px;">
                                     <% item?.Service?.Details?.forEach((item,index)=> { %>
-                                        <li style="margin-top: 0px;font-size: small;">
-                                            <div style="display: flex;">
-                                                <div style="margin: 2px; width:9px;height: 9px; background-color: rgb(248, 209, 35);
+                                        <li style="margin-top: 0px" class="arabicFont">
+                                            <div style="display: flex;align-items: center;">
+                                                <div style="margin: 2px;margin-right: 4px; width:9px;height: 9px; background-color: rgb(248, 209, 35);
                                     ">
                                                 </div>
                                                 <%=item%>
@@ -338,9 +389,9 @@
                                             <li class=""
                                                 style="width: 100%;margin-top: 0px;padding-top: 0px;margin: 0px;">
 
-                                                <div style="display: flex;font-weight: lighter">
+                                                <div style="display: flex;font-weight: lighter;align-items: center">
                                                     <div
-                                                        style="margin: 2px; width:8px;height: 8px; background-color: rgb(248, 209, 35);">
+                                                        style="margin: 2px;margin-right: 4px; width:8px;height: 8px; background-color: rgb(248, 209, 35);">
                                                     </div>
 
                                                     <span>
@@ -366,30 +417,21 @@
 
                                     </div>
                                     <h4> :الصيانة والتحديثات</h4>
-                                    <div style="">
-                                        <div style="margin: 2px; width:8px;height: 8px; background-color: rgb(248, 209, 35);float:
+                                    <div style="" class="arabicFont ">
+                                        <div style="margin: 2px;margin-top: 4px; width:8px;height: 8px; background-color: rgb(248, 209, 35);float:
                                                                         left;"></div>
                                         <!-- <%=item.Maintenance?.description%> -->
-                                        <ul style="list-style-type: none; padding-left: 1px;margin-top: 1px;">
+                                        <ul style="list-style-type: none; padding-left: 1px;margin-top: 1px;font-size: small;"
+                                            class="arabicFont">
 
-                                            <% item.Maintenance?.description.forEach((description,index)=>{%>
-
-
-                                                <% if (index>=item.Maintenance?.description.length-2) { %>
-                                                    <li style="margin-top: 0px;font-size: small;padding-right: 5px; "
-                                                        class="lastElem">
-
-                                                        <%=description%>
-                                                    </li>
-                                                    <% } else { %>
-                                                        <li
-                                                            style="margin-top: 0px;font-size: small;padding-right: 5px;">
-
-                                                            <%=description%>
-                                                        </li>
-                                                        <% } %>
-
-                                                            <% })%>
+                                            <li class="arabicFont">تدفع سنويا لجميع الأجهزة</li>
+                                            <li class="arabicFont">تدريب ومتابعة
+                                            </li>
+                                            <li>صيانة ودعم فنى</li>
+                                            <li>تحديث وتطوير</li>
+                                            <li>تدفع سنويا للفروع المذكورة وف حالة زيادة</li>
+                                            <li>الفروع يتم الاتفاق على مبلغ مقابل</li>
+                                            <il style="font-weight: bolder;">تدفع بعد أول سنة</il>
                                         </ul>
                                     </div>
 
@@ -400,7 +442,7 @@
                                 <ul style="list-style-type: none;margin: 0px;">
                                     <% item?.Devices?.forEach(device=> { %>
 
-                                        <li style="padding: 4px;margin: 0px;font-weight: lighter;padding-top: 0px;">
+                                        <li style="padding: 4px;margin: 0px;padding-top: 0px;">
 
                                             <%= Intl.NumberFormat('en-US', { style: 'currency' ,currency:
                                                 data.Country.currency }).format(device.SubTotalPrice)%>
@@ -409,8 +451,7 @@
                                         </li>
 
                                         <% } )%>
-                                            <li
-                                                style="padding: 4px ;margin-top: 25px;font-weight: lighter;color: black;">
+                                            <li style="padding: 4px ;margin-top: 25px;color: black;">
 
                                                 <%= Intl.NumberFormat('en-US', { style: 'currency' ,currency:
                                                     data.Country.currency }).format(item.Maintenance?.price)%>
@@ -422,19 +463,22 @@
                         </div>
 
 
-                        <div style="width: 100%; border-bottom: 1px solid gainsboro;">
+                        <div style="width: 100%; border-bottom: 1px solid gainsboro; font-size:larger ;">
 
                             <div style="display: flex;justify-content: right;">
-                                <span style="width: 35%;display: flex;justify-content: right;margin-right: 15px;">
+                                <div style="width: 74;"></div>
+                                <div style="width: 26%;display: flex;">
+                                    <span style="display: flex;justify-content: right;margin-right: 12px;">
 
-                                    <h6 style=" ">Sub Total</h6>
-                                </span>
-                                <div style="width: 30%;display: flex;text-align: right;">
-                                    <h6>
-                                        <%= Intl.NumberFormat('en-US', { style: 'currency' ,currency:
-                                            data.Country.currency }).format(item.serviceTotalPrice)%>
+                                        <h6 style=" ">Sub Total</h6>
+                                    </span>
+                                    <div style="display: flex;text-align: right;">
+                                        <h6>
+                                            <%= Intl.NumberFormat('en-US', { style: 'currency' ,currency:
+                                                data.Country.currency }).format(item.serviceTotalPrice)%>
 
-                                    </h6>
+                                        </h6>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -447,21 +491,33 @@
                 style="margin-top:50px ; display: flex; position: absolute;left: 0%;bottom: 0%;right: 0%; padding: 20px;">
                 <div
                     style="border-bottom: 1px solid gainsboro;border-top: 1px solid gainsboro;display: flex;width: 100%;">
-                    <div style="width:60%;margin: 10px;">
+                    <div style="width:70%;margin: 10px;">
                         <div
-                            style="width:14px;height: 14px; background-color: rgb(219, 217, 217);float: left;margin-right: 2px;float:left">
+                            style="width:14px;height: 14px; background-color: rgb(219, 217, 217);float: left;margin-right: 2px;margin-top: 4px;float:left">
                         </div>
                         <h4>:الدفع
                         </h4>
-                        <p>- <%=data.PaymentPlan?.Plan %>
+                        <p>- <%- data.PaymentPlan?.Plan %>
                         </p>
                     </div>
                     <div style="width:30%;float:left;padding:2px">
-                        <h5>Sub Total:
+                        <div style="width: 100%;" class="detailsContainer ">
+                            <div class="detailsKeys" style="text-align: right;margin-right: 8px">Sub Total </div>
+                            <div class="details"> :
+                                <%= Intl.NumberFormat('en-US', { style: 'currency' ,currency: data.Country.currency
+                                    }).format(data.PriceOffer.TotalPrice)%>
+                            </div>
+                        </div>
+                        <div style="width: 100%; " class="detailsContainer">
+                            <div class="detailsKeys " style="text-align: right;margin-right: 8px"> Vat </div>
+                            <div class="details"> : 000,000.00
+                            </div>
+                        </div>
+                        <!-- <h5>Sub Total:
                             <%= Intl.NumberFormat('en-US', { style: 'currency' ,currency: data.Country.currency
                                 }).format(data.PriceOffer.TotalPrice)%>
-                        </h5>
-                        <h5>Vat:000,000.00</h5>
+                        </h5> -->
+                        <!-- <h5>Vat:</h5> -->
                         <hr>
                         <h4>Last value:
                             <%= Intl.NumberFormat('en-US', { style: 'currency' ,currency: data.Country.currency
@@ -499,8 +555,10 @@
                 <div style="width:17px;height: 17px; background-color: rgb(255, 208, 0);float: left;margin-right: 2px;">
                 </div>
                 <h3>What does VARROX offer you?</h3>
-                <p style="font-size:.96rem;line-height:1.4">VARROX SYSTEMS FOR BUSINESS SOLUTIONS, well known as
-                    VARROX
+                <p style="font-size:.9rem;line-height:1.4"><span style="font-weight: bold;"
+                        class="englishFont">VARROX</span> SYSTEMS FOR
+                    BUSINESS SOLUTIONS, well known as
+                    <span style="font-weight: bold;" class="englishFont">VARROX</span>
                     is a
                     turnkey
                     software
@@ -509,14 +567,18 @@
                     business
                     innovation powered by technology with state-of-the-art business automation and software
                     development.
-                    VARROX specialized in the management systems providing automation and solutions products for
+                    <span style="font-weight: bold;" class="englishFont">VARROX</span> specialized in the management
+                    systems providing
+                    automation and solutions products for
                     many
                     business fields. For companies operating in the information age, we help to leverage new
                     technologies to
                     competitive advantage. We deliver high value innovated solutions by bridging the gap between
                     business
                     and
-                    technology. Since VARROX inception, proven, demonstrate and invent unique products,
+                    technology. Since <span style="font-weight: bold;" class="englishFont">VARROX</span> inception,
+                    proven, demonstrate and
+                    invent unique products,
                     techniques
                     and
                     capabilities that far and uniquely distinguish us from other software provider as we are
@@ -536,7 +598,7 @@
                 </div>
 
                 <!-- <div style="clear:both"></div> -->
-                <ul>
+                <ul style="font-size:.96rem;">
                     <li> Deliver secure, reliable and scalable applications that help businesses excel in
                         today's
                         rapidly
@@ -575,7 +637,8 @@
                         consultation and
                         turnkey solutions in
                         addition
-                        to a unique technical support to our valuable clients. VARROX is powered by highly
+                        to a unique technical support to our valuable clients. <span
+                            style="font-weight: bold;">VARROX</span> is powered by highly
                         skilled
                         professionals of
                         professors, consultants, engineers, developers, and executives equipped with the latest
@@ -597,7 +660,7 @@
 
         </div>
     </div>
-    <div class="content" style=" padding-top: 20px;margin: 10px 30px ;">
+    <div class="content englishFont" style=" padding-top: 20px;margin: 10px 30px ;">
         <div style="margin-top: 25px; margin-right: 30px;">
             <img width="40px ;" style="margin-left:20px"
                 src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAIAAAC3LO29AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACbElEQVR4nO2aPUvDQBjHnxQjSI2H1IJkECkdSkGolOIuuOjm5DcQWnB2ar9BB8kX8EPo2ElH0Y9QHCpoMhQHsVbiEKzapte7y73K/ac0PHkuP355uSR14jiGf52c6h0QHktofrQmHPT8Qc/P2ERfwglbRkhNCaeoskDqSJjKwwypHSGGhA3S+X3H7/f7DC0w8TyvUCiQ15Mw+PsDqn34Q5jLcVbabDaDICAsJldEBfmDFEUR+WbcQ3UEUhX/EFIdTnzDcIKRb6LeIfNFctDzx+9PC8sUO8x4N3++rS+sUekw+4yMpIkyh1zwSFqpccgRb2FDBQ654+HbynYoCA/TXKpDoXjzhpDnUAJe6kCSHErDmx1OhsPx26Ogzpi89i+SBRkOl1a2ins3gpqnxiude9tnybKk89DNl6RB/sYDmddSOZBTeCD5figacq3cmcID+XMacZBr5c7q1unsegXzUhGQ8/BA1bOFmy8V69e8umHwQOHzoYtqXEzi8UDtM352k6jSxeOB8vc0WUyiSjfvnywsU/+ujc0kIR4od5jERTUqSHI80MFhEnJIVA3I8QBgabIURVG73abeNWwajQZ5cQL5cneIqUGVbn7zmGofHN3+i/ExfJgHiaoBLR5o+HXNRbWN+tXsejY80NBhktHwPrw7mvxc37lcKR6wtdLOYZJltDu58KBqwIwH2jpMMhref47CLHigOSGXaHqU8kz8nTAMHd5ptVpxWrgP5DhO6kBxHOsypxEXLealQmMdmh/r0PxYh+bHOjQ/1qH5sQ7Nj3VofqxD82Mdmh/r0PxYh+bHOjQ//9+h/fZkfr4AT2cxvsrrNa4AAAAASUVORK5CYII=' />
@@ -606,20 +669,23 @@
                 <div
                     style="width:17px;height: 17px; background-color: rgb(255, 208, 0);float: right;margin-right: 2px;">
                 </div>
-                <h3>ماذا تقدم لك VARROX</h3>
-                <p style="font-size:.96rem;line-height:1.4">أنظمة فاروكس لحلول الأعمال ،، المعروفه باسم VARROX
+                <h3>ماذا تقدم لك <span style="font-weight: bold;" class="englishFont">VARROX</span></h3>
+                <p style="font-size:.9rem;line-height:1.4">أنظمة فاروكس لحلول الأعمال ،، المعروفه باسم <span
+                        style="font-weight: bold;">VARROX</span>
                     هي
                     مزود
                     لحلول
                     الأعمال والبرمجيات بكافة التخصصات. تأسست في عام 2013 لتوفر لعمالءها كافة ابتكارات
-                    الأعمال المدعومة بالتكنولوجيا مع أحدث الأنظمة والبرمجيات. تخصصت VARROX في أنظمة الأدارة التي
+                    الأعمال المدعومة بالتكنولوجيا مع أحدث الأنظمة والبرمجيات. تخصصت <span
+                        style="font-weight: bold;">VARROX</span> في أنظمة الأدارة التي
                     تقدم
                     الحلول
                     للعديد من مجالات الأعمال.نحن نسعي دائماللاستفادة من كافة التقنيات الجديدة لتحقيق ميزة
                     تنافسية
                     أعلي
                     كما
-                    نقدم حلولا مبتكرةعالية القيمةمن خلال سد الفجوة بين الأعمال والتكنولوجيا. منذ بداية VARROX
+                    نقدم حلولا مبتكرةعالية القيمةمن خلال سد الفجوة بين الأعمال والتكنولوجيا. منذ بداية <span
+                        style="font-weight: bold;">VARROX</span>
                     اثبتت
                     قدراها
                     علي ابتكار منتجات وتقنيات فريدة تميزنا بشكل فريد عن مزودي البرمجيات الاخرين لاننا متخصصون في
@@ -667,7 +733,7 @@
                         الأعمال والحلول المتكاملة لكافة الأنشطة التجارية بالأضافة إلى دعم فني فريد لعملائنا
                         الكرام.
                         يتم
-                        تشغيل VARROX
+                        تشغيل <span style="font-weight: bold;" class="englishFont">VARROX</span>
                         بواسطة محترفين ذوي مهارات عالية من المصممين والمطورين والمديرين التنفيذيين المجهزين
                         بأحدث
                         الأدوات
@@ -683,17 +749,20 @@
             </div>
         </div>
     </div>
-    <div class="content" style=" padding-top: 20px;margin: 10px 30px" dir="rtl">
+    <div class="content englishFont" style=" padding-top: 20px;margin: 10px 30px" dir="rtl">
         <h4>الحقوق والواجبات</h4>
         <ul>
-            <li>تسري هذه الشروط والأحكام على استخدامك لكافة أنظمة VARROX سواء كانت سحابية أو محلية ، وجميع الخدمات
+            <li>تسري هذه الشروط والأحكام على استخدامك لكافة أنظمة <span style="font-weight: bold;">VARROX</span> سواء
+                كانت سحابية أو محلية ، وجميع الخدمات
                 والاضافات المرتبطة
                 بها بما في ذلك خدمات التطوير
                 والتعديل والأضافة .</li>
-            <li>يرجى قراءة الشروط بعناية قبل استخدام أنظمة وخدمات VARROXوتحتفظ الشركة بالحق في تغيير أو تعديل أو
+            <li>يرجى قراءة الشروط بعناية قبل استخدام أنظمة وخدمات <span style="font-weight: bold;">VARROX</span>وتحتفظ
+                الشركة بالحق في تغيير أو تعديل أو
                 إضافة
                 أو إزالة أجزاء من هذه الشروط في أي وقت. كما تقع
-                على عاتقك مسؤولية التحقق من هذه الشروط بشكل دوري إلجراء تغييرات. ومن خلال الوصول إلى خدمات VARROX أو
+                على عاتقك مسؤولية التحقق من هذه الشروط بشكل دوري إلجراء تغييرات. ومن خلال الوصول إلى خدمات <span
+                    style="font-weight: bold;">VARROX</span> أو
                 استخدامها أو
                 الاستمرار في استخدامها ، فإنك توافق
 
@@ -801,7 +870,9 @@
                 <h4>حقوقنا</h4>
                 <div style="display: flex;">
                     <div style="margin-left: 10px;">3.1.</div>
-                    <div>يحق لشركة VARROX إضافة وظائف أو إجراء تغييرات عليها أو إزالتها تماما أو تنفيذ تعديلات
+                    <div>يحق لشركة <span style="font-weight: bold;" class="englishFont">VARROX</span> إضافة وظائف أو
+                        إجراء تغييرات عليها أو
+                        إزالتها تماما أو تنفيذ تعديلات
                         وتحسينات فنية طفيفة في حالات
                         التهديدات ألامنية والتقنية. قد تؤثر هذه
                         التغييرات على استخدامك للخدمات وألانظمة. وقد نقرر أيضا التوقف عن تقديم كل الخدمات أو بعضها
@@ -838,7 +909,9 @@
                 <div style="display: flex;">
                     <div style="margin-left: 10px;">4.1.</div>
                     <div>في حالة رغبتك في إنهاء عقدك معنا أو إذا كنت ال ترغب في تجديد اشتراكك ، يجب عليك إبالغنا عبر
-                        البريد الإلكتروني من خلال customers@varroxsystems.com قبل 15 يو ًما من تاريخ تركيب
+                        البريد الإلكتروني من خلال <span style="font-weight: bold;">customers@varroxsystems.com</span>
+                        قبل
+                        15 يو ًما من تاريخ تركيب
                         النظام. بمجرد إرسال طلب الإلغاء ، ستتلقى نموذج بريد إلكتروني يتضمن التفاصيل
                         المطلوبة.
                         يرجى تقديم اسم عملك ، واسم الشخص المسؤول عن الاتصال ورقم هاتفه ، ورقم الطلب وتفاصيله ،
@@ -872,24 +945,30 @@
 
 
     </div>
-    <div class="content" style="padding-top: 20px;margin: 10px 30px">
-        <div class="" dir="rtl" style="font-size:.94rem">
+    <div class="content englishFont" style="padding-top: 20px;margin: 10px 30px;font-size: medium;">
+        <div class="" dir="rtl" style="font-size:.9rem;line-height:1.5">
             <h4 style="text-decoration: underline;margin-bottom: 4px;">5. مسؤوليات الشركة</h4>
             <div style="display: flex;">
                 <div style="margin-left: 10px;">5.1.</div>
-                <div>تضمن VARROX لكافة عملائها الإستجابة السريعه والدقيقه لكافة طلباتهم وإحتياجاتهم وتسعي دائما
+                <div>تضمن <span style="font-weight: bold;">VARROX</span> لكافة عملائها الإستجابة
+                    السريعه والدقيقه لكافة
+                    طلباتهم وإحتياجاتهم وتسعي دائما
                     الي
                     حل كافة مشاكلهم وتلبية
                     كافة متطلبات أعمالهم .</div>
             </div>
             <div style="display: flex;">
                 <div style="margin-left: 10px;">5.2.</div>
-                <div>تضمن VARROX تركيب النظام بشكل صحيح والتأكد من استكمال كافة عناصرة وإعداداته لضمان عمله بشكل
+                <div>تضمن <span style="font-weight: bold;" class="boldFont">VARROX</span> تركيب النظام بشكل صحيح
+                    والتأكد من استكمال كافة
+                    عناصرة وإعداداته لضمان عمله بشكل
                     سليم</div>
             </div>
             <div style="display: flex;">
                 <div style="margin-left: 10px;">5.3.</div>
-                <div>تلتزم VARROX بمتابعة وصيانة النظام في الشهر الأول بشكل مستمر لضمان خلوه من أي مشاكل تقنية .
+                <div>تلتزم <span style="font-weight: bold;" class="boldFont">VARROX</span> بمتابعة وصيانة النظام في
+                    الشهر الأول بشكل
+                    مستمر لضمان خلوه من أي مشاكل تقنية .
                 </div>
             </div>
             <div style="display: flex;">
@@ -903,7 +982,9 @@
             <div style="display: flex;">
                 <div style="margin-left: 10px;">5.5.</div>
                 <div>
-                    VARROX مسئولة مسئولية كامله عن إعداد التقارير وضمان سلامتها ودقة بياناتها وإستكمال إعداداتها
+                    <span style="font-weight: bold;" class="boldFont">VARROX</span> مسئولة مسئولية كامله عن إعداد
+                    التقارير وضمان سلامتها
+                    ودقة بياناتها وإستكمال إعداداتها
                     وتلبية كافة طلبات التطوير
                     الخاصة بها.
                 </div>
@@ -911,7 +992,9 @@
             <div style="display: flex;">
                 <div style="margin-left: 10px;">5.6.</div>
                 <div>
-                    تلتزم VARROX بالتعديل والتطوير علي نظامها المثبت بما يتناسب مع طبيعة النشاط ومتطلباته ويتم
+                    تلتزم <span style="font-weight: bold;" class="boldFont">VARROX</span> بالتعديل والتطوير علي
+                    نظامها المثبت بما يتناسب
+                    مع طبيعة النشاط ومتطلباته ويتم
                     تحديد
                     المقابل المادي بناءا
                     على عرض سعر مستقل
@@ -920,7 +1003,9 @@
             <div style="display: flex;">
                 <div style="margin-left: 10px;">5.7.</div>
                 <div>
-                    تلتزم VARROX بتحديث النظام بشكل دوري ومستمر خلال فترة عمله وتزويدة بكافة التقنيات والتحديثات
+                    تلتزم <span style="font-weight: bold;" class="boldFont">VARROX</span> بتحديث النظام بشكل دوري
+                    ومستمر خلال فترة عمله
+                    وتزويدة بكافة التقنيات والتحديثات
                     ما
                     يضمن ملائمته للتطور
                     التقني المتسارع
@@ -929,7 +1014,9 @@
             <div style="display: flex;" class="">
                 <div style="margin-left: 10px;">5.8.</div>
                 <div>
-                    تلتزم VARROX بالمحافظة علي سلامة وسرية معلومات عملائها وصيانة النظام بشكل مستمر لضمان الحفاظ
+                    تلتزم <span style="font-weight: bold;" class="boldFont">VARROX</span> بالمحافظة علي سلامة وسرية
+                    معلومات عملائها
+                    وصيانة النظام بشكل مستمر لضمان الحفاظ
                     عليها وحمايتها من اي
                     اختراقات او مخاطر أمنية
                 </div>
@@ -938,7 +1025,8 @@
                 <div style="margin-left: 10px;">5.9.</div>
                 <div>
                     في حال قام العميل بتغيير أجهزته أو تغيير مقر عمله أو رغب في اي وقت بنقل النظام الي مكان آخر
-                    تلتزم VARROX بنقله وتركيبه
+                    تلتزم <span style="font-weight: bold; " class="boldFont">VARROX</span> بنقله
+                    وتركيبه
                     والتأكد من سلامة بياناته , ويتم تحديد
                     المقابل المالي وفقا لعرض سعر مستقل .
                 </div>
@@ -946,7 +1034,10 @@
             <div style="display: flex;">
                 <div style="margin-left: 10px;">5.10.</div>
                 <div>
-                    تلتزم VARROX بعدم استغلال بيانات عملائها أو السماح الي شخص باستغلالها واستخدامها في اي نزاع
+                    تلتزم <span style="font-weight: bold;" class="boldFont">VARROX</span> بعدم استغلال
+                    بيانات عملائها أو
+                    السماح الي شخص
+                    باستغلالها واستخدامها في اي نزاع
                     قد
                     ينشا بينها وبين العميل .
                     كما تضمن سلامة البيانات في أي وقت
@@ -966,7 +1057,8 @@
                 <div style="display: flex;justify-content: start;" dir="rtl">
                     <ul style="margin-right:0px ;padding-right: 0px;">
                         <li><a>تتبع رابط رمز الاستجابة السريع Code QR للتأكد من صحة المستند</a></li>
-                        <li> لا ينظر الي أي مستند لا يحمل رمز الاستجابة السريع Code QR الخاص بـ VARROX
+                        <li> لا ينظر الي أي مستند لا يحمل رمز الاستجابة السريع Code QR الخاص بـ <span
+                                style="font-weight: bold;font-size: medium;">VARROX</span>
                         </li>
                         <li> لمزيد من الاستفسارات أو الاقتراحات تواصل معنا علي البريد الالكتروني:
                         </li>
@@ -983,7 +1075,7 @@
                 <div style="display: flex;justify-content: start;" dir="ltr">
                     <ul style="list-style-type: none;">
                         <li><a>www.varroxsystems.com</a></li>
-                        <li>customers@varroxsystems.com
+                        <li style="font-weight: bold;">customers@varroxsystems.com
                         </li>
                         <li>01050526660
                         </li>
